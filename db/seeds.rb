@@ -29,13 +29,16 @@ PLACE_PHOTOS = [
 
 p 'deleting previous seeds'
 
+PostTag.delete_all
+Tag.delete_all
 Post.delete_all
 User.delete_all
 Place.delete_all
-Tag.delete_all
 UserRelationship.delete_all
 
 p 'deleted seeds'
+
+p '-----'
 
 p 'creating 20 users'
 
@@ -43,7 +46,7 @@ p 'creating 20 users'
   user = User.new(
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
-        picture: "https://randomuser.me/api/portraits/men/#{(0..99).to_a.sample}.jpg",
+        picture: "https://randomuser.me/api/portraits/#{[wo,''].sample}men/#{(0..99).to_a.sample}.jpg",
         username: Faker::Internet.username,
         email: Faker::Internet.unique.email,
         password: "123456"
@@ -52,6 +55,7 @@ p 'creating 20 users'
 end
 
 p 'created 10 users'
+p '-----'
 p 'creating 10 places'
 
 10.times do
@@ -68,6 +72,7 @@ p 'creating 10 places'
 end
 
 p 'created 10 places'
+p '-----'
 p 'creating 30 posts'
 
 30.times do
@@ -81,6 +86,7 @@ p 'creating 30 posts'
 end
 
 p 'created 30 posts'
+p '-----'
 p 'creating all tags'
 
 cafe = Tag.new(
@@ -217,6 +223,7 @@ drinks = Tag.new(
 drinks.save!
 
 p 'tags created'
+p '-----'
 
 p 'creating 60 post_tags'
 
@@ -230,8 +237,7 @@ post_tag.save!
 end
 
 p 'created 60 post_tags'
-
-
+p '-----'
 p 'creating followers / followed relationship'
 
 40.times do
