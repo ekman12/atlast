@@ -32,6 +32,7 @@ p 'deleting previous seeds'
 Post.delete_all
 User.delete_all
 Place.delete_all
+Tag.delete_all
 
 p 'deleted seeds'
 
@@ -79,3 +80,144 @@ p 'creating 30 posts'
 end
 
 p 'created 30 posts'
+p 'creating all tags'
+
+cafe = Tag.new(
+  tag_type: 'venue',
+  name: 'cafe'
+  )
+cafe.save!
+
+bar = Tag.new(
+  tag_type: 'venue',
+  name: 'bar'
+  )
+
+bar.save!
+
+restaurant = Tag.new(
+  tag_type: 'venue',
+  name: 'restaraunt'
+  )
+restaurant.save!
+
+pub = Tag.new(
+  tag_type: 'venue',
+  name: 'pub'
+  )
+pub.save!
+
+breakfast = Tag.new(
+  tag_type: 'meal',
+  name: 'breakfast'
+  )
+breakfast.save!
+
+brunch = Tag.new(
+  tag_type: 'meal',
+  name: 'brunch'
+  )
+brunch.save!
+
+lunch = Tag.new(
+  tag_type: 'meal',
+  name: 'lunch'
+  )
+lunch.save!
+
+dinner = Tag.new(
+  tag_type: 'meal',
+  name: 'dinner'
+  )
+dinner.save!
+
+dessert = Tag.new(
+  tag_type: 'meal',
+  name: 'dessert'
+  )
+dessert.save!
+
+coffee = Tag.new(
+  tag_type: 'meal',
+  name: 'coffee'
+  )
+coffee.save!
+
+chilled = Tag.new(
+  tag_type: 'vibe',
+  name: 'chilled'
+  )
+chilled.save!
+
+busy = Tag.new(
+  tag_type: 'vibe',
+  name: 'busy'
+  )
+busy.save!
+
+elegant = Tag.new(
+  tag_type: 'vibe',
+  name: 'elegant'
+  )
+elegant.save!
+
+organic = Tag.new(
+  tag_type: 'food',
+  name: 'organic'
+  )
+organic.save!
+
+vegetarian = Tag.new(
+  tag_type: 'food',
+  name: 'vegetarian'
+  )
+vegetarian.save!
+
+vegan = Tag.new(
+  tag_type: 'food',
+  name: 'vegan'
+  )
+vegan.save!
+
+exotic = Tag.new(
+  tag_type: 'food',
+  name: 'exotic'
+  )
+exotic.save!
+
+small_plates = Tag.new(
+  tag_type: 'food',
+  name: 'small plates'
+  )
+small_plates.save!
+
+family = Tag.new(
+  tag_type: 'good_for',
+  name: 'family'
+  )
+family.save!
+
+dates = Tag.new(
+  tag_type: 'good_for',
+  name: 'dates'
+  )
+dates.save!
+
+working = Tag.new(
+  tag_type: 'good_for',
+  name: 'working'
+  )
+working.save!
+
+drinks = Tag.new(
+  tag_type: 'good_for',
+  name: 'drinks'
+  )
+drinks.save!
+
+
+
+
+
+
+
