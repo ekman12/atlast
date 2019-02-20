@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_20_084900) do
+ActiveRecord::Schema.define(version: 2019_02_20_121655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 2019_02_20_084900) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "post_tags", force: :cascade do |t|
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "post_id"
+    t.index ["post_id"], name: "index_post_tags_on_post_id"
+    t.index ["tag_id"], name: "index_post_tags_on_tag_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "note"
     t.string "photo"
@@ -36,6 +45,20 @@ ActiveRecord::Schema.define(version: 2019_02_20_084900) do
     t.datetime "updated_at", null: false
     t.index ["place_id"], name: "index_posts_on_place_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "tag_type"
+  end
+
+  create_table "user_relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,6 +77,19 @@ ActiveRecord::Schema.define(version: 2019_02_20_084900) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wishlist_items", force: :cascade do |t|
+    t.bigint "place_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_wishlist_items_on_place_id"
+    t.index ["user_id"], name: "index_wishlist_items_on_user_id"
+  end
+
+  add_foreign_key "post_tags", "posts"
+  add_foreign_key "post_tags", "tags"
   add_foreign_key "posts", "places"
   add_foreign_key "posts", "users"
+  add_foreign_key "wishlist_items", "places"
+  add_foreign_key "wishlist_items", "users"
 end
