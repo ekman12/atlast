@@ -27,41 +27,55 @@ PLACE_PHOTOS = [
 'https://images.unsplash.com/photo-1515215316771-2742baa337f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60'
 ]
 
-p 'creating 1 user'
+p 'deleting previous seeds'
 
-user = User.new(
-      first_name: Faker::Name.first_name,
-      last_name: Faker::Name.last_name,
-      picture: "https://randomuser.me/api/portraits/men/#{(0..99).to_a.sample}.jpg",
-      username: Faker::Internet.username,
-      email: Faker::Internet.unique.email,
-      password: "123456"
+Post.delete_all
+User.delete_all
+Place.delete_all
+
+p 'deleted seeds'
+
+p 'creating 10 users'
+
+10.times do
+  user = User.new(
+        first_name: Faker::Name.first_name,
+        last_name: Faker::Name.last_name,
+        picture: "https://randomuser.me/api/portraits/men/#{(0..99).to_a.sample}.jpg",
+        username: Faker::Internet.username,
+        email: Faker::Internet.unique.email,
+        password: "123456"
+      )
+  user.save!
+end
+
+p 'created 10 users'
+p 'creating 10 places'
+
+10.times do
+  place = Place.new(
+    name: Faker::Restaurant.name,
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude,
+    country: Faker::Address.country,
+    city: Faker::Address.city,
+    neighbourhood: Faker::Address.community,
+    address: Faker::Address.full_address
     )
-user.save!
+  place.save!
+end
 
-p 'created 1 user'
-p 'creating 1 place'
+p 'created 10 places'
+p 'creating 30 posts'
 
-place = Place.new(
-  name: Faker::Restaurant.name,
-  latitude: Faker::Address.latitude,
-  longitude: Faker::Address.longitude,
-  country: Faker::Address.country,
-  city: Faker::Address.city,
-  neighbourhood: Faker::Address.community,
-  address: Faker::Address.full_address
-  )
-place.save!
+30.times do
+  post = Post.new(
+    note: Faker::Restaurant.review,
+    photo: PLACE_PHOTOS.sample,
+    user: User.all.sample,
+    place: Place.all.sample
+    )
+  post.save!
+end
 
-p 'created 1 place'
-p 'creating 1 post'
-
-post = Post.new(
-  note: Faker::Restaurant.review,
-  photo: PLACE_PHOTOS.sample,
-  user: User.all.sample,
-  place: Place.all.sample
-  )
-post.save!
-
-p 'created 1 post'
+p 'created 30 posts'
