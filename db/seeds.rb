@@ -33,6 +33,7 @@ Post.delete_all
 User.delete_all
 Place.delete_all
 Tag.delete_all
+UserRelationship.delete_all
 
 p 'deleted seeds'
 
@@ -229,6 +230,22 @@ post_tag.save!
 end
 
 p 'created 60 post_tags'
+
+
+p 'creating followers / followed relationship'
+
+40.times do
+  followed = User.all.sample
+  follower = User.where.not(id: followed.id).sample
+  relationship = UserRelationship.new(follower: follower, followed: followed)
+  relationship.save! if UserRelationship.where(follower_id: follower.id, followed_id: followed.id).empty?
+end
+
+p 'created!'
+
+
+
+
 
 
 
