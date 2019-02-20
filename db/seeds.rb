@@ -36,7 +36,7 @@ Tag.delete_all
 
 p 'deleted seeds'
 
-p 'creating 10 users'
+p 'creating 20 users'
 
 10.times do
   user = User.new(
@@ -215,8 +215,20 @@ drinks = Tag.new(
   )
 drinks.save!
 
+p 'tags created'
+
+p 'creating 60 post_tags'
 
 
+60.times do
+post_tag = PostTag.new(
+  tag: Tag.all.sample,
+  post: Post.all.sample,
+  )
+post_tag.save!
+end
+
+p 'created 60 post_tags'
 
 
 
