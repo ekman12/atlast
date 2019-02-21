@@ -61,10 +61,6 @@ p 'creating 10 places'
 10.times do
   place = Place.new(
     name: Faker::Restaurant.name,
-    latitude: Faker::Address.latitude,
-    longitude: Faker::Address.longitude,
-    country: Faker::Address.country,
-    city: Faker::Address.city,
     neighbourhood: Faker::Address.community,
     address: Faker::Address.full_address
     )
