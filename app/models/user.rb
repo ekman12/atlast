@@ -7,6 +7,13 @@ class User < ApplicationRecord
   has_many :posts
   has_many :places, through: :posts
 
+  # Validations:
+  validates :username, presence: true
+  validates :email, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :picture, presence: true
+
   # Follower / Following relationship
   has_many :active_relationships,  class_name:  "UserRelationship", foreign_key: "follower_id", dependent: :destroy
   has_many :passive_relationships, class_name:  "UserRelationship", foreign_key: "followed_id", dependent: :destroy
