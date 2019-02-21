@@ -46,7 +46,7 @@ p 'creating 20 users'
   user = User.new(
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
-        picture: "https://randomuser.me/api/portraits/#{[wo,''].sample}men/#{(0..99).to_a.sample}.jpg",
+        picture: "https://randomuser.me/api/portraits/#{['wo',''].sample}men/#{(0..99).to_a.sample}.jpg",
         username: Faker::Internet.username,
         email: Faker::Internet.unique.email,
         password: "123456"

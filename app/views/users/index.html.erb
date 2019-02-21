@@ -1,2 +1,32 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1>Users you follow</h1>
+
+<div class="container">
+  <div class="row">
+    <% @followings.each do |following| %>
+      <%= link_to(user_path(following.id)) do %>
+        <div>
+        <img class="img-circle" src="<%= following.picture %>" alt="">
+        <%= following.first_name %>
+        <%= following.last_name %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+<h1>All Other Users</h1>
+
+<div class="container">
+  <div class="row">
+    <% @nonfollowings.each do |nonfollowing| %>
+      <%= link_to(user_path(nonfollowing.id)) do %>
+        <div>
+        <img class="img-circle" src="<%= nonfollowing.picture %>" alt="">
+        <%= nonfollowing.first_name %>
+        <%= nonfollowing.last_name %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

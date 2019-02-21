@@ -1,0 +1,11 @@
+<h1>UserRelationships#new</h1>
+<p>Find me in app/views/user_relationships/new.html.erb</p>
+
+<% if @followed == current_user %>
+  you cannot follow
+<% else %>
+  you can follow
+  <%= link_to(user_user_relationships_path, method: :post) do %>
+   <div>click here to follow a user</div>
+  <% end %>
+<% end %>
