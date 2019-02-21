@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   skip_before_action :authenticate_user!
   def index
-    @posts = Post.all
+     @posts = current_user.post_feed
   end
 
   def show
