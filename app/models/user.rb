@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :wishlist_items
   has_many :posts
   has_many :places, through: :posts
+  has_many :post_tags, through: :posts
+  has_many :tags, through: :post_tags
 
   # Follower / Following relationship
   has_many :active_relationships,  class_name:  "UserRelationship", foreign_key: "follower_id", dependent: :destroy
