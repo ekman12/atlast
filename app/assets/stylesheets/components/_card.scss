@@ -38,7 +38,7 @@
   width: 20px;
   opacity: 1;
 }
-.card-bottom {
+.card-bottom-place {
   display: flex;
   align-items: top;
   justify-content: space-between;
@@ -47,9 +47,25 @@
   height: 75px;
 }
 
-.card-bottom p {
+.card-bottom-post {
+  display: flex;
+  flex-direction: column;
+  align-items: top;
+  justify-content: flex-start;
+  padding: 0px 15px;
+  margin-top: 10px;
+  height: 75px;
+}
+
+.card-bottom-post p {
+  color: rgba(0,0,0,0.4);
+  font-weight: lighter;
+  font-size: 12px;
+  line-height: 0.8;
+}
+
+.card-bottom-place p {
   color: rgba(0,0,0,0.4);
   font-weight: lighter;
   font-size: 12px;
 }
-
