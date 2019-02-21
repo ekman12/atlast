@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
   skip_before_action :authenticate_user!
   def index
-    @place = Place.all
+    @places = current_user.place_feed
   end
 
   def show

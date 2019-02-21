@@ -1,0 +1,42 @@
+<!-- Tags associated to a specificif place taking account user relationships  -->
+<% tag_collection = [] %>
+<% current_user.post_feed.where(place: place).each do |post| %>
+  <% post.tags.each do |tag| %>
+    <% tag_collection << tag.name %>
+  <% end %>
+  <% tag_collection %>
+<% end %>
+
+<!-- Card structure -->
+<div class="col-xs-12">
+  <div class="card">
+
+    <%= link_to place_path(place) do %>
+      <div class="card-top" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url(<%= current_user.post_feed.where(place: place).last.photo %>);">
+      </div>
+    <% end %>
+
+    <div class="card-bottom">
+    <p> <strong><%= place.name %></strong><br>
+      <small><%= place.neighbourhood %>, <%= place.city %></small>
+    </p>
+      <div class="tags-card-bottom">
+          <ul class="tags">
+            <% tag_collection.first(4).each do |tag| %>
+              <li><a> <%= tag %></a></li>
+            <% end %>
+          </ul>
+      </div>
+      <div class="wishlist-link">
+        <%# wishlistclass = "wishlist-heart-clicked" if WishlistItem.where(place_id: place.id, user_id: current_user.id).any? %>
+        <%#= link_to(place_wishlist_items_path(place.id), method: :post, remote: true) do %>
+          <i class="fa fa-heart wishlist-heart <%#= wishlistclass %>" data-place-id="<%#= place.id %>"></i>
+        <%# end %>
+      </div>
+      <div class="friends-card-bottom">
+        <p> <%= current_user.post_feed.where(place: place).count %> friends have been here</p>
+      </div>
+    </div>
+
+  </div>
+</div>

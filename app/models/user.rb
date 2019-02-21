@@ -23,7 +23,7 @@ class User < ApplicationRecord
     post_feed.each do |post|
       places << post.place
     end
-    places
+    places.uniq
   end
 
   # Follow methods
