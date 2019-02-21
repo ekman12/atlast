@@ -5,7 +5,7 @@ class UserRelationshipsController < ApplicationController
 
   def create
     @user_relationship = UserRelationship.new(
-      followed: User.find(params[:user_id]),
+      followed: User.find(params[:user_id]) || User.find(params[:user_id]),
       follower: current_user
       )
     if @user_relationship.save

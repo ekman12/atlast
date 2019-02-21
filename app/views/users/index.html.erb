@@ -19,12 +19,15 @@
 
 <div class="container">
   <div class="row">
-    <% @nonfollowings.each do |nonfollowing| %>
-      <%= link_to(user_path(nonfollowing.id)) do %>
+    <% @nonfollowings.each do |user| %>
+      <%= link_to(user_path(user.id)) do %>
         <div>
-        <img class="img-circle" src="<%= nonfollowing.picture %>" alt="">
-        <%= nonfollowing.first_name %>
-        <%= nonfollowing.last_name %>
+        <img class="img-circle" src="<%= user.picture %>" alt="">
+        <%= user.first_name %>
+        <%= user.last_name %>
+        <%= link_to(user_user_relationships_path(user), method: :post) do %>
+          <div>click here to follow a user</div>
+        <% end %>
         </div>
       <% end %>
     <% end %>
