@@ -5,6 +5,9 @@ class PlacesController < ApplicationController
   end
 
   def show
-   @place = Place.find(params[:id])
+    @place = Place.find(params[:id])
+    @post = Post.new
+    @user = current_user
+    @post_tags = Post.find(params[:id])
   end
 end

@@ -1,0 +1,20 @@
+.wrapper {
+  background-color: rgb(240,240,240);
+  padding: 10px;
+  display: flex;
+}
+
+.card-container {
+  width: 800px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.posts {
+  width: 800px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+}
