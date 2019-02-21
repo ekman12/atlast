@@ -1,2 +1,8 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>Add a post</h1>
+
+<%= simple_form_for @post do |f| %>
+  <%= f.input :place %>
+  <%= f.input :photo %>
+  <%= f.input :note %>
+  <%= f.submit "Add Post", class: "btn btn-primary" %>
+<% end %>
