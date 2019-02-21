@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :wishlist_items, only: [ :index, :new, :create ]
 
   resources :users, except: [ :edit, :update, :destroy ] do
+    member do
+      get :following, :followers
+    end
     resources :user_relationships, only: [ :new, :create, :destroy]
   end
 
