@@ -1,4 +1,17 @@
 
+<div class="wrapper-light-grey">
+  <div class="card-container">
+    <div class="row">
+      <div class="cards">
+        <% @places.each do |place| %>
+          <%= render 'shared/cards', place: place %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div
   id="map"
   style="width: 100%;

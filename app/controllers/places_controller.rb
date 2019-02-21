@@ -2,9 +2,10 @@ class PlacesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @place = Place.where.not(latitude: nil, longitude: nil)
+    @places = current_user.place_feed
+    @filtered_places = @places.where.not(latitude: nil, longitude: nil)
 
-    @markers = @place.map do |place|
+    @markers = @filtered_places.map do |place|
       {
         lat: place.latitude,
         lng: place.longitude
