@@ -32,3 +32,5 @@ end
 
 # added
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem 'geocoder'
+gem 'dotenv-rails', groups: [:development, :test]
