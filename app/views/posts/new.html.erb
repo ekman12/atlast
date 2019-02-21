@@ -4,5 +4,13 @@
   <%= f.input :place %>
   <%= f.input :photo %>
   <%= f.input :note %>
+  <%= f.association :tags, collection: @venue_tags, prompt: "Select Tags", label: "Venue", as: :check_boxes %>
+  <%= f.association :tags, collection: @meal_tags, prompt: "Select Tags", label: "Meal", as: :check_boxes %>
+  <%= f.association :tags, collection: @food_tags, prompt: "Select Tags", label: "Food", as: :check_boxes %>
+  <%= f.association :tags, collection: @vibe_tags, prompt: "Select Tags", label: "Vibe", as: :check_boxes %>
   <%= f.submit "Add Post", class: "btn btn-primary" %>
 <% end %>
+
+<!--
+I want to be able to select multiple tags for
+ -->
