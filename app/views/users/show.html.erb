@@ -1,2 +1,12 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+<ul>
+  <li><img src="<%= @user.picture %>" alt=""></li>
+  <li><%= @user.email %></li>
+  <li><%= @user.first_name %></li>
+  <li><%= @user.last_name %></li>
+  <li><%= @user.username %></li>
+</ul>
+
+<% user = @user %>
+<%= render 'user_relationships/new_follower' %>
