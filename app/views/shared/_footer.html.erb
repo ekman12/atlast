@@ -1,0 +1,29 @@
+<div class="footer">
+  <div class="inside">
+    <%= link_to(places_path) do %>
+      <div class="icon">
+        <i class="material-icons md-36">home</i>
+      </div>
+    <% end %>
+    <%= link_to(users_path) do %>
+      <div class="icon">
+        <i class="material-icons md-36">group</i>
+      </div>
+    <% end %>
+    <%= link_to(new_post_path) do %>
+      <div class="icon">
+        <i class="material-icons md-36">add_circle_outline</i>
+      </div>
+    <% end %>
+    <%= link_to(user_path(current_user)) do %>
+      <div class="icon">
+        <i class="material-icons md-36">person</i>
+      </div>
+    <% end %>
+    <%= link_to(user_path(current_user)) do %>
+      <div class="icon">
+        <i class="material-icons md-36">location_on</i>
+      </div>
+    <% end %>
+  </div>
+</div>

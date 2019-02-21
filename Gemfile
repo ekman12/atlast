@@ -32,3 +32,4 @@ end
 
 # added
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem 'material_icons'

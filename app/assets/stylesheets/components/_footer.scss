@@ -1,0 +1,26 @@
+.footer {
+  position: fixed;
+  height: 56px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  border-top: 1px;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  .inside{
+    width: 350px;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+  }
+  .icon{
+    margin: 10px;
+  }
+  i{
+    color: #50514f;
+  }
+}
+
