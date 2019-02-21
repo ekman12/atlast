@@ -69,21 +69,21 @@ p 'creating 10 places'
     address: Faker::Address.full_address
     )
   place.save!
+  (1..10).to_a.sample.times do
+    post = Post.new(
+      note: Faker::Restaurant.review,
+      photo: PLACE_PHOTOS.sample,
+      user: User.all.sample,
+      place: place
+      )
+    post.save!
+  end
 end
 
 p 'created 10 places'
 p '-----'
 p 'creating 30 posts'
 
-30.times do
-  post = Post.new(
-    note: Faker::Restaurant.review,
-    photo: PLACE_PHOTOS.sample,
-    user: User.all.sample,
-    place: Place.all.sample
-    )
-  post.save!
-end
 
 p 'created 30 posts'
 p '-----'
