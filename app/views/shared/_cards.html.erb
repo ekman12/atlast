@@ -1,11 +1,16 @@
 <!-- Tags associated to a specificif place taking account user relationships  -->
-<% tag_collection = [] %>
 <% current_user.post_feed.where(place: place).each do |post| %>
   <% post.tags.each do |tag| %>
-    <% tag_collection << tag.name %>
+    <%
+      if tag_collection[tag.name]
+        tag_collection[tag.name] += 1
+      else
+        tag_collection[tag.name] = 1
+      end
+    %>
   <% end %>
-  <% tag_collection %>
 <% end %>
+<% tag_collection = tag_collection.sort_by {|k, v| v}.reverse %>
 
 <!-- Card structure -->
 <div class="col-xs-12">
@@ -22,8 +27,8 @@
     </p>
       <div class="tags-card-bottom">
           <ul class="tags">
-            <% tag_collection.first(4).each do |tag| %>
-              <li><a> <%= tag %></a></li>
+            <% tag_collection.first(4).to_h.each do |name, count| %>
+              <li><a> <%= name %> (<%= count %>)</a></li>
             <% end %>
           </ul>
       </div>
@@ -34,7 +39,7 @@
         <%# end %>
       </div>
       <div class="friends-card-bottom">
-        <p> <%= current_user.post_feed.where(place: place).count %> friends have been here</p>
+        <p>  <%= pluralize current_user.post_feed.where(place: place).count, "friend" %> have been here </p>
       </div>
     </div>
 
