@@ -1,2 +1,32 @@
-<h1>Places#show</h1>
-<p>Find me in app/views/places/show.html.erb</p>
+
+
+<div class="wrapper">
+  <div class="card-container">
+   <h1><%= @place.name %></h1>
+    <h3><%= @place.city%></h3>
+   <h4><%= @place.address %></h4>
+ </div>
+</div>
+
+<div class="posts">
+  <h3>Posts</h3>
+      <div class="post_card">
+        <% @place.posts.each do |post|%>
+        <ul style="list-style: none;" >
+           <li><%= post.note%></li>
+           <%= image_tag(post.photo) %>
+           <h4>Tags</h4>
+          <%= @post_tags.tags.map(&:name).join(", ") %>
+        <% end %>
+      </ul>
+   </div>
+</div>
+
+
+<!-- Identify the user
+
+check if any of the people user follows has posted on a given place
+
+if yes == display posts
+else == none of the people you follow has posted about this place
+ -->
