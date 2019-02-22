@@ -1,24 +1,68 @@
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="form-post">
+        <%#= form_tag places_path, method: :get do %>
+            <%#= text_field_tag :query, params[:query], class: "form-control", placeholder: "Try \"Frank's\""%>
+            <%# @tags.each do |tag| %>
+                <%#= check_box_tag tag.id.to_s, 'y'%>
+                <%#= label_tag tag.name %>
+            <%# end %>
+          <%#= submit_tag %>
+        <%# end %>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="form-post">
+        <div class="form-group">
+          <form action="/places" accept-charset="UTF-8" method="get">
+            <input name="utf8" type="hidden" value="✓">
+            <input type="text" name="query" id="query" class="form-control" placeholder="Try &quot;Frank's&quot;">
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <!-- <ul class="search-tags active"> -->
+              <% @tags.each do |tag| %>
+                <!-- <li><a> -->
+                  <!-- <div class="tag-selector"> -->
+
+                      <input class="hidden" type="checkbox" name="<%= tag.id.to_s %>" id="<%= tag.id.to_s %>" value="y">
+                      <label class="btn-tag" data-tagid="<%=tag.id.to_s  %>" for="<%=tag.id.to_s%>" id="tag-selector"><%= tag.name %></label>
+
+                    <%#=tag.name %>
+                  <!-- </div> -->
+                <!-- </a></li> -->
+              <% end %>
+            <!-- </ul> -->
+          </div>
+        </div>
+
+                  <!-- </a>
+                </li> -->
+
+            <!-- </ul> -->
+          <!-- </div> -->
+          <input type="submit" name="commit" value="Save changes" data-disable-with="Search">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-Search by name
-<%= form_tag places_path, method: :get do %>
-  <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Try \"Frank's\""%>
-  <%#= text_field_tag :tag, params[:tag], class: "form-control", placeholder: "Try \"Brunch\""%>
-  <%#= f.association :tags, collection: @venue_tags, prompt: "Select Tags", label: "Venue", as: :check_boxes %>
-  <%#= f.association :categories, as: :check_boxes %>
 
 
-  <%#= check_box_tag 'select', 'brunch' %>
-  <%#= check_box_tag 'select', 'lunch' %>
-
-  <% @tags.each do |tag| %>
-  <%= check_box_tag tag.id.to_s, 'y' %>
-  <%= label_tag tag.name %>
-  <% end %>
 
 
-  <%= submit_tag %>
-<% end %>
+
+
+
 
 
 
@@ -46,3 +90,14 @@ Search by name
   margin: auto;"
   data-markers="<%= @markers.to_json %>"
 ></div>
+
+
+
+
+
+                <!-- input type="checkbox" class="hidden" value="<%= tag.id.to_s%>" name="tag[ids][]" id="tag__ids_<%= tag.id.to_s %>">
+                <label for="tag_ids_<%#= tag.id.to_s %>">
+                  <%#= tag.name %>
+                  <i class="fa fa-check"></i>
+                </label> -->
+              <!-- </div> -->
