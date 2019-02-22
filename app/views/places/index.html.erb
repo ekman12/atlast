@@ -1,7 +1,23 @@
 
+
+Search by name
+<%= form_tag places_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Try \"Brunch\""
+  %>
+<% end %>
+
+
+
 <div class="wrapper-light-grey">
   <div class="card-container">
     <div class="row">
+      <% if @places.count == 0 %>
+        <p>"Your friends have not been anywhere matching your search criteria. Please change your search criteria"</p>
+      <% end %>
+      <!-- Instead of returning nothing, could return an array of places other people went. -->
       <div class="cards">
         <% @places.each do |place| %>
           <%= render 'shared/cards_places', place: place, tag_collection: {} %>

@@ -3,10 +3,10 @@ class PlacesController < ApplicationController
 
   def index
     @places = current_user.place_feed
+    search if params[:query].present?
+
     @filtered_places = []
     @places.each { |p| @filtered_places << p if p.latitude && p.longitude}
-    # @filtered_places = @places.where.not(latitude: nil, longitude: nil)
-
     @markers = @filtered_places.map do |place|
       {
         lat: place.latitude,
@@ -29,5 +29,12 @@ class PlacesController < ApplicationController
     @allposts.each do |post|
       @posts.push(post) if current_user.following.include?(post.user)
     end
+  end
+
+  private
+
+  def search
+    @matching_places = Place.search_by_place(params[:query])
+    @places = @places & @matching_places
   end
 end
