@@ -55,6 +55,50 @@ p 'creating 20 users'
 end
 
 p 'created 10 users'
+
+  tomek = User.new(
+        first_name: 'Tomek',
+        last_name: 'Atlast',
+        picture: "https://randomuser.me/api/portraits/#{['wo',''].sample}men/#{(0..99).to_a.sample}.jpg",
+        username: 'Tomek',
+        email: 'tomek@test.com',
+        password: "123456"
+      )
+  tomek.save!
+  vilson = User.new(
+        first_name: 'Vilson',
+        last_name: 'Atlast',
+        picture: "https://randomuser.me/api/portraits/#{['wo',''].sample}men/#{(0..99).to_a.sample}.jpg",
+        username: 'Vilson',
+        email: 'vilson@test.com',
+        password: "123456"
+      )
+  vilson.save!
+  caio = User.new(
+        first_name: 'Caio',
+        last_name: 'Atlast',
+        picture: "https://randomuser.me/api/portraits/#{['wo',''].sample}men/#{(0..99).to_a.sample}.jpg",
+        username: 'Caio',
+        email: 'caio@test.com',
+        password: "123456"
+      )
+  caio.save!
+
+  # NEED TO MAKE SURE THAT WE DO NOT SAVE TWICE
+
+  UserRelationship.new(follower: tomek, followed: vilson).save!
+  UserRelationship.new(follower: tomek, followed: caio).save!
+  UserRelationship.new(follower: tomek, followed: User.first).save!
+  UserRelationship.new(follower: tomek, followed: User.second).save!
+  UserRelationship.new(follower: caio, followed: vilson).save!
+  UserRelationship.new(follower: caio, followed: tomek).save!
+  UserRelationship.new(follower: caio, followed: User.first).save!
+  UserRelationship.new(follower: caio, followed: User.second).save!
+  UserRelationship.new(follower: vilson, followed: tomek).save!
+  UserRelationship.new(follower: vilson, followed: caio).save!
+  UserRelationship.new(follower: vilson, followed: User.first).save!
+  UserRelationship.new(follower: vilson, followed: User.second).save!
+
 p '-----'
 p 'creating 10 places'
 
