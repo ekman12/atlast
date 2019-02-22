@@ -1,0 +1,42 @@
+<!-- Card structure -->
+<div class="col-xs-12">
+  <div class="card">
+
+    <%= link_to place_path(post.place) do %>
+      <div class="card-top" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url(<%= post.photo %>);">
+      </div>
+    <% end %>
+
+    <div class="card-bottom-post">
+      <div class="tags-card-bottom">
+          <ul class="tags">
+            <% if post.tags.records == [] %>
+              <p><i><%=  "No tags " %></i></p>
+            <% else %>
+              <% post.tags.first(4).each do |tag| %>
+              <li><a> <%= tag.name %></a></li>
+              <% end %>
+            <% end %>
+          </ul>
+      </div>
+      <div class="friends-card-bottom">
+        <p> <strong> <%= post.user.first_name  %> </strong> visited  <strong><%= post.place.name %></strong>
+      <small>in <%= post.place.neighbourhood %> </small> </p>
+      </div>
+      <div class="wishlist-link">
+        <%# wishlistclass = "wishlist-heart-clicked" if WishlistItem.where(place_id: place.id, user_id: current_user.id).any? %>
+        <%#= link_to(place_wishlist_items_path(place.id), method: :post, remote: true) do %>
+          <i class="fa fa-heart wishlist-heart <%#= wishlistclass %>" data-place-id="<%#= place.id %>"></i>
+        <%# end %>
+      </div>
+      <div >
+       <%= link_to image_tag(post.user.picture, class: "avatar-bordered"), user_path(post.user) %>
+      </div>
+      <div class="note">
+        <% if !post.note.empty? %>
+          <p><i>"<%= post.note.slice(0,50) %>..."</i></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
