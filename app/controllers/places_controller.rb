@@ -3,7 +3,9 @@ class PlacesController < ApplicationController
 
   def index
     @places = current_user.place_feed
-    search if params[:query].present?
+    place_search if params[:query].present?
+    tag_search if params[:tag].present?
+
 
     @filtered_places = []
     @places.each { |p| @filtered_places << p if p.latitude && p.longitude}
@@ -33,8 +35,14 @@ class PlacesController < ApplicationController
 
   private
 
-  def search
+  def place_search
     @matching_places = Place.search_by_place(params[:query])
     @places = @places & @matching_places
+  end
+
+  def tag_search
+    # raise
+    @tagged_places = Place.search_by_tag(params[:tag])
+    @places = @places & @tagged_places
   end
 end

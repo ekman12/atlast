@@ -2,11 +2,9 @@
 
 Search by name
 <%= form_tag places_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Try \"Brunch\""
-  %>
+  <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Try \"Frank's\""%>
+  <%= text_field_tag :tag, params[:tag], class: "form-control", placeholder: "Try \"Brunch\""%>
+  <%= submit_tag %>
 <% end %>
 
 
