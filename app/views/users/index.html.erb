@@ -1,35 +1,39 @@
-<h1>Users you follow</h1>
 
-<div class="container">
-  <div class="row">
-    <% @followings.each do |following| %>
-      <%= link_to(user_path(following.id)) do %>
-        <div>
-        <img class="img-circle" src="<%= following.picture %>" alt="">
-        <%= following.first_name %>
-        <%= following.last_name %>
+<div class="wrapper-light-grey">
+  <div class="card-container container">
+    <div class="row">
+
+      <h3>Users you follow</h3>
+      <% @followings.each do |following| %>
+      <div class="user-card">
+        <%= link_to image_tag(following.picture, class: "avatar-friends-list"), user_path(following.id) %>
+        <div class="user-card-content">
+          <p><%= following.first_name %> <%= following.last_name %></p>
         </div>
+        <div class="user-card-actions">
+          <%#= link_to(user_user_relationship_path(following), method: :delete) do  %>
+            <!-- <div class="btn btn-ghost"> Unfollow <div> -->
+          <%# end %>
+        </div>
+      </div>
       <% end %>
-    <% end %>
-  </div>
-</div>
 
-
-<h1>All Other Users</h1>
-
-<div class="container">
-  <div class="row">
-    <% @nonfollowings.each do |user| %>
-      <%= link_to(user_path(user.id)) do %>
-        <div>
-        <img class="img-circle" src="<%= user.picture %>" alt="">
-        <%= user.first_name %>
-        <%= user.last_name %>
-        <%= link_to(user_user_relationships_path(user), method: :post) do %>
-          <div>click here to follow a user</div>
+      <h3>All Other Users</h3>
+      <% @nonfollowings.each do |user|  %>
+        <% if !(user.id == current_user.id) %>
+          <div class="user-card">
+            <%= link_to image_tag(user.picture, class: "avatar-friends-list"), user_path(user.id) %>
+            <div class="user-card-content">
+              <p><%= user.first_name %> <%= user.last_name %></p>
+            </div>
+            <div class="user-card-actions">
+              <%= link_to(user_user_relationships_path(user), method: :post) do  %>
+                <div class="btn btn-ghost">Follow </div>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
         <% end %>
-        </div>
-      <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
