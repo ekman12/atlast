@@ -1,8 +1,8 @@
 
 <div class="wrapper-light-grey">
-  <div class="card-container">
+  <div class="card-container container">
     <div class="row">
-      <!-- Following -->
+
       <h3>Users you follow</h3>
       <% @followings.each do |following| %>
       <div class="user-card">
@@ -10,15 +10,14 @@
         <div class="user-card-content">
           <p><%= following.first_name %> <%= following.last_name %></p>
         </div>
-
         <div class="user-card-actions">
           <%#= link_to(user_user_relationship_path(following), method: :delete) do  %>
-            <a class="btn btn-ghost"> Unfollow </a>
+            <!-- <div class="btn btn-ghost"> Unfollow <div> -->
           <%# end %>
         </div>
       </div>
       <% end %>
-      <!-- Other users -->
+
       <h3>All Other Users</h3>
       <% @nonfollowings.each do |user|  %>
         <% if !(user.id == current_user.id) %>
@@ -27,10 +26,9 @@
             <div class="user-card-content">
               <p><%= user.first_name %> <%= user.last_name %></p>
             </div>
-
             <div class="user-card-actions">
               <%= link_to(user_user_relationships_path(user), method: :post) do  %>
-                <a class="btn btn-ghost"> Follow </a>
+                <div class="btn btn-ghost">Follow </div>
               <% end %>
             </div>
           </div>

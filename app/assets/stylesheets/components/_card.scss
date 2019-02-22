@@ -1,14 +1,11 @@
 .wrapper-light-grey {
   background-color: rgb(240,240,240);
-  padding: 10px;
   display: flex;
 }
 
 .card-container {
-  width: 400px;
   margin: 50px auto;
-  display: flex;
-  flex-direction: column;
+  width: 400px;
 }
 
 .cards {
@@ -39,22 +36,21 @@
   opacity: 1;
 }
 .card-bottom-place {
+  justify-content: space-between;
+}
+
+.card-bottom {
   display: flex;
   align-items: top;
-  justify-content: space-between;
   padding: 0px 15px;
   margin-top: 10px;
   height: 75px;
 }
 
 .card-bottom-post {
-  display: flex;
   flex-direction: column;
   align-items: top;
   justify-content: flex-start;
-  padding: 0px 15px;
-  margin-top: 10px;
-  height: 75px;
 }
 
 .card-bottom-post p {

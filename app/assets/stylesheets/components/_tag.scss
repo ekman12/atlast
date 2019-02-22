@@ -9,6 +9,11 @@
   bottom:20px;
   list-style:none;
 }
+.tags-place {
+  position:relative;
+  right:0px;
+  bottom: 8px;
+}
 
 .tags li, .tags a{
   float:left;
@@ -16,6 +21,9 @@
   line-height:24px;
   position:relative;
   font-size:9px;
+}
+.li-place-tag {
+   margin-bottom: 5px;
 }
 
 .tags a{
