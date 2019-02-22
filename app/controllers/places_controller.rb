@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def index
     @places = current_user.place_feed

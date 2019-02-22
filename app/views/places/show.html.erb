@@ -1,5 +1,36 @@
 
 
+
+<div class="header">
+  <div><h1><%= @place.name %> </h1></div>
+    <div><%= @place.name %></div>
+    <div><%= @place.city%></div>
+    <div><%= @place.address %>  </div>
+
+</div>
+
+<div class="wrapper-light-grey">
+  <div class="card-container">
+    <div class="row">
+      <div class="cards">
+        <% @posts.each do |post| %>
+          <%= render 'shared/cards_posts', post: post, tag_collection: {} %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Identify the user
+
+check if any of the people user follows has posted on a given place
+
+if yes == display posts
+else == none of the people you follow has posted about this place
+ -->
+<!--
+
 <div class="wrapper">
   <div class="card-container">
    <h1><%= @place.name %></h1>
@@ -14,19 +45,10 @@
         <% @place.posts.each do |post|%>
         <ul style="list-style: none;" >
            <li><%= post.note%></li>
-           <%= image_tag(post.photo) %>
+           <%#= image_tag(post.photo) %>
            <h4>Tags</h4>
-          <%= @post_tags.tags.map(&:name).join(", ") %>
+          <%#= @post_tags.tags.map(&:name).join(", ") %>
         <% end %>
       </ul>
    </div>
-</div>
-
-
-<!-- Identify the user
-
-check if any of the people user follows has posted on a given place
-
-if yes == display posts
-else == none of the people you follow has posted about this place
- -->
+</div> -->
