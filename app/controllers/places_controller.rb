@@ -22,7 +22,7 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     @post = Post.new
     @user = current_user
-    @post_tags = Post.find(params[:id])
+    # @post_tags = Post.find(params[:id])
     @allposts = Post.where(place: @place)
     @posts = []
     # raise
