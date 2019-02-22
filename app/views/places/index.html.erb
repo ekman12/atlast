@@ -1,69 +1,36 @@
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <div class="form-post">
-        <%#= form_tag places_path, method: :get do %>
-            <%#= text_field_tag :query, params[:query], class: "form-control", placeholder: "Try \"Frank's\""%>
-            <%# @tags.each do |tag| %>
-                <%#= check_box_tag tag.id.to_s, 'y'%>
-                <%#= label_tag tag.name %>
-            <%# end %>
-          <%#= submit_tag %>
-        <%# end %>
-      </div>
-    </div>
-  </div>
-</div> -->
-
 <div class="container">
-  <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <div class="form-post">
-        <div class="form-group">
-          <form action="/places" accept-charset="UTF-8" method="get">
-            <input name="utf8" type="hidden" value="✓">
-            <input type="text" name="query" id="query" class="form-control" placeholder="Try &quot;Frank's&quot;">
-        </div>
-
         <div class="row">
           <div class="form-group">
-            <!-- <ul class="search-tags active"> -->
-              <% @tags.each do |tag| %>
-                <!-- <li><a> -->
-                  <!-- <div class="tag-selector"> -->
-
-                      <input class="hidden" type="checkbox" name="<%= tag.id.to_s %>" id="<%= tag.id.to_s %>" value="y">
-                      <label class="btn-tag" data-tagid="<%=tag.id.to_s  %>" for="<%=tag.id.to_s%>" id="tag-selector"><%= tag.name %></label>
-
-                    <%#=tag.name %>
-                  <!-- </div> -->
-                <!-- </a></li> -->
-              <% end %>
-            <!-- </ul> -->
+            <form action="/places" accept-charset="UTF-8" method="get">
+              <input name="utf8" type="hidden" value="✓">
+              <input type="text" name="query" id="query" class="form-control" placeholder="Try &quot;Frank's&quot;">
           </div>
         </div>
-
-                  <!-- </a>
-                </li> -->
-
-            <!-- </ul> -->
-          <!-- </div> -->
-          <input type="submit" name="commit" value="Save changes" data-disable-with="Search">
+        <div class="row">
+          <p>What kind of place do you want to go to?</p>
+          <%= render 'shared/tag_section', tags: @venue_tags, tag_collection: {} %>
+        </div>
+        <div class="row">
+          <p>What are you going to be doing?</p>
+          <%= render 'shared/tag_section', tags: @meal_tags, tag_collection: {} %>
+        </div>
+        <div class="row">
+          <p>What vibe do you want?</p>
+          <%= render 'shared/tag_section', tags: @vibe_tags, tag_collection: {} %>
+        </div>
+        <div class="row">
+          <p>Any food you fancy in particular?</p>
+          <%= render 'shared/tag_section', tags: @food_tags, tag_collection: {} %>
+        </div>
+        <div class="row">
+          <input type="submit" name="commit" value="Search" data-disable-with="Search">
+        </div>
         </form>
       </div>
     </div>
-  </div>
 </div>
-
-
-
-
-
-
-
-
-
-
 
 
 <div class="wrapper-light-grey">
