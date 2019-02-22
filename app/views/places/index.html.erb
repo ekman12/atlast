@@ -3,7 +3,20 @@
 Search by name
 <%= form_tag places_path, method: :get do %>
   <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Try \"Frank's\""%>
-  <%= text_field_tag :tag, params[:tag], class: "form-control", placeholder: "Try \"Brunch\""%>
+  <%#= text_field_tag :tag, params[:tag], class: "form-control", placeholder: "Try \"Brunch\""%>
+  <%#= f.association :tags, collection: @venue_tags, prompt: "Select Tags", label: "Venue", as: :check_boxes %>
+  <%#= f.association :categories, as: :check_boxes %>
+
+
+  <%#= check_box_tag 'select', 'brunch' %>
+  <%#= check_box_tag 'select', 'lunch' %>
+
+  <% @tags.each do |tag| %>
+  <%= check_box_tag tag.id.to_s, 'y' %>
+  <%= label_tag tag.name %>
+  <% end %>
+
+
   <%= submit_tag %>
 <% end %>
 

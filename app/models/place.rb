@@ -28,6 +28,11 @@ class Place < ApplicationRecord
       tsearch: { prefix: true }
     }
 
+  pg_search_scope :search_by_tag_id,
+    associated_against: {
+      tags: :id
+    }
+
   pg_search_scope :global_search,
     against: [:name, :neighbourhood],
     associated_against: {

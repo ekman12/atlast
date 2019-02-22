@@ -2,10 +2,16 @@ class PlacesController < ApplicationController
   # before_action :authenticate_user!
 
   def index
+    @tags = Tag.all
     @places = current_user.place_feed
-    place_search if params[:query].present?
-    tag_search if params[:tag].present?
 
+    place_search if params[:query].present?
+
+    @searched_tags = []
+    Tag.ids.each do |id|
+      @searched_tags << id if params[id.to_s].present?
+    end
+    multiple_tag_search unless @searched_tags.empty?
 
     @filtered_places = []
     @places.each { |p| @filtered_places << p if p.latitude && p.longitude}
@@ -40,9 +46,16 @@ class PlacesController < ApplicationController
     @places = @places & @matching_places
   end
 
-  def tag_search
-    # raise
-    @tagged_places = Place.search_by_tag(params[:tag])
-    @places = @places & @tagged_places
+  def multiple_tag_search
+    # Populate the array with results from the first filter
+    @tag_results = Place.search_by_tag_id(@searched_tags.first)
+    @searched_tags.each do |id|
+      # on the first search there is no change as defined before loop
+      # on the second search it gets narrower etc.
+      @tag_results = @tag_results & Place.search_by_tag_id(id)
+    end
+    @places = @tag_results.flatten
+    # Behaves weirdly for cafe tag
   end
+
 end
