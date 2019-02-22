@@ -1,4 +1,4 @@
-
+<!--
 
 <div class="wrapper">
   <div class="card-container">
@@ -20,6 +20,28 @@
         <% end %>
       </ul>
    </div>
+</div> -->
+
+
+
+<div class="header">
+  <div><h1><%= @place.name %> </h1></div>
+    <div><%= @place.name %></div>
+    <div><%= @place.city%></div>
+    <div><%= @place.address %>  </div>
+
+</div>
+
+<div class="wrapper-light-grey">
+  <div class="card-container">
+    <div class="row">
+      <div class="cards">
+        <% @posts.each do |post| %>
+          <%= render 'shared/cards_posts', post: post, tag_collection: {} %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
 
