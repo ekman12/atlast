@@ -20,8 +20,6 @@
 }
 
 .btn-ghost {
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
@@ -29,6 +27,21 @@
   transition: opacity 0.3s ease;
 }
 
+.btn-ghost-black {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+}
+
+.btn-ghost-white {
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
 .btn-ghost:hover {
   opacity: 1;
+}
+
+.btn-ghost-white:hover {
+  text-decoration: none;
+  color: #ffffff;
 }

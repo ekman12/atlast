@@ -28,6 +28,7 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     @posts = current_user.post_feed.where(place: @place)
     @wishlist = WishlistItem.new
+    @wishlist_check = WishlistItem.where(place_id: @place.id, user_id: current_user.id)
   end
 
   private
