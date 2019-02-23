@@ -24,12 +24,7 @@
         <p> <strong> <%= post.user.first_name  %> </strong> visited  <strong><%= post.place.name %></strong>
       <small>in <%= post.place.neighbourhood %> </small> </p>
       </div>
-      <div class="wishlist-link">
-        <%# wishlistclass = "wishlist-heart-clicked" if WishlistItem.where(place_id: place.id, user_id: current_user.id).any? %>
-        <%#= link_to(place_wishlist_items_path(place.id), method: :post, remote: true) do %>
-          <i class="fa fa-heart wishlist-heart <%#= wishlistclass %>" data-place-id="<%#= place.id %>"></i>
-        <%# end %>
-      </div>
+      <%= render 'shared/wishlist_link', place: post.place %>
       <div >
        <%= link_to image_tag(post.user.picture, class: "avatar-bordered"), user_path(post.user) %>
       </div>
