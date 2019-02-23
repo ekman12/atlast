@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   # get 'user_relationships/destroy'
   devise_for :users
   root to: 'places#index'
-  resources :wishlist_items, only: [ :index, :new, :create ]
 
   resources :users, except: [ :edit, :update, :destroy ] do
     member do
@@ -14,6 +13,8 @@ Rails.application.routes.draw do
   end
 
   resources :places, only: [ :index, :show ]
+
+  resources :wishlist_items, only: [ :create, :new ]
   resources :posts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
