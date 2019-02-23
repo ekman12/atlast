@@ -5,9 +5,14 @@
   margin:0;
   padding:0;
   position:absolute;
-  right:42px;
+  right:30px;
   bottom:20px;
   list-style:none;
+}
+.tags-place {
+  position:relative;
+  right:0px;
+  bottom: 8px;
 }
 
 .tags li, .tags a{
@@ -17,10 +22,13 @@
   position:relative;
   font-size:9px;
 }
+.li-place-tag {
+   margin-bottom: 12px;
+}
 
 .tags a{
-  margin-left:20px;
-  padding:0 10px 0 12px;
+  margin-left:15px;
+  padding:0 5px 0 12px;
   background:#0089e0a8;
   color:#fff;
   text-decoration:none;

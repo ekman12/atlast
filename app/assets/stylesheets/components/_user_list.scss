@@ -1,0 +1,42 @@
+.user-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  background: white;
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
+}
+
+.user-card .user-card-content {
+  flex-grow: 1;
+  padding: 0 24px;
+}
+
+.user-card p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.user-card small {
+  color: #999999;
+  font-weight: lighter;
+}
+.user-card .user-card-actions {
+  opacity: 0.7;
+  display: flex;
+  transition: ease .3s;
+}
+
+.user-card:hover .user-card-actions {
+  opacity: 1;
+}
+
+.user-card .user-card-actions a {
+  color: #999999;
+  margin-left: 16px;
+  font-size: 14px;
+}
+
+.user-card .user-card-actions a:hover {
+  color: #555555;
+}

@@ -27,13 +27,8 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
-    @post = Post.new
-    @user = current_user
-    @allposts = Post.where(place: @place)
-    @posts = []
-    @allposts.each do |post|
-      @posts.push(post) if current_user.following.include?(post.user)
-    end
+    @posts = current_user.post_feed.where(place: @place)
+    # raise
   end
 
   private
