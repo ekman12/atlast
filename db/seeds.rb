@@ -115,7 +115,7 @@ p 'creating 10 places'
     name: Faker::Restaurant.name,
     country: Faker::Address.country,
     city: Faker::Address.city,
-    neighbourhood: Faker::Address.community,
+    # neighbourhood: Faker::Address.community,
     address: Faker::Address.full_address
     )
   place.save!

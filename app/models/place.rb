@@ -10,7 +10,7 @@ class Place < ApplicationRecord
   # belongs_to :post
 
   #Validations
-  validates :name, presence: true
+  # validates :name, presence: true, uniqueness: true
 
   # Search - if you do breakfast it will also search in the post notes
   pg_search_scope :search_by_place,

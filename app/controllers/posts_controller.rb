@@ -18,9 +18,10 @@ class PostsController < ApplicationController
 
   def create
     @tag_ids = params[:post][:tag_ids]
-    place = Place.find_by(name: post_params[:place])
+    # raise
+    place = Place.find_by(address: post_params[:place])
+
     place = create_place(post_params[:place]) if place.nil?
-    #place = Place.new(name: post_params[:place]) if place.nil?
 
     @post = Post.new(
       photo: post_params[:photo],
@@ -46,7 +47,8 @@ class PostsController < ApplicationController
     splited = params.split(",")
     clean_array = splited.collect{|x| x.strip || x }
     name = clean_array[0]
-    address = clean_array[1]
+    # address = clean_array[1]
+    address = params
     city = clean_array[-2]
     country = clean_array[-1]
     place = Place.create(name: name, address: address, city: city, country: country)
