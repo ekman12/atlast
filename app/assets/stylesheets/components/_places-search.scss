@@ -1,34 +1,53 @@
-// Source for tags CSS
-// https://cssglobe.com/pure-css3-post-tags/
-
-.tags{
-  margin:0;
-  padding:0;
-  position:absolute;
-  right:30px;
-  bottom:20px;
-  list-style:none;
-}
-.tags-place {
-  position:relative;
-  right:0px;
-  bottom: 8px;
-}
-
-.tags li, .tags a{
-  float:left;
-  height:24px;
-  line-height:24px;
-  position:relative;
-  font-size:9px;
-}
-.li-place-tag {
-   margin-bottom: 12px;
+.places-search {
+  background: white;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 5px;
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    color: #666666;
+    margin-bottom: 50px;
+    margin-top: 0px;
+  }
+  .btn {
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+  }
 }
 
-.tags a{
-  margin-left:15px;
-  padding:0 5px 0 12px;
+// Checkboxes design
+.category-choices {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.category-choice {
+  background: #b7b7b7;
+  padding: 20px;
+  border-radius: 5px;
+  opacity: .4;
+  flex: 0 0 30%;
+  text-align: center;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  &.active {
+  background: $brand-primary;
+  color: white;
+  opacity: 1;
+  }
+}
+
+
+.search-tag {
+  margin-left:20px;
+  padding:0 10px 0 12px;
   background:#0089e0a8;
   color:#fff;
   text-decoration:none;
@@ -40,7 +59,7 @@
   border-top-right-radius:4px;
 }
 
-.tags a:before{
+.search-tag{
   content:"";
   float:left;
   position:absolute;
@@ -53,7 +72,7 @@
   border-width:12px 12px 12px 0;
 }
 
-.tags a:after{
+.search-tag{
   content:"";
   position:absolute;
   top:10px;
