@@ -1,3 +1,8 @@
+<%= simple_form_for [@place, @wishlist] do |f| %>
+  <%= f.submit "Heart", class: "btn btn-primary" %>
+<% end %>
+
+
 <% tag_collection = {} %>
 <% current_user.post_feed.where(place: @place).each do |post| %>
   <% post.tags.each do |tag| %>

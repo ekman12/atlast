@@ -5,4 +5,5 @@ class Post < ApplicationRecord
   has_many :tags, through: :post_tags
   validates :place, presence: true
   validates :user, presence: true
+  mount_uploader :photo, PhotoUploader
 end
