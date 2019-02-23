@@ -18,6 +18,13 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
+  include PgSearch
+  pg_search_scope :search_by_user,
+                  against: [:username, :first_name, :last_name],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
+
   # Feeds from followers
   def post_feed
     Post.where("user_id IN (?) OR user_id = ?", following_ids, id)
