@@ -290,6 +290,18 @@ p 'creating followers / followed relationship'
 end
 
 p 'created!'
+p '-----'
+p 'creating wishlists'
+
+30.times do
+  wishlist = WishlistItem.new(
+    place: Place.all.sample,
+    user: User.all.sample,
+    )
+  wishlist.save!
+end
+
+p 'created wishlists'
 
 
 
