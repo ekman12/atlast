@@ -11,7 +11,7 @@
           <p><%= following.first_name %> <%= following.last_name %></p>
         </div>
         <div class="user-card-actions">
-          <%#= link_to(user_user_relationship_path(following), method: :delete) do  %>
+          <%#= link_to(user_user_relationship_path(following.id), method: :delete) do  %>
             <!-- <div class="btn btn-ghost"> Unfollow <div> -->
           <%# end %>
         </div>
@@ -28,7 +28,7 @@
             </div>
             <div class="user-card-actions">
               <%= link_to(user_user_relationships_path(user), method: :post) do  %>
-                <div class="btn btn-ghost">Follow </div>
+                <div class="btn btn-ghost btn-ghost-black">Follow </div>
               <% end %>
             </div>
           </div>
