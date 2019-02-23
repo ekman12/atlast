@@ -1,6 +1,9 @@
-<%= simple_form_for [@place, @wishlist] do |f| %>
-  <%= f.submit "Heart", class: "btn btn-primary" %>
-<% end %>
+<div class="wishlist-link">
+  <% wishlistclass = "wishlist-heart-clicked" if WishlistItem.where(place_id: @place.id, user_id: current_user.id).any? %>
+  <%= link_to(place_wishlist_items_path(@place.id), method: :post, remote: true) do %>
+    <i id="wishlist-heart" class="fa fa-heart wishlist-heart <%= wishlistclass %>" data-listing-id="<%= @place.id %>"></i>
+  <% end %>
+</div>
 
 
 <% tag_collection = {} %>
@@ -22,11 +25,13 @@
   <div class="card-container container">
   <div class="header">
     <div clas="place-core">
+      <!-- Get the heart in here - bit bigger. Thanks! -->
       <p> <h3> <%= @place.name %> </h3>
        <small><%= " #{@place.city} , #{@place.country} "%> <br>
       <span class="smaller-font"><%= @place.address %></span><small></p>
     </div>
    <div class="highlights place-highlights">
+
        <p>  <%= pluralize current_user.post_feed.where(place: @place).count, "friend" %> have been here </p>
        <div class="tags-card-bottom">
           <ul class="tags tags-place">
