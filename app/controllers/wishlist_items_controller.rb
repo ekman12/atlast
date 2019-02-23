@@ -10,7 +10,7 @@ class WishlistItemsController < ApplicationController
   end
 
   def create
-    @place = Place.find(params[:place_id])
     raise
+    @place = Place.find(params[:place_id])
   end
 end

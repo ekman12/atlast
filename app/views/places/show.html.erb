@@ -1,5 +1,6 @@
-
-
+<%= simple_form_for [@place, @wishlist] do |f| %>
+  <%= f.submit "Heart", class: "btn btn-primary" %>
+<% end %>
 
 
 <% tag_collection = {} %>

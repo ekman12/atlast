@@ -10,6 +10,14 @@
 .user-card .user-card-content {
   flex-grow: 1;
   padding: 0 24px;
+  p{
+    text-decoration: none;
+    color: #555555;
+  }
+  p:hover{
+    text-decoration: none;
+    color: #555555;
+  }
 }
 
 .user-card p {
