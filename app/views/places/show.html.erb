@@ -27,7 +27,7 @@
     </div>
    <div class="highlights place-highlights">
 
-       <p>  <%= pluralize current_user.post_feed.where(place: @place).count, "friend" %> have been here </p>
+       <p>  <%= pluralize (@place.users & current_user.following).count, "friend" %> have been here </p>
        <div class="tags-card-bottom">
           <ul class="tags tags-place">
             <% tag_collection.first(6).to_h.each do |name, count| %>
