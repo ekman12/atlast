@@ -1,3 +1,8 @@
 import "bootstrap";
-import { tagSelector }from '../packs/tag-selector';
+
+import { mapInModal } from "./modalMap.js";
+mapInModal();
+
+import { tagSelector } from '../packs/tag-selector';
 tagSelector();
+

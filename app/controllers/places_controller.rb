@@ -17,10 +17,8 @@ class PlacesController < ApplicationController
     @markers = @filtered_places.map do |place|
       {
         lat: place.latitude,
-        lng: place.longitude
-        # infoWindow: { content: render_to_string(partial: "/place/map", locals: { place: place }) }
-        # Uncomment the above line if you want each of your markers to display a info window when clicked
-        # (you will also need to create the partial "/flats/map_box")
+        lng: place.longitude,
+        infoWindow: { content: render_to_string(partial: "infowindow", locals: { place: place }) }
       }
     end
   end
@@ -59,3 +57,4 @@ class PlacesController < ApplicationController
   end
 
 end
+
