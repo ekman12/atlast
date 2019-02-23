@@ -1,9 +1,4 @@
-<div class="wishlist-link">
-  <% wishlistclass = "wishlist-heart-clicked" if WishlistItem.where(place_id: @place.id, user_id: current_user.id).any? %>
-  <%= link_to(place_wishlist_items_path(@place.id), method: :post, remote: true) do %>
-    <i id="wishlist-heart" class="fa fa-heart wishlist-heart <%= wishlistclass %>" data-listing-id="<%= @place.id %>"></i>
-  <% end %>
-</div>
+<%= render 'shared/wishlist_link', place: @place %>
 
 
 <% tag_collection = {} %>
