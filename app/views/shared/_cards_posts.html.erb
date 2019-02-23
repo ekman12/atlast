@@ -3,7 +3,8 @@
   <div class="card">
 
     <%= link_to place_path(post.place) do %>
-      <div class="card-top" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url(<%= post.photo %>);">
+
+      <div class="card-top" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url(<%= cl_image_path(post.photo) %>);">
       </div>
     <% end %>
 

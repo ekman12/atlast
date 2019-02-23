@@ -26,6 +26,7 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @posts = current_user.post_feed.where(place: @place)
+    @wishlist = WishlistItem.new
     # raise
   end
 

@@ -9,6 +9,9 @@ class User < ApplicationRecord
   has_many :post_tags, through: :posts
   has_many :tags, through: :post_tags
 
+  # Cloudinary
+  mount_uploader :photo, PhotoUploader
+
   # Follower / Following relationship
   has_many :active_relationships,  class_name:  "UserRelationship", foreign_key: "follower_id", dependent: :destroy
   has_many :passive_relationships, class_name:  "UserRelationship", foreign_key: "followed_id", dependent: :destroy
