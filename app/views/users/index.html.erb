@@ -24,8 +24,8 @@
               <p><%= user.first_name %> <%= user.last_name %></p>
             </div>
             <div class="user-card-actions">
-              <%= link_to(new_user_user_relationship_path(user), method: :post) do  %>
-                <div class="btn btn-ghost">Follow </div>
+              <%= link_to(user_user_relationships_path(user), method: :post) do  %>
+                <div class="btn btn-ghost btn-ghost-black">Follow </div>
               <% end %>
             </div>
           </div>

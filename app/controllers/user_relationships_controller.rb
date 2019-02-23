@@ -16,5 +16,9 @@ class UserRelationshipsController < ApplicationController
   end
 
   def destroy
+    raise
+    @user_relationship = UserRelationship.where(follower_id: current_user.id, followed_id: @user)
+    @user_relationship.destroy
   end
+
 end

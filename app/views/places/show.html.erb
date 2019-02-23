@@ -26,7 +26,7 @@
        <small><%= " #{@place.city} , #{@place.country} "%> <br>
       <span class="smaller-font"><%= @place.address %></span><small></p>
     </div>
-   <div class="place-highlights">
+   <div class="highlights place-highlights">
        <p>  <%= pluralize current_user.post_feed.where(place: @place).count, "friend" %> have been here </p>
        <div class="tags-card-bottom">
           <ul class="tags tags-place">
