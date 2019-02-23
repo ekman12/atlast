@@ -1,0 +1,128 @@
+// Source for search-tags CSS
+// https://cssglobe.com/pure-css3-post-search-tags/
+
+$color-inactive: rgb(220,220,220);
+$color-hover: #00FF00;
+$color-active: #00FF00;
+
+
+.search-tags{
+  margin:0;
+  padding:0;
+  // position:absolute;
+  // right:42px;
+  // bottom:20px;
+  list-style:none;
+}
+
+
+
+.search-tags li, .search-tags a{
+  float:left;
+  height:24px;
+  line-height:24px;
+  position:relative;
+  font-size:9px;
+  margin: 5px;
+}
+
+
+.search-tags a{
+  margin-left:20px;
+  padding:0 10px 0 12px;
+  background: rgb(220,220,220);
+  color:#fff;
+  text-decoration:none;
+  -moz-border-radius-bottomright:4px;
+  -webkit-border-bottom-right-radius:4px;
+  border-bottom-right-radius:4px;
+  -moz-border-radius-topright:4px;
+  -webkit-border-top-right-radius:4px;
+  border-top-right-radius:4px;
+}
+
+.search-tags a:before{
+  content:"";
+  float:left;
+  position:absolute;
+  top:0;
+  left:-12px;
+  width:0;
+  height:0;
+  border-color:transparent rgb(220,220,220) transparent transparent;
+  border-style:solid;
+  border-width:12px 12px 12px 0;
+}
+
+.search-tags a:after{
+  content:"";
+  position:absolute;
+  top:10px;
+  left:0;
+  float:left;
+  width:4px;
+  height:4px;
+  -moz-border-radius:2px;
+  -webkit-border-radius:2px;
+  border-radius:2px;
+  background:#fff;
+  -moz-box-shadow:-1px -1px 2px #004977;
+  -webkit-box-shadow:-1px -1px 2px #004977;
+  box-shadow:-1px -1px 2px #004977;
+}
+
+// .search-tags a:hover{
+//   background: red;
+//   a:before{
+//     border-color:transparent red transparent transparent;
+//   }
+// }
+
+// .search-tags a:before:hover{
+//   border-color:transparent red transparent transparent;
+// }
+
+// .search-tags a:active{
+//   background: red;
+// }
+
+.search-tags li:hover{
+  a:before{
+    border-color:transparent red transparent transparent;
+  }
+  a{
+    background: red;
+  }
+}
+
+.search-tags .active{
+  a:before{
+    border-color:transparent blue transparent transparent;
+  }
+  a{
+    background: blue;
+  }
+}
+
+
+// <a>
+// <div class='tag-selector'>
+// <input class='hidden' type='checkbox' name='1' id='1' value='y'>
+// <label for='1'>cafe</label>
+// </div>
+// </a>
+// a = document.querySelector(".search-tags>li>a")
+// a.append('<style>.a:before{border-color:transparent red transparent transparent; !important;}</style>');
+// a.style.background = "red"
+
+
+
+
+
+
+
+
+
+
+
+
