@@ -39,7 +39,7 @@
         <%# end %>
       </div>
       <div class="friends-card-bottom">
-        <p>  <%= pluralize current_user.post_feed.where(place: place).count, "friend" %> have been here </p>
+        <p>  <%= pluralize (place.users & current_user.following).count, "friend" %> have been here </p>
       </div>
     </div>
 

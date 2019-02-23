@@ -16,9 +16,9 @@ class UserRelationshipsController < ApplicationController
   end
 
   def destroy
-    raise
-    @user_relationship = UserRelationship.where(follower_id: current_user.id, followed_id: @user)
+    @user_relationship = UserRelationship.find_by(follower_id: current_user.id, followed_id: params[:user_id])
     @user_relationship.destroy
+    redirect_to users_path
   end
 
 end
