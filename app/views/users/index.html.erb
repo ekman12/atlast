@@ -3,6 +3,14 @@
   <div class="card-container container">
     <div class="row">
 
+      <%= form_tag users_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search by: Username, First or Last Name"
+        %>
+      <% end %>
+
       <h3>Users you follow</h3>
       <% @followings.each do |following| %>
         <%= link_to user_path(following.id) do %>
