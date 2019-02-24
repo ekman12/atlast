@@ -25,7 +25,11 @@
           <%= render 'shared/tag_section', tags: @food_tags, tag_collection: {} %>
         </div>
         <div class="row">
-          <input type="submit" name="commit" value="Search" data-disable-with="Search">
+          <p>What is it good for?</p>
+          <%= render 'shared/tag_section', tags: @good_for_tags, tag_collection: {} %>
+        </div>
+        <div class="row">
+          <input class="btn-pink" type="submit" name="commit" value="Search" data-disable-with="Search">
         </div>
         </form>
       </div>

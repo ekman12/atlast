@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     @meal_tags = Tag.where(tag_type: "meal")
     @vibe_tags = Tag.where(tag_type: "vibe")
     @food_tags = Tag.where(tag_type: "food")
+    @good_for_tags = Tag.where(tag_type: "good_for")
   end
 
   def create

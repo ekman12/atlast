@@ -7,11 +7,27 @@
           <%= f.input :place %>
           <%= f.input :photo %>
           <%= f.input :note %>
-          <%= f.association :tags, collection: @venue_tags, prompt: "Select Tags", label: "Venue", as: :check_boxes %>
-          <%= f.association :tags, collection: @meal_tags, prompt: "Select Tags", label: "Meal", as: :check_boxes %>
-          <%= f.association :tags, collection: @food_tags, prompt: "Select Tags", label: "Food", as: :check_boxes %>
-          <%= f.association :tags, collection: @vibe_tags, prompt: "Select Tags", label: "Vibe", as: :check_boxes %>
-          <%= f.submit "Add Post", class: "btn btn-primary" %>
+          <div class="row">
+            <p>What sort of place was it?</p>
+            <%= render 'shared/tag_section', tags: @food_tags, tag_collection: {} %>
+          </div>
+          <div class="row">
+            <p>What is it good to have there?</p>
+            <%= render 'shared/tag_section', tags: @meal_tags, tag_collection: {} %>
+          </div>
+          <div class="row">
+            <p>What sort of food is it there?</p>
+            <%= render 'shared/tag_section', tags: @food_tags, tag_collection: {} %>
+          </div>
+          <div class="row">
+            <p>What was the vibe of the place?</p>
+            <%= render 'shared/tag_section', tags: @vibe_tags, tag_collection: {} %>
+          </div>
+          <div class="row">
+            <p>What is it good for?</p>
+            <%= render 'shared/tag_section', tags: @good_for_tags, tag_collection: {} %>
+          </div>
+          <%= f.submit "Add Post", class: "btn-pink" %>
         <% end %>
       </div>
     </div>
