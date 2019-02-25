@@ -4,15 +4,9 @@ import { autocomplete } from '../components/autocomplete';
 const mapElement = document.getElementById('map');
 
 if (mapElement) { // don't try to build a map if there's no div#map to inject in
-  const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
+  const map = new GMaps({ el: '#map', lat: 0, lng: 0, disableDefaultUI: true });
   google.maps.event.trigger(map,);
   const markers = JSON.parse(mapElement.dataset.markers);
-
-  // var infowindow = new google.maps.InfoWindow({
-  //   content: contentString
-  // });
-
-  // debugger
 
   if(markers) {
     const markersArr = markers.map(marker => {
@@ -25,40 +19,32 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
       }
     })
 
-    // console.log(markersArr)
+
 
     map.addMarkers(markersArr)
 
+    // check if navigation give current location
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var user_pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
 
-    // console.log(markersArr)
-
-    // map.markers.forEach((marker) => {
-    //   // var contentString = marker["infoWindow"]["content"];
-    //   // var marker = map.addMarker({
-    //   //   position: {lat: marker["lat"], lng: marker["lng"]}
-    //   // });
-    //   // var infowindow = new google.maps.InfoWindow({
-    //   //   content: contentString
-    //   // });
-    //   marker.addListener('click', function() {
-    //     console.log(map);
-    //     console.log(marker.infoWindow);
-    //     // map.hideInfoWindows()
-    //     marker.infoWindow.open(map,marker);
-    //   })
-    // });
-
-
-    // map.addMarkers(markers);
-
-    if (markers.length === 0) {
-      map.setZoom(2);
-    } else if (markers.length === 1) {
-      map.setCenter(markers[0].lat, markers[0].lng);
-      map.setZoom(14);
+        map.setCenter(user_pos.lat, user_pos.lng);
+        map.setZoom(14);
+      })
     } else {
-      map.fitLatLngBounds(markers);
+      if (markers.length === 0) {
+        map.setZoom(2);
+      } else if (markers.length === 1) {
+        map.setCenter(markers[0].lat, markers[0].lng);
+        map.setZoom(10);
+      } else {
+        map.fitLatLngBounds(markers);
+      }
     }
+
   }
 
 
@@ -66,4 +52,3 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
 }
 
 // console.log('map test')
-
