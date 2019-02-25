@@ -18,9 +18,4 @@ class UsersController < ApplicationController
     @posts = Post.where(user: @user)
   end
 
-  def new
-  end
-
-  def create
-  end
 end

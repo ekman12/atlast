@@ -4,9 +4,14 @@
       <div class="form_card">
         <h1>Add a post</h1>
         <%= simple_form_for @post do |f| %>
-          <%= f.input :place %>
-          <%= f.input :photo %>
-          <%= f.input :note %>
+          <%= f.input :place, label: false %>
+            <label class="btn-tag big-button">
+              Add a photo
+              <span style="display:none;">
+                <%= f.input :photo, required: true, multiple: true, name: 'picture' %>
+              </span>
+            </label>
+          <%= f.input :note, label: false, placeholder: "Add a note" %>
           <div class="row">
             <p>What sort of place was it?</p>
             <%= render 'shared/tag_section', tags: @food_tags, tag_collection: {} %>
