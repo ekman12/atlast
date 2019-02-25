@@ -13,9 +13,12 @@
         </p>
         </div>
         <div class="buttons">
-
-          <div class="btn-pink">Sign Up</div>
-          <div class="btn-pink">Log In</div>
+          <%= link_to new_user_registration_path do %>
+            <div class="btn-pink">Sign Up</div>
+          <% end %>
+          <%= link_to places_path do %>
+            <div class="btn-pink">Log In</div>
+          <% end %>
         </div>
       </div>
     </div>

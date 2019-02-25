@@ -18,8 +18,10 @@
   display: flex;
   text-align: center;
   justify-content: center;
+  padding-right: 20px;
+  padding-left: 20px;
   .btn-pink {
-    width: 160px;
+    width: 120px;
     margin: 20px;
     text-align: center;
   }
@@ -28,4 +30,5 @@
 .buttons, .description {
   margin-top: 40px;
   margin-bottom: 40px;
+
 }
