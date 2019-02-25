@@ -1,12 +1,9 @@
 <div class="container">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <div class="form-post">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <div class="form-post">
+      <%= form_tag places_path, method: :get do %>
         <div class="row">
-          <div class="form-group">
-            <form action="/places" accept-charset="UTF-8" method="get">
-              <input name="utf8" type="hidden" value="✓">
-              <input type="text" name="query" id="query" class="form-control" placeholder="Try &quot;Frank's&quot;">
-          </div>
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Try \"Frank's\"" %>
         </div>
         <div class="row">
           <p>What kind of place do you want to go to?</p>
@@ -29,11 +26,22 @@
           <%= render 'shared/tag_section', tags: @good_for_tags, tag_collection: {} %>
         </div>
         <div class="row">
-          <input class="btn-pink" type="submit" name="commit" value="Search" data-disable-with="Search">
+          <%= submit_tag "Search", class: "btn-pink" %>
         </div>
-        </form>
-      </div>
+      <% end %>
+      <!-- <form action="/places" accept-charset="UTF-8" method="get"> -->
+        <!-- <div class="row">
+          <div class="form-group">
+            <input name="utf8" type="hidden" value="✓">
+            <input type="text" name="query" id="query" class="form-control" placeholder="Try &quot;Frank's&quot;">
+          </div>
+        </div>
+        <div class="row">
+          <input class="btn-pink" type="submit" name="commit" value="Search" data-disable-with="Search">
+        </div> -->
+      <!-- </form> -->
     </div>
+  </div>
 </div>
 
 
