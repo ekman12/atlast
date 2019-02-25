@@ -2,14 +2,18 @@
   background-color: white;
   // margin: 20px;
   margin: 5px;
-  padding: 20px;
+  padding: 30px;
   border-radius: 5px;
-  min-height: 500px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-top: 10px;
+  input{
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    box-shadow: none;
+  }
 }
 
 .sticky-form{
   position: sticky;
-  top: 100px;
 }
