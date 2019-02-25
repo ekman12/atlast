@@ -1,12 +1,41 @@
 <div class="wrapper-light-grey">
   <div class="card-container container">
-    <div class="row">
-      <div class="cards">
-        <% @places.each do |place| %>
 
-          <%= render 'shared/cards_places', place: place, tag_collection: {} %>
+  <div class="header">
+    <div clas="user-core">
+      <div >
+        <%#= image_tag(@user.picture, class: "avatar-bordered")  %>
+      </div>
+      <p> <h3> <%= "#{@user.first_name} #{@user.last_name}"  %> </h3>
+      <small><%= @user.username %></small></p>
+    </div>
+    <div>
+      <%= link_to(user_path(@user)) do  %>
+         <div class="btn btn-ghost btn-ghost-white">Back to user profile </div>
+      <% end %>
+    </div>
+<!-- View wishlist -->
+
+    <div class="highlights user-highlights">
+      <% if @user == current_user %>
+        <p> You have
+        <%= pluralize @user.wishlist_items.count, "place" %>
+        on your wishlist
+      <% else %>
+        <p> <%= "#{@user.first_name} has" %>
+        <%= pluralize @user.wishlist_items.count, "place" %>
+        on his wishlist
+     <% end %>
+  </div>
+
+    <div class="row row-margin">
+      <div class="cards">
+        <% @user.wishlist_items.each do |w_items| %>
+          <%= render 'shared/cards_places', place: w_items.place, tag_collection: {} %>
         <% end %>
       </div>
     </div>
+
   </div>
 </div>
+

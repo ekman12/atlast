@@ -1,5 +1,6 @@
 class WishlistItemsController < ApplicationController
   def index
+    @user = User.find(params[:user_id])
     @wishlists = current_user.wishlist_items
     @places = []
     @wishlists.each { |w| @places << w.place }
