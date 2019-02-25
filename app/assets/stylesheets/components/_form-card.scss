@@ -1,0 +1,15 @@
+.form_card{
+  background-color: white;
+  // margin: 20px;
+  margin: 5px;
+  padding: 20px;
+  border-radius: 5px;
+  min-height: 500px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-top: 10px;
+}
+
+.sticky-form{
+  position: sticky;
+  top: 100px;
+}
