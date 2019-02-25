@@ -36,15 +36,13 @@
   opacity: 1;
 }
 .card-bottom-place {
+  display: flex;
   justify-content: space-between;
 }
 
 .card-bottom {
-  display: flex;
-  align-items: top;
-  padding: 0px 15px;
+  padding: 0px 15px 34px;
   margin-top: 10px;
-  height: 75px;
 }
 
 .card-bottom-post {
@@ -57,7 +55,8 @@
   color: rgba(0,0,0,0.4);
   font-weight: lighter;
   font-size: 12px;
-  line-height: 0.8;
+  line-height: 1.3;
+  text-align: justify;
 }
 
 .card-bottom-place p {
