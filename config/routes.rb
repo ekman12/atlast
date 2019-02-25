@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   # get 'user_relationships/create'
   # get 'user_relationships/destroy'
   devise_for :users
-  root to: 'places#index'
+  # root to: 'places#index'
+  root to: 'pages#home'
 
   resources :users, except: [ :edit, :update, :destroy ] do
     member do

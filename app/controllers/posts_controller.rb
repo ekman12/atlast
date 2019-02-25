@@ -18,15 +18,16 @@ class PostsController < ApplicationController
   end
 
   def create
-    @tag_ids = params[:post][:tag_ids]
     # raise
-    place = Place.find_by(address: post_params[:place])
+    @tag_ids = Tag.all.ids
+    # raise
+    place = Place.find_by(address: params["post"][:place])
 
-    place = create_place(post_params[:place]) if place.nil?
+    place = create_place(params["post"][:place]) if place.nil?
 
     @post = Post.new(
-      photo: post_params[:photo],
-      note: post_params[:note],
+      photo: params["post"][:photo],
+      note: params["post"][:note],
       place: place,
       user: current_user
     )
@@ -58,15 +59,17 @@ class PostsController < ApplicationController
   private
 
 
-  def post_params
-    params.require(:post).permit(:photo, :note, :place, :tags)
-  end
+
+  # def post_params
+  #   params.require(:post).permit(:photo, :note, :place, :tags)
+  # end
 
   def create_post_tags
     @tag_ids = @tag_ids - [""]
     @post_tags = []
+    # raise
     @tag_ids.each do |tag|
-      PostTag.create(tag_id: tag.to_i, post: @post)
+      PostTag.create(tag_id: tag.to_i, post: @post) unless params[@tag_ids.first.to_s].nil?
     end
   end
 end
