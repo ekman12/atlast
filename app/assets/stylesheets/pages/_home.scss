@@ -1,1 +1,31 @@
 // Specific CSS for your home-page
+// body {
+//   background-image: url(https://images.unsplash.com/photo-1520089395365-001d26ba155b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2978&q=80);
+// }
+
+
+// <body background=<%= 'https://images.unsplash.com/photo-1531002329786-97e3efcb754b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80' %>>
+
+.home-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh-76px);
+  padding: 10px
+}
+
+.buttons{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  .btn-pink {
+    width: 160px;
+    margin: 20px;
+    text-align: center;
+  }
+}
+
+.buttons, .description {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}

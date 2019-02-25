@@ -11,7 +11,7 @@ class UserRelationshipsController < ApplicationController
       )
     if @user_relationship.save
       respond_to do |format|
-        # raise
+        raise
         format.html { redirect_to user_path(User.find(params[:user_id])) }
         format.js # <-- will render `app/views/reviews/create.js.erb`
       end
