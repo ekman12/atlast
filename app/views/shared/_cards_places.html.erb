@@ -20,11 +20,16 @@
       <div class="card-top" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url(<%= current_user.post_feed.where(place: place).last.photo %>);">
       </div>
     <% end %>
-
-    <div class="card-bottom card-bottom-place">
-    <p> <strong><%= place.name %></strong><br>
-      <small><%= place.neighbourhood %>, <%= place.city %></small>
-    </p>
+    <div class="card-bottom">
+      <div class="card-bottom-place">
+        <p> <strong><%= place.name %></strong><br>
+          <small><%#= place.neighbourhood %> <%= place.city %></small>
+        </p>
+        <%= render 'shared/wishlist_link', place: place %>
+        <div class="friends-card-bottom">
+          <p>  <%= pluralize (place.users & current_user.following).count, "friend" %> have been here </p>
+        </div>
+      </div>
       <div class="tags-card-bottom">
           <ul class="tags">
             <% tag_collection.first(4).to_h.each do |name, count| %>
@@ -32,11 +37,7 @@
             <% end %>
           </ul>
       </div>
-      <%= render 'shared/wishlist_link', place: place %>
-      <div class="friends-card-bottom">
-        <p>  <%= pluralize (place.users & current_user.following).count, "friend" %> have been here </p>
-      </div>
-    </div>
+   </div>
 
   </div>
 </div>

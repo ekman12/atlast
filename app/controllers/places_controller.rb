@@ -3,6 +3,12 @@ class PlacesController < ApplicationController
 
   def index
     define_tags
+    # @places = []
+    # @posts = current_user.post_feed
+    # @posts.each do |post|
+    #   @places << post.place
+    # end
+    # @places
     @places = current_user.place_feed
     place_search if params[:query].present?
 
