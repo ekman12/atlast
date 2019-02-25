@@ -5,7 +5,12 @@
         <h1>Add a post</h1>
         <%= simple_form_for @post do |f| %>
           <%= f.input :place, label: false %>
-          <%= f.input :photo %>
+            <label class="btn-tag big-button">
+              Add a photo
+              <span style="display:none;">
+                <%= f.input :photo, required: true, multiple: true, name: 'picture' %>
+              </span>
+            </label>
           <%= f.input :note, label: false, placeholder: "Add a note" %>
           <div class="row">
             <p>What sort of place was it?</p>

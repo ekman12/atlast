@@ -22,8 +22,12 @@
           <div class="form-group">
           <%= f.input :current_password, label: false, placeholder: "Current Password" ,hint: "Current password to confirm your changes", required: true, input_html: { autocomplete: "current-password" } %>
           </div>
-          <%= f.input :photo %>
-
+            <label class="btn-tag big-button">
+              Add a photo
+              <span style="display:none;">
+                <%= f.input :photo, required: true, multiple: true, name: 'picture' %>
+              </span>
+            </label>
           <button type="submit" class="btn-pink">Update Profile</button>
         <% end %>
       </div>
