@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get :following, :followers
     end
     resources :user_relationships, only: [ :new, :create, :destroy]
+    resources :wishlist_items, only: [:index]
   end
 
   resources :places, only: [ :index, :show ] do

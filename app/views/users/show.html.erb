@@ -28,6 +28,12 @@
           <% end %>
         <% end %>
       <% end %>
+      <%= link_to( user_wishlist_items_path(@user)) do  %>
+         <div class="btn btn-ghost btn-ghost-white">View Wishlist </div>
+      <% end %>
+
+<!-- View wishlist -->
+
     <div class="highlights user-highlights">
       <% if @user == current_user %>
         <p> You visited
@@ -47,6 +53,9 @@
         <% end %>
       </div>
     </div>
+
+
+
   </div>
 </div>
 
