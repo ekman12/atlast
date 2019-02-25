@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :wishlist_items
   has_many :posts
   has_many :places, through: :posts
+  has_many :places, through: :wishlist_items
   has_many :post_tags, through: :posts
   has_many :tags, through: :post_tags
 
@@ -17,6 +18,13 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name:  "UserRelationship", foreign_key: "followed_id", dependent: :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+
+  include PgSearch
+  pg_search_scope :search_by_user,
+                  against: [:username, :first_name, :last_name],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 
   # Feeds from followers
   def post_feed

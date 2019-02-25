@@ -7,10 +7,11 @@ class Place < ApplicationRecord
   has_many :post_tags, through: :posts
   has_many :tags, through: :post_tags
   has_many :wishlist_items
+  has_many :users, through: :wishlist_items
   # belongs_to :post
 
   #Validations
-  validates :name, presence: true
+  # validates :name, presence: true, uniqueness: true
 
   # Search - if you do breakfast it will also search in the post notes
   pg_search_scope :search_by_place,

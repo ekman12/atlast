@@ -17,22 +17,30 @@
 .smaller-font{
   font-size: 70%;
 }
-.place-highlights {
+.highlights {
   background-color: white;
-  height: 108px;
   bottom: -20px;
   padding-top: 1px;
   z-index: 1;
   margin: 10px 45px 0px 45px;
 }
 
-.place-highlights p {
+.highlights p {
   margin-top: 10px;
   color: rgba(0, 0, 0, 0.4);
   font-weight: lighter;
   font-size: 12px;
   line-height: 1.8;
 }
+
+.place-highlights {
+  height: 108px;
+}
+
+.user-highlights {
+  height: 70px;
+}
+
 .row-margin {
   margin-top:10px;
   margin-bottom: 56px;

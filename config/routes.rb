@@ -10,12 +10,14 @@ Rails.application.routes.draw do
       get :following, :followers
     end
     resources :user_relationships, only: [ :new, :create, :destroy]
+    resources :wishlist_items, only: [:index]
   end
 
   resources :places, only: [ :index, :show ] do
-    resources :wishlist_items, only: [ :index, :create ]
+    resources :wishlist_items, only: [ :create ]
   end
 
+  resources :wishlist_items, only: [ :index ]
   resources :posts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

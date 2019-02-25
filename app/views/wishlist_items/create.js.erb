@@ -1,0 +1,6 @@
+console.log('hey')
+console.log('<%= @listing %>')
+
+
+document.querySelector("[data-listing-id='<%= @listing.id %>']").classList.toggle("wishlist-heart-clicked");
+

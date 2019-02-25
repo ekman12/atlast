@@ -1,12 +1,61 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<ul>
-  <li><img src="<%= @user.picture %>" alt=""></li>
-  <li><%= @user.email %></li>
-  <li><%= @user.first_name %></li>
-  <li><%= @user.last_name %></li>
-  <li><%= @user.username %></li>
-</ul>
+<div class="wrapper-light-grey">
+  <div class="card-container container">
+  <div class="header">
+    <div clas="user-core">
+      <div >
+        <%#= image_tag(@user.picture, class: "avatar-bordered")  %>
+      </div>
+      <p> <h3> <%= "#{@user.first_name} #{@user.last_name}"  %> </h3>
+      <small><%= @user.username %></small></p>
+    </div>
+    <div>
+      <% if @user == current_user %>
+        <%= link_to(users_path(@user)) do  %>
+          <% if @user.following.records == [] %>
+            <div class="btn btn-ghost btn-ghost-white">Add new friends </div>
+          <% else %>
+            <div class="btn btn-ghost btn-ghost-white">View my friends </div>
+          <% end %>
+        <% end %>
+      <% else %>
+        <% if current_user.following.include? @user %>
+          <%= link_to(user_user_relationship_path(@user), method: :delete) do  %>
+          <div class="btn btn-ghost btn-ghost-white">Unfollow </div>
+          <% end %>
+        <% else %>
+          <%= link_to(user_user_relationships_path(@user), method: :post) do  %>
+          <div class="btn btn-ghost btn-ghost-white">Follow </div>
+          <% end %>
+        <% end %>
+      <% end %>
+      <%= link_to( user_wishlist_items_path(@user)) do  %>
+         <div class="btn btn-ghost btn-ghost-white">View Wishlist </div>
+      <% end %>
+
+<!-- View wishlist -->
+
+    <div class="highlights user-highlights">
+      <% if @user == current_user %>
+        <p> You visited
+        <%= pluralize @user.places.count, "place" %> <br>
+        You are following <%= pluralize @user.following.count, "friend" %> </p>
+      <% else %>
+        <p> Has visited
+        <%= pluralize @user.places.count, "place" %> <br>
+        Is following <%= pluralize @user.following.count, "friend" %> </p>
+      <% end %>
+  </div>
+
+    <div class="row row-margin">
+      <div class="cards">
+        <% @posts.each do |post| %>
+          <%= render 'shared/cards_posts', post: post %>
+        <% end %>
+      </div>
+    </div>
 
 
-<%= render 'user_relationships/new_follower' %>
+
+  </div>
+</div>
+

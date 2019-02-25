@@ -32,14 +32,9 @@
             <% end %>
           </ul>
       </div>
-      <div class="wishlist-link">
-        <%# wishlistclass = "wishlist-heart-clicked" if WishlistItem.where(place_id: place.id, user_id: current_user.id).any? %>
-        <%#= link_to(place_wishlist_items_path(place.id), method: :post, remote: true) do %>
-          <i class="fa fa-heart wishlist-heart <%#= wishlistclass %>" data-place-id="<%#= place.id %>"></i>
-        <%# end %>
-      </div>
+      <%= render 'shared/wishlist_link', place: place %>
       <div class="friends-card-bottom">
-        <p>  <%= pluralize current_user.post_feed.where(place: place).count, "friend" %> have been here </p>
+        <p>  <%= pluralize (place.users & current_user.following).count, "friend" %> have been here </p>
       </div>
     </div>
 

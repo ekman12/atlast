@@ -3,10 +3,18 @@
   <div class="card-container container">
     <div class="row">
 
+      <%= form_tag users_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search by: Username, First or Last Name"
+        %>
+      <% end %>
+
       <h3>Users you follow</h3>
       <% @followings.each do |following| %>
         <%= link_to user_path(following.id) do %>
-          <div class="user-card">
+          <div data-user-id=<%=following.id%> class="user-card">
             <%= link_to cl_image_tag(following.photo, class: "avatar-friends-list"), user_path(following.id) %>
             <div class="user-card-content">
               <p><%= following.first_name %> <%= following.last_name %></p>
@@ -18,14 +26,14 @@
       <h3>All Other Users</h3>
       <% @nonfollowings.each do |user|  %>
         <% if !(user.id == current_user.id) %>
-          <div class="user-card">
+          <div data-user-id=<%=user.id%> class="user-card">
             <%= link_to cl_image_tag(user.photo, class: "avatar-friends-list"), user_path(user.id) %>
             <div class="user-card-content">
               <p><%= user.first_name %> <%= user.last_name %></p>
             </div>
             <div class="user-card-actions">
-              <%= link_to(new_user_user_relationship_path(user), method: :post) do  %>
-                <div class="btn btn-ghost">Follow </div>
+              <%= link_to(user_user_relationships_path(user), method: :post, remote: true ) do  %>
+                <div class="btn btn-ghost btn-ghost-black">Follow </div>
               <% end %>
             </div>
           </div>

@@ -13,7 +13,8 @@ class PlacesController < ApplicationController
     multiple_tag_search unless @searched_tags.empty?
 
     @filtered_places = []
-    @places.each { |p| @filtered_places << p if p.latitude && p.longitude}
+    # raise
+    @places.each { |p| @filtered_places << p if p.latitude && p.longitude }
     @markers = @filtered_places.map do |place|
       {
         lat: place.latitude,
@@ -27,7 +28,7 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     @posts = current_user.post_feed.where(place: @place)
     @wishlist = WishlistItem.new
-    # raise
+    @wishlist_check = WishlistItem.where(place_id: @place.id, user_id: current_user.id)
   end
 
   private
@@ -38,6 +39,7 @@ class PlacesController < ApplicationController
     @meal_tags = Tag.where(tag_type: "meal")
     @vibe_tags = Tag.where(tag_type: "vibe")
     @food_tags = Tag.where(tag_type: "food")
+    @good_for_tags = Tag.where(tag_type: "good_for")
   end
 
 
