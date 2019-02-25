@@ -51,7 +51,7 @@
   </div>
 </div>
 
-<div class="horizontal">
+<!-- <div class="horizontal">
             <div
             id="map"
             style="width: 88%;
@@ -59,13 +59,14 @@
             margin: auto;"
             data-markers="<%= @markers.to_json %>"
             >
-          </div> -->
+          </div>
         <div class="box-address-over-map">
           <p><strong>Address</strong></p>
-          <p><%= @place.name %>, <%= @place.city %></p>
- --> --> --> </div>
+          <p><%#= @place.name %>, <%= @place.city %></p>
+ </div>
     <p>
-      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&center=#{@place.latitude},#{@place.longitude}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map" %>
+      <%#= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&center=#{@place.latitude},#{@place.longitude}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map" %>
    </p>
 </div>
+
  -->
