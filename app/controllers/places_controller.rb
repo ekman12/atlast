@@ -9,13 +9,21 @@ class PlacesController < ApplicationController
     #   @places << post.place
     # end
     # @places
+
+    # DO POSTS NOT PLACES BECAUSE A USER COULD
+
     @places = current_user.place_feed
     place_search if params[:query].present?
 
     @searched_tags = []
-    Tag.ids.each do |id|
-      @searched_tags << id if params[id.to_s].present?
+
+    if params[:tags].present?
+      params[:tags].keys.each do |id|
+        @searched_tags << id.to_i
+      end
     end
+
+    # raise
     multiple_tag_search unless @searched_tags.empty?
 
     @filtered_places = []
@@ -55,13 +63,20 @@ class PlacesController < ApplicationController
   end
 
   def multiple_tag_search
-    @tag_results = Place.search_by_tag_id(@searched_tags.first)
+    @tag_results = Post.search_by_tag_name(Tag.find(@searched_tags.first).name)
     @searched_tags.each do |id|
       # on the first search there is no change as defined before loop
       # on the second search it gets narrower etc.
-      @tag_results = @tag_results & Place.search_by_tag_id(id)
+      # @tag_results = @tag_results & Place.search_by_tag_id(id)
+
+      # @tag_results = @tag_results & Post.search_by_tag_id(id)
+      @tag_results = @tag_results & Post.search_by_tag_name(Tag.find(id).name)
+
     end
-    @places = @tag_results.flatten & current_user.place_feed
+    @tag_results = @tag_results & current_user.post_feed
+
+    @tag_results.map! {|x| x.place}
+    @places = @tag_results
     # Behaves weirdly for cafe tag
   end
 
