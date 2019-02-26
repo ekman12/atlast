@@ -1,17 +1,52 @@
 <div class="container">
+<!--
+              <script language="JavaScript">
+    function inform(){
+        document.form1.msg.value = document.form1.innerText ;
+    }
+    </script>
+    <form name="form1">
+    Please choose a file.
+    <input type="file" name="uploadbox" size="35" onChange='inform()'>
+    <br><br>
+    Message:
+    <input type="text" name="msg" size="40">
+    </form>
+
+ -->
+
+
+
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3 text-center">
       <div class="form_card">
         <h1>Add a post</h1>
         <%= simple_form_for @post do |f| %>
           <%= f.input :place, label: false %>
-            <label class="btn-tag big-button">
-              Add a photo
-              <span style="display:none;">
-                <%= f.input :photo, required: true, multiple: true, name: 'picture' %>
-              </span>
-            </label>
+
+          <%#= f.input :photo %>
+
+            <% if @post.photo %>
+            <%= @post.photo %>
+            <% end %>
+
+
+
+          <label class="btn-tag big-button photo-button">
+            Add a photo
+            <span style="display:none;"  id="photo-upload">
+              <%= f.input :photo, required: true, multiple: true, name: 'picture' %>
+            </span>
+          </label>
+
+          <img src="" class="hidden">
+
+
+
+
           <%= f.input :note, label: false, placeholder: "Add a note" %>
+
+
           <div class="row">
             <p>What sort of place was it?</p>
             <%= render 'shared/tag_section', tags: @food_tags, tag_collection: {} %>
