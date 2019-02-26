@@ -9,13 +9,3 @@ const showTags = () => {
  }
 
 export { showTags };
-
-
-//   follows.forEach((follow) => {
-//     follow.addEventListener("click", (event) => {
-//     event.currentTarget.innerText = "Followed!";
-//     })
-//   }
-// )};
-
-// export { followChange };

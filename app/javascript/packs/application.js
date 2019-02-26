@@ -14,3 +14,6 @@ followChange();
 
 import { showTags } from './show_tags';
 showTags();
+
+import { hideTags } from './hide_tags';
+hideTags();
