@@ -18,6 +18,7 @@ class PlacesController < ApplicationController
         infoWindow: { content: render_to_string(partial: "infowindow", locals: { place: place }) }
       }
     end
+    # raise
   end
 
   def show

@@ -72,10 +72,9 @@ class PostsController < ApplicationController
     name = clean_array[0]
     # address = clean_array[1]
     address = params
-    google_place_id = Geocoder.search(params).first.data["place_id"]
     city = clean_array[-2]
     country = clean_array[-1]
-    place = Place.new(name: name, address: address, city: city, country: country, google_place_id: google_place_id)
+    place = Place.new(name: name, address: address, city: city, country: country)
     place.save
     return place
   end

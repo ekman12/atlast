@@ -120,6 +120,9 @@ p 'creating 10 places'
     )
   place.save!
 
+
+p ' creating posts for the place'
+
   (1..10).to_a.sample.times do
     post = Post.new(
       note: Faker::Restaurant.review,
