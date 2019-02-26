@@ -1,17 +1,3 @@
-// NOT BEING USED AT THE MOMENT
-
-
-// const photoUpload = () => {
-//   const photoButton = document.querySelector("#photo-upload");
-//   photoButton.addEventListener("click", (event) => {
-//     console.log("Hey!!");
-//     // event.currentTarget.innerText = "Followed!";
-//     document.querySelector(".photo-button").innerText = "Followed!";
-//   })
-// };
-
-// export { photoUpload };
-//     // document.querySelector("#show-filters").classList.toggle("hidden");
 
 const initPhotoPreview = () => {
   const previewPhoto = (e) => {
@@ -24,6 +10,9 @@ const initPhotoPreview = () => {
 
       hiddenImage.setAttribute('src', e.target.result)
       hiddenImage.classList.remove('hidden')
+
+      const photoButton = document.querySelector(".add-photo-box");
+      photoButton.classList.toggle('hidden');
     }
 
     console.log(photo)
@@ -35,6 +24,9 @@ const initPhotoPreview = () => {
 }
 
 export { initPhotoPreview }
+
+// const photoButton = document.querySelector(".add-photo-box");
+// photoButton.classList.toggle('hidden');
 
 
 
