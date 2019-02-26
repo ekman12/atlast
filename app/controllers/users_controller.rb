@@ -16,6 +16,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = Post.where(user: @user)
+    @post_markers = @posts.map do |post|
+      {
+        lat: post.place.latitude,
+        lng: post.place.longitude,
+        infoWindow: { content: render_to_string(partial: "places/infowindow", locals: { place: post.place }) }
+      }
+    end
   end
-
 end
