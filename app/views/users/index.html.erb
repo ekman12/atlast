@@ -2,6 +2,9 @@
 <div class="wrapper-light-grey">
   <div class="card-container container">
     <div class="row">
+      <% if current_user.following.records == []  %>
+         <h3><strong>Start by adding friends</strong></h3>
+      <% end %>
 
       <%= form_tag users_path, method: :get do %>
         <%= text_field_tag :query,
@@ -10,6 +13,7 @@
         placeholder: "Search by: Username, First or Last Name"
         %>
       <% end %>
+
 
       <h3>Users you follow</h3>
       <% @followings.each do |following| %>

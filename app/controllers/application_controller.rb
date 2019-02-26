@@ -4,7 +4,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(user)
-    posts_path
+    if ((current_user.following.records == []) && (current_user.posts.records. == []))
+      users_path
+    else
+      posts_path
+    end
   end
 
   def configure_permitted_parameters
