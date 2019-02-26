@@ -6,4 +6,6 @@ class Post < ApplicationRecord
   validates :place, presence: true
   validates :user, presence: true
   mount_uploader :photo, PhotoUploader
+  include PgSearch
+  pg_search_scope :search_by_tag_name, associated_against: { tags: :name }
 end
