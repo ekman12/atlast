@@ -26,6 +26,14 @@ class User < ApplicationRecord
                     tsearch: { prefix: true }
                   }
 
+  after_create :set_default_avatar
+
+  def set_default_avatar
+    url = "https://www.qualiscare.com/wp-content/uploads/2017/08/default-user.png"
+    self.remote_photo_url = url
+    self.save
+  end
+
   # Feeds from followers
   def post_feed
     Post.where("user_id IN (?) OR user_id = ?", following_ids, id)
