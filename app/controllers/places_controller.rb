@@ -2,6 +2,8 @@ class PlacesController < ApplicationController
   # before_action :authenticate_user!
 
   def index
+    redirect_to posts_path if !(params["commit"] == "Search")
+
     define_tags
     # @places = []
     # @posts = current_user.post_feed
@@ -61,7 +63,7 @@ class PlacesController < ApplicationController
       # on the second search it gets narrower etc.
       @tag_results = @tag_results & Place.search_by_tag_id(id)
     end
-    @places = @tag_results.flatten
+      @places = @tag_results.flatten & current_user.place_feed
     # Behaves weirdly for cafe tag
   end
 
