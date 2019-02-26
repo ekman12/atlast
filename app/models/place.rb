@@ -1,3 +1,6 @@
+require 'json'
+require 'open-uri'
+
 class Place < ApplicationRecord
   include PgSearch
 
@@ -45,8 +48,18 @@ class Place < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-
   # Geocoder
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  after_save :retrive_email
+
+
+  def retrive_email
+  url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=#{self.google_place_id}&fields=website&key=AIzaSyCkrWfizD2nTekSBWiv4Nv_kDFx-E5d08o"
+  p url
+  user_serialized = open(url).read
+  datas = JSON.parse(user_serialized)
+  p datas["result"]["website"]
+  end
+
 end
