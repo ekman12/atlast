@@ -5,28 +5,36 @@
         <div class="row">
           <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Try \"Frank's\"" %>
         </div>
-        <div class="row">
-          <p>What kind of place do you want to go to?</p>
-          <%= render 'shared/tag_section', tags: @venue_tags, tag_collection: {} %>
+        <div id="show-filters" class="btn-pink">
+          Show Filters
         </div>
-        <div class="row">
-          <p>What are you going to be doing?</p>
-          <%= render 'shared/tag_section', tags: @meal_tags, tag_collection: {} %>
-        </div>
-        <div class="row">
-          <p>What vibe do you want?</p>
-          <%= render 'shared/tag_section', tags: @vibe_tags, tag_collection: {} %>
-        </div>
-        <div class="row">
-          <p>Any food you fancy in particular?</p>
-          <%= render 'shared/tag_section', tags: @food_tags, tag_collection: {} %>
-        </div>
-        <div class="row">
-          <p>What is it good for?</p>
-          <%= render 'shared/tag_section', tags: @good_for_tags, tag_collection: {} %>
-        </div>
-        <div class="row">
-          <%= submit_tag "Search", class: "btn-pink" %>
+        <div class="tag-filters hidden">
+          <div class="row">
+            <p>What kind of place do you want to go to?</p>
+            <%= render 'shared/tag_section', tags: @venue_tags, tag_collection: {} %>
+          </div>
+          <div class="row">
+            <p>What are you going to be doing?</p>
+            <%= render 'shared/tag_section', tags: @meal_tags, tag_collection: {} %>
+          </div>
+          <div class="row">
+            <p>What vibe do you want?</p>
+            <%= render 'shared/tag_section', tags: @vibe_tags, tag_collection: {} %>
+          </div>
+          <div class="row">
+            <p>Any food you fancy in particular?</p>
+            <%= render 'shared/tag_section', tags: @food_tags, tag_collection: {} %>
+          </div>
+          <div class="row">
+            <p>What is it good for?</p>
+            <%= render 'shared/tag_section', tags: @good_for_tags, tag_collection: {} %>
+          </div>
+          <div id="hide-filters" class="btn-pink">
+            Hide Filters
+          </div>
+          <div class="row">
+            <%= submit_tag "Search", class: "btn-pink" %>
+          </div>
         </div>
       <% end %>
     </div>

@@ -11,3 +11,9 @@ clickWishlistHeart();
 
 import { followChange } from './follow_change';
 followChange();
+
+import { showTags } from './show_tags';
+showTags();
+
+import { hideTags } from './hide_tags';
+hideTags();

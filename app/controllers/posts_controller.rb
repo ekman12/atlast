@@ -1,14 +1,13 @@
 class PostsController < ApplicationController
-  # skip_before_action :authenticate_user!
+
   def index
-     @posts = current_user.post_feed
+    @posts = current_user.post_feed
   end
 
   def show
   end
 
   def new
-    # raise
     @post = Post.new
     @venue_tags = Tag.where(tag_type: "venue")
     @meal_tags = Tag.where(tag_type: "meal")
@@ -18,11 +17,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    # raise
     @tag_ids = Tag.all.ids
-    # raise
     place = Place.find_by(address: params["post"][:place])
-
     place = create_place(params["post"][:place]) if place.nil?
 
     @post = Post.new(
@@ -69,7 +65,7 @@ class PostsController < ApplicationController
     @post_tags = []
     # raise
     @tag_ids.each do |tag|
-      PostTag.create(tag_id: tag.to_i, post: @post) unless params[@tag_ids.first.to_s].nil?
+      PostTag.create(tag_id: tag.to_i, post: @post) unless params[tag.to_s].nil?
     end
   end
 end
