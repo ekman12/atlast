@@ -2,8 +2,6 @@ class PlacesController < ApplicationController
   # before_action :authenticate_user!
 
   def index
-    redirect_to posts_path if !(params["commit"] == "Search")
-
     define_tags
     # @places = []
     # @posts = current_user.post_feed
