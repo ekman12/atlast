@@ -51,15 +51,16 @@ class Place < ApplicationRecord
   # Geocoder
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  after_save :retrive_email
+  after_create :retrieve_website
+  # after_save :save_website
 
 
-  def retrive_email
+  def retrieve_website
   url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=#{self.google_place_id}&fields=website&key=AIzaSyCkrWfizD2nTekSBWiv4Nv_kDFx-E5d08o"
-  p url
   user_serialized = open(url).read
   datas = JSON.parse(user_serialized)
-  p datas["result"]["website"]
+  self.website = datas["result"]["website"]
+  self.save
   end
 
 end
