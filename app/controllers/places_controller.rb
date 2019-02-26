@@ -61,7 +61,7 @@ class PlacesController < ApplicationController
       # on the second search it gets narrower etc.
       @tag_results = @tag_results & Place.search_by_tag_id(id)
     end
-    @places = @tag_results.flatten
+      @places = @tag_results.flatten & current_user.place_feed
     # Behaves weirdly for cafe tag
   end
 
