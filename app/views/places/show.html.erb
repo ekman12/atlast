@@ -20,6 +20,11 @@
   <div class="card-container container">
   <div class="header">
     <div clas="place-core">
+
+      <div class= "static-map">
+        <a href="https://maps.google.com/?daddr=<% @place.latitude %><%= @place.longitude %>" target="_blank"><img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @place.name %>,<%= @place.address%>&zoom=13&size=370x300&maptype=roadmap&markers=color:blue%7Clabel:<%= @place.name[0] %>%7C<%= @place.latitude %>,<%= @place.longitude %>&key=AIzaSyCkrWfizD2nTekSBWiv4Nv_kDFx-E5d08o" alt=""></a>
+      </div>
+
       <!-- Get the heart in here - bit bigger. Thanks! -->
       <p> <h3> <%= @place.name %> </h3>
        <small><%= " #{@place.city} , #{@place.country} "%> <br>
@@ -50,23 +55,3 @@
     </div>
   </div>
 </div>
-
-<!-- <div class="horizontal">
-            <div
-            id="map"
-            style="width: 88%;
-            height: 400px;
-            margin: auto;"
-            data-markers="<%= @markers.to_json %>"
-            >
-          </div>
-        <div class="box-address-over-map">
-          <p><strong>Address</strong></p>
-          <p><%#= @place.name %>, <%= @place.city %></p>
- </div>
-    <p>
-      <%#= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&center=#{@place.latitude},#{@place.longitude}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map" %>
-   </p>
-</div>
-
- -->

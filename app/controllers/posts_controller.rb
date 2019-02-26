@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   def index
     @posts = current_user.post_feed
   end
@@ -53,8 +52,6 @@ class PostsController < ApplicationController
   end
 
   private
-
-
 
   # def post_params
   #   params.require(:post).permit(:photo, :note, :place, :tags)
