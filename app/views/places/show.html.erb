@@ -22,7 +22,7 @@
     <div clas="place-core">
 
       <div class= "static-map">
-        <a href="https://maps.google.com/?daddr=<% @place.latitude %><%= @place.longitude %>" target="_blank"><img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @place.name %>,<%= @place.address%>&zoom=13&size=370x300&maptype=roadmap&markers=color:blue%7Clabel:<%= @place.name[0] %>%7C<%= @place.latitude %>,<%= @place.longitude %>&key=AIzaSyCkrWfizD2nTekSBWiv4Nv_kDFx-E5d08o" alt=""></a>
+        <a href="https://www.google.com/maps/place/<%= @place.latitude %>,<%= @place.longitude %>" target="_blank"><img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @place.name %>,<%= @place.address%>&zoom=13&size=370x300&maptype=roadmap&markers=color:blue%7Clabel:<%= @place.name[0] %>%7C<%= @place.latitude %>,<%= @place.longitude %>&key=AIzaSyCkrWfizD2nTekSBWiv4Nv_kDFx-E5d08o" alt=""></a>
       </div>
 
       <!-- Get the heart in here - bit bigger. Thanks! -->
