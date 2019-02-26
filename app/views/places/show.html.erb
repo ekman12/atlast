@@ -10,10 +10,15 @@
     <small><%= " #{@place.city} , #{@place.country} "%> <br>
     <small><p><span class="smaller-font"><%= @place.address %></span><small></p>
       <p>
-    <a href="https://www.google.com/maps/place/<%= @place.latitude %>,<%= @place.longitude %>" target="_blank">
-      Get Directions
-    </a>
-    | Visit Website</p>
+        <a href="https://www.google.com/maps/place/<%= @place.latitude %>,<%= @place.longitude %>" target="_blank">
+          Get Directions
+        </a>
+          <% if !@place.website.nil? %>
+            <a href="<%= @place.website %>" target="_blank">
+            | Visit Website
+            </a>
+          <% end %>
+      </p>
     <p><%= pluralize (@place.users & current_user.following).count, "friend" %> have been here</p>
     <div class="tags-card-bottom">
       <ul class="tags tags-place">
