@@ -1,7 +1,7 @@
 <div class="form-group">
       <% tags.each do |tag| %>
-        <input class="hidden" type="checkbox" name="tags[<%= tag.id.to_s %>]" id="<%= tag.id.to_s %>" value="y">
-        <label class="btn-tag" data-tagid="<%=tag.id.to_s  %>" for="<%=tag.id.to_s%>" id="tag-selector"><%= tag.name %></label>
+        <input class="hidden" type="checkbox" name="tags[<%= tag.name %>]" id="<%= tag.name %>" value="y">
+        <label class="btn-tag" data-tagid="<%=tag.name  %>" for="<%=tag.name%>" id="tag-selector"><%= tag.name %></label>
       <% end %>
   </div>
 
