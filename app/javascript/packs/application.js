@@ -8,3 +8,6 @@ tagSelector();
 
 import { clickWishlistHeart } from './wishlist_heart';
 clickWishlistHeart();
+
+import { followChange } from './follow_change';
+followChange();
