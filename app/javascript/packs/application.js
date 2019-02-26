@@ -1,3 +1,4 @@
+import {$,jQuery} from "jquery";
 import "bootstrap";
 
 import { mapInModal } from "./modalMap.js";
@@ -17,3 +18,8 @@ showTags();
 
 import { hideTags } from './hide_tags';
 hideTags();
+
+import { initPhotoPreview } from './photoPreview';
+initPhotoPreview();
+
+
