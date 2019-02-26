@@ -1,6 +1,6 @@
 require 'json'
 require 'open-uri'
-
+require 'pry-byebug'
 class Place < ApplicationRecord
   include PgSearch
 
@@ -56,10 +56,16 @@ class Place < ApplicationRecord
 
 
   def retrieve_website
-  url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=#{self.google_place_id}&fields=website&key=AIzaSyCkrWfizD2nTekSBWiv4Nv_kDFx-E5d08o"
+  geocoder_search = Geocoder.search(self.address).first
+  if geocoder_search
+    self.google_place_id = geocoder_search.data["place_id"]
+  end
+
+  url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=#{self.google_place_id}&fields=website&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
   user_serialized = open(url).read
   datas = JSON.parse(user_serialized)
-  self.website = datas["result"]["website"]
+  # byebug
+  self.website = datas["result"]["website"] unless datas["result"].nil?
   self.save
   end
 
