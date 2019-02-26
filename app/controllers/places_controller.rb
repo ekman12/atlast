@@ -25,9 +25,25 @@ class PlacesController < ApplicationController
     @posts = current_user.post_feed.where(place: @place)
     @wishlist = WishlistItem.new
     @wishlist_check = WishlistItem.where(place_id: @place.id, user_id: current_user.id)
+    tag_collection_new
   end
 
   private
+
+  def tag_collection_new
+    @tag_collection = {}
+    current_user.post_feed.where(place: @place).each do |post|
+      post.tags.each do |tag|
+        if @tag_collection[tag.name]
+          @tag_collection[tag.name] += 1
+        else
+          @tag_collection[tag.name] = 1
+        end
+      end
+    end
+    @tag_collection = @tag_collection.sort_by {|k, v| v}.reverse
+  end
+
 
   def define_tags
     @tags = Tag.all
