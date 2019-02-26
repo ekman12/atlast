@@ -1,6 +1,6 @@
 .header{
-  background-color: #50514f;
-  height: 210px;
+  background-color: rgba(0,0,0,0.2);
+  height: 140px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -12,17 +12,28 @@
     margin-block-start: 0;
     margin-block-end: 0;
   }
+  a{
+    color: white;
+  }
 }
 
 .smaller-font{
   font-size: 70%;
 }
 .highlights {
+  display: flex;
   background-color: white;
   bottom: -20px;
   padding-top: 1px;
   z-index: 1;
   margin: 10px 45px 0px 45px;
+  align-items: center;
+  .user-image{
+    margin: 10px;
+  }
+  .user-info{
+    text-align: left;
+  }
 }
 
 .highlights p {

@@ -1,0 +1,38 @@
+.map-header{
+  width: 100vw;
+  height: 280px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: saturate(25%);
+}
+
+.user-header{
+  width: 250px;
+  height: 250px;
+  border-radius: 100%;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.simple-info-card{
+  position: relative;
+  border-radius: 3px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  width: 80%;
+  height: 220px;
+  background-color: white;
+  margin: -105px auto 0 auto;
+  z-index: 10;
+  text-align: center;
+  margin-bottom: 10px;
+  .smaller-font{
+    font-size: 70%;
+  }
+}
+
+.user-info-card{
+    margin: -60px auto 5px auto;
+}
+

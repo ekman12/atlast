@@ -1,49 +1,57 @@
 <div class="wrapper-light-grey">
   <div class="card-container container">
   <div class="header">
-    <div clas="user-core">
+    <div class="user-core">
       <div >
         <%#= image_tag(@user.picture, class: "avatar-bordered")  %>
       </div>
       <p> <h3> <%= "#{@user.first_name} #{@user.last_name}"  %> </h3>
-      <small><%= @user.username %></small></p>
     </div>
     <div>
-      <% if @user == current_user %>
-        <%= link_to(users_path(@user)) do  %>
-          <% if @user.following.records == [] %>
-            <div class="btn btn-ghost btn-ghost-white">Add new friends </div>
+      <small><p>
+        <% if current_user != @user  %>
+          <% if current_user.following.include? @user %>
+            <%= link_to(user_user_relationship_path(@user), method: :delete) do  %>
+              Unfollow
+            <% end %>
           <% else %>
-            <div class="btn btn-ghost btn-ghost-white">View my friends </div>
+            <%= link_to(user_user_relationships_path(@user), method: :post) do  %>
+              Follow
+            <% end %>
+          <% end %>
+          <% else %>
+          <%= link_to(destroy_user_session_path, method: :delete) do  %>
+            Signout
           <% end %>
         <% end %>
-      <% else %>
-        <% if current_user.following.include? @user %>
-          <%= link_to(user_user_relationship_path(@user), method: :delete) do  %>
-          <div class="btn btn-ghost btn-ghost-white">Unfollow </div>
-          <% end %>
-        <% else %>
-          <%= link_to(user_user_relationships_path(@user), method: :post) do  %>
-          <div class="btn btn-ghost btn-ghost-white">Follow </div>
-          <% end %>
+ |
+        <%= link_to( user_wishlist_items_path(@user)) do  %>
+           Wishlist
         <% end %>
-      <% end %>
-      <%= link_to( user_wishlist_items_path(@user)) do  %>
-         <div class="btn btn-ghost btn-ghost-white">View Wishlist </div>
-      <% end %>
+      </p></small>
 
 <!-- View wishlist -->
 
     <div class="highlights user-highlights">
+
       <% if @user == current_user %>
-        <p> You visited
-        <%= pluralize @user.places.count, "place" %> <br>
-        You are following <%= pluralize @user.following.count, "friend" %> </p>
-      <% else %>
-        <p> Has visited
-        <%= pluralize @user.places.count, "place" %> <br>
-        Is following <%= pluralize @user.following.count, "friend" %> </p>
+        <%= link_to(edit_user_registration_path) do  %>
+          <div class="user-image">
+            <img src="<%= cl_image_path(@user.photo) %>" alt="" class="avatar-large">
+          </div>
+        <% end %>
       <% end %>
+      <div class="user-info">
+        <% if @user == current_user %>
+          <p> You visited
+          <%= pluralize @user.places.count, "place" %> <br>
+          You are following <%= pluralize @user.following.count, "friend" %> </p>
+        <% else %>
+          <p> Has visited
+          <%= pluralize @user.places.count, "place" %> <br>
+          Is following <%= pluralize @user.following.count, "friend" %> </p>
+        <% end %>
+      </div>
   </div>
 
     <div class="row row-margin">
