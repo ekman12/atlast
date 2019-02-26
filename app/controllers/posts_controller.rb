@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   def index
     redirect_to places_path if (params["commit"] == "Search")
     @posts = current_user.post_feed
@@ -106,8 +105,6 @@ class PostsController < ApplicationController
     @places = @tag_results.flatten & current_user.place_feed
     # Behaves weirdly for cafe tag
   end
-
-
 
   # def post_params
   #   params.require(:post).permit(:photo, :note, :place, :tags)
