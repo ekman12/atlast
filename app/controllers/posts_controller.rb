@@ -46,7 +46,6 @@ class PostsController < ApplicationController
     @tag_ids = Tag.all.ids
     place = Place.find_by(address: params["post"][:place])
     place = create_place(params["post"][:place]) if place.nil?
-
     @post = Post.new(
       photo: params["post"][:photo],
       note: params["post"][:note],
@@ -73,9 +72,12 @@ class PostsController < ApplicationController
     name = clean_array[0]
     # address = clean_array[1]
     address = params
+    google_place_id = Geocoder.search(params).first.data["place_id"]
     city = clean_array[-2]
     country = clean_array[-1]
-    place = Place.create(name: name, address: address, city: city, country: country)
+    place = Place.new(name: name, address: address, city: city, country: country, google_place_id: google_place_id)
+    place.save
+    return place
   end
 
   private
