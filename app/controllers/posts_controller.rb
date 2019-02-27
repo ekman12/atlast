@@ -3,20 +3,13 @@ class PostsController < ApplicationController
     redirect_to places_path if (params["commit"] == "Search")
     @posts = current_user.post_feed
     define_tags
-    # @places = []
-    # @posts = current_user.post_feed
-    # @posts.each do |post|
-    #   @places << post.place
-    # end
-    # @places
     @places = current_user.place_feed
     place_search if params[:query].present?
 
-    @searched_tags = []
-    Tag.ids.each do |id|
-      @searched_tags << id if params[id.to_s].present?
+    if params[:tags].present?
+      @searched_tags = params[:tags].keys
+      multiple_tag_search
     end
-    multiple_tag_search unless @searched_tags.empty?
 
     @filtered_places = []
     # raise
@@ -43,7 +36,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @tag_ids = Tag.all.ids
+    create_post_tags if params[:tags].present?
+    # @tag_ids = Tag.all.ids
     place = Place.find_by(address: params["post"][:place])
     place = create_place(params["post"][:place]) if place.nil?
     @post = Post.new(
@@ -70,7 +64,6 @@ class PostsController < ApplicationController
     splited = params.split(",")
     clean_array = splited.collect{|x| x.strip || x }
     name = clean_array[0]
-    # address = clean_array[1]
     address = params
     city = clean_array[-2]
     country = clean_array[-1]
@@ -97,26 +90,22 @@ class PostsController < ApplicationController
   end
 
   def multiple_tag_search
-    @tag_results = Place.search_by_tag_id(@searched_tags.first)
-    @searched_tags.each do |id|
-      # on the first search there is no change as defined before loop
-      # on the second search it gets narrower etc.
-      @tag_results = @tag_results & Place.search_by_tag_id(id)
+    @tag_posts = Post.search_by_tag_name(@searched_tags.first)
+    @searched_tags.each do |tagname|
+      @tag_posts = @tag_posts & Post.search_by_tag_name(tagname)
     end
-    @places = @tag_results.flatten & current_user.place_feed
-    # Behaves weirdly for cafe tag
+    @tag_posts = @tag_posts & current_user.post_feed
+    @places = @tag_posts.map(&:place)
   end
-
   # def post_params
   #   params.require(:post).permit(:photo, :note, :place, :tags)
   # end
 
   def create_post_tags
-    @tag_ids = @tag_ids - [""]
-    @post_tags = []
-    # raise
-    @tag_ids.each do |tag|
-      PostTag.create(tag_id: tag.to_i, post: @post) unless params[tag.to_s].nil?
+    params[:tags].keys.each do |tagname|
+      tag = Tag.find_by(name: tagname)
+      PostTag.create(tag: tag, post: @post)
     end
+    # raise
   end
 end
