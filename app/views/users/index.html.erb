@@ -1,6 +1,5 @@
-
-<div class="wrapper-light-grey">
-  <div class="card-container container">
+<div class="container">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
     <div class="row">
       <% if current_user.following.records == []  %>
          <h3><strong>Start by adding friends</strong></h3>
@@ -10,7 +9,7 @@
         <%= text_field_tag :query,
         params[:query],
         class: "form-control",
-        placeholder: "Search by: Username, First or Last Name"
+        placeholder: "Searc: Username, First or Last Name"
         %>
       <% end %>
 

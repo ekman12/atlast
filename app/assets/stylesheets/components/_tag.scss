@@ -6,6 +6,7 @@
   padding:0;
   list-style:none;
 }
+
 .tags-place {
   position:relative;
   right:0px;
@@ -17,7 +18,8 @@
   height:24px;
   line-height:24px;
   position:relative;
-  font-size:9px;
+  // font-size:9px;
+  font-size:0.9em;
 }
 .li-place-tag {
    margin-bottom: 12px;
@@ -26,7 +28,7 @@
 .tags a{
   margin-left:15px;
   padding:0 5px 0 12px;
-  background:#0089e0a8;
+  background:#df367c;
   color:#fff;
   text-decoration:none;
   -moz-border-radius-bottomright:4px;
@@ -45,7 +47,7 @@
   left:-12px;
   width:0;
   height:0;
-  border-color:transparent #0089e0a8 transparent transparent;
+  border-color:transparent #df367c transparent transparent;
   border-style:solid;
   border-width:12px 12px 12px 0;
 }
