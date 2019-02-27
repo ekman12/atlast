@@ -4,7 +4,7 @@ import { autocomplete } from '../components/autocomplete';
 const mapElement = document.getElementById('map');
 
 if (mapElement) { // don't try to build a map if there's no div#map to inject in
-  const map = new GMaps({ el: '#map', lat: 0, lng: 0, disableDefaultUI: true });
+  const map = new GMaps({ el: '#map', lat: -8.65410, lng: 115.13065, disableDefaultUI: true });
   google.maps.event.trigger(map);
   const markers = JSON.parse(mapElement.dataset.markers);
 
@@ -32,7 +32,7 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
         };
 
         map.setCenter(user_pos.lat, user_pos.lng);
-        map.setZoom(15);
+        map.setZoom(13);
       })
     } else {
       if (markers.length === 0) {
