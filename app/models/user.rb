@@ -26,7 +26,8 @@ class User < ApplicationRecord
                     tsearch: { prefix: true }
                   }
 
-  after_create :set_default_avatar
+
+  before_create :set_default_avatar
   after_create :follow_themselves
 
   def follow_themselves
@@ -34,9 +35,10 @@ class User < ApplicationRecord
   end
 
   def set_default_avatar
-    url = "https://www.qualiscare.com/wp-content/uploads/2017/08/default-user.png"
-    self.remote_photo_url = url
-    self.save
+    if self.photo.blank?
+      url = "https://www.qualiscare.com/wp-content/uploads/2017/08/default-user.png"
+      self.remote_photo_url = url
+    end
   end
 
   # Feeds from followers
