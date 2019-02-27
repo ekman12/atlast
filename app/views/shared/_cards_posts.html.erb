@@ -4,7 +4,7 @@
 
     <%= link_to place_path(post.place) do %>
 
-      <div class="card-top" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url(<%= cl_image_path(post.photo) %>);">
+      <div class="card-top" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url(<%= cl_image_path(post.photo.url(:standard)) %>);">
       </div>
     <% end %>
 
@@ -15,7 +15,7 @@
       </div>
       <%= render 'shared/wishlist_link', place: post.place %>
       <div >
-       <%= link_to image_tag(cl_image_path(post.user.photo), class: "avatar-bordered"), user_path(post.user) %>
+       <%= link_to image_tag(cl_image_path(post.user.photo.url(:bright_face)), class: "avatar-bordered"), user_path(post.user) %>
       </div>
       <div class="note">
         <% if !post.note.empty? %>
