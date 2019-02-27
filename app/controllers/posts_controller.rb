@@ -43,7 +43,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @tag_ids = Tag.all.ids
+    create_post_tags if params[:tags].present?
+    # @tag_ids = Tag.all.ids
     place = Place.find_by(address: params["post"][:place])
     place = create_place(params["post"][:place]) if place.nil?
     @post = Post.new(
@@ -112,11 +113,10 @@ class PostsController < ApplicationController
   # end
 
   def create_post_tags
-    @tag_ids = @tag_ids - [""]
-    @post_tags = []
-    # raise
-    @tag_ids.each do |tag|
-      PostTag.create(tag_id: tag.to_i, post: @post) unless params[tag.to_s].nil?
+    params[:tags].keys.each do |tagname|
+      tag = Tag.find_by(name: tagname)
+      PostTag.create(tag: tag, post: @post)
     end
+    # raise
   end
 end
