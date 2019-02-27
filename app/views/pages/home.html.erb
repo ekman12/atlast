@@ -1,2 +1,26 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- <div class="wrapper-light-grey"> -->
+  <div id="home-page" class="parallax container">
+    <div class="row">
+      <div class="home-container">
+        <div>
+          <h1>ATLAS<span class="brand-pink">T</span></h1>
+          <h4 class="brand-pink">SHARE PLACES WITH FRIENDS</h4>
+        </div>
+        <div>
+          <h4 class="brand-white description font-light">
+          You would trust your friend’s recommendation more than an online review. Get recommendations on cool spots from friend’s instantly
+          </h4>
+        </p>
+        </div>
+        <div class="buttons">
+          <%= link_to new_user_registration_path do %>
+            <div class="btn-pink">Sign Up</div>
+          <% end %>
+          <%= link_to new_user_session_path do %>
+            <div class="btn-pink">Log In</div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->

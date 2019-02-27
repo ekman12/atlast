@@ -3,11 +3,24 @@
   <div class="card">
 
     <%= link_to place_path(post.place) do %>
-      <div class="card-top" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url(<%= post.photo %>);">
+
+      <div class="card-top" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url(<%= cl_image_path(post.photo) %>);">
       </div>
     <% end %>
 
-    <div class="card-bottom-post">
+    <div class="card-bottom card-bottom-post">
+      <div class="friends-card-bottom">
+        <p> <strong> <%= post.user.first_name  %> </strong> visited  <strong><%= post.place.name %></strong>
+      <small>in <%= post.place.neighbourhood %> </small> </p>
+      </div>
+      <%= render 'shared/wishlist_link', place: post.place %>
+      <div >
+       <%= link_to image_tag(cl_image_path(post.user.photo), class: "avatar-bordered"), user_path(post.user) %>
+      </div>
+      <div class="note">
+        <% if !post.note.empty? %>
+          <p><i><%= post.note %></i></p>
+        <% end %>
       <div class="tags-card-bottom">
           <ul class="tags">
             <% if post.tags.records == [] %>
@@ -19,23 +32,6 @@
             <% end %>
           </ul>
       </div>
-      <div class="friends-card-bottom">
-        <p> <strong> <%= post.user.first_name  %> </strong> visited  <strong><%= post.place.name %></strong>
-      <small>in <%= post.place.neighbourhood %> </small> </p>
-      </div>
-      <div class="wishlist-link">
-        <%# wishlistclass = "wishlist-heart-clicked" if WishlistItem.where(place_id: place.id, user_id: current_user.id).any? %>
-        <%#= link_to(place_wishlist_items_path(place.id), method: :post, remote: true) do %>
-          <i class="fa fa-heart wishlist-heart <%#= wishlistclass %>" data-place-id="<%#= place.id %>"></i>
-        <%# end %>
-      </div>
-      <div >
-       <%= link_to image_tag(post.user.picture, class: "avatar-bordered"), user_path(post.user) %>
-      </div>
-      <div class="note">
-        <% if !post.note.empty? %>
-          <p><i>"<%= post.note.slice(0,50) %>..."</i></p>
-        <% end %>
       </div>
     </div>
   </div>

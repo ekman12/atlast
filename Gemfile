@@ -34,3 +34,6 @@ end
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'material_icons'
 gem 'geocoder'
+gem 'pg_search'
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'

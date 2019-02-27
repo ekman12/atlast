@@ -1,14 +1,11 @@
 .wrapper-light-grey {
   background-color: rgb(240,240,240);
-  padding: 10px;
   display: flex;
 }
 
 .card-container {
+  margin: 0 auto;
   width: 400px;
-  margin: 50px auto;
-  display: flex;
-  flex-direction: column;
 }
 
 .cards {
@@ -33,35 +30,34 @@
 
 .wishlist-link {
   position: absolute;
-  right: 30px;
+  right: 35px;
   top: 10px;
   width: 20px;
   opacity: 1;
+  font-size: 25px;
 }
 .card-bottom-place {
   display: flex;
-  align-items: top;
   justify-content: space-between;
-  padding: 0px 15px;
+}
+
+.card-bottom {
+  padding: 0px 15px 34px;
   margin-top: 10px;
-  height: 75px;
 }
 
 .card-bottom-post {
-  display: flex;
   flex-direction: column;
   align-items: top;
   justify-content: flex-start;
-  padding: 0px 15px;
-  margin-top: 10px;
-  height: 75px;
 }
 
 .card-bottom-post p {
   color: rgba(0,0,0,0.4);
   font-weight: lighter;
   font-size: 12px;
-  line-height: 0.8;
+  line-height: 1.3;
+  text-align: justify;
 }
 
 .card-bottom-place p {

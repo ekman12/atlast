@@ -1,35 +1,48 @@
-<h1>Users you follow</h1>
 
-<div class="container">
-  <div class="row">
-    <% @followings.each do |following| %>
-      <%= link_to(user_path(following.id)) do %>
-        <div>
-        <img class="img-circle" src="<%= following.picture %>" alt="">
-        <%= following.first_name %>
-        <%= following.last_name %>
-        </div>
+<div class="wrapper-light-grey">
+  <div class="card-container container">
+    <div class="row">
+      <% if current_user.following.records == []  %>
+         <h3><strong>Start by adding friends</strong></h3>
       <% end %>
-    <% end %>
-  </div>
-</div>
+
+      <%= form_tag users_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search by: Username, First or Last Name"
+        %>
+      <% end %>
 
 
-<h1>All Other Users</h1>
-
-<div class="container">
-  <div class="row">
-    <% @nonfollowings.each do |user| %>
-      <%= link_to(user_path(user.id)) do %>
-        <div>
-        <img class="img-circle" src="<%= user.picture %>" alt="">
-        <%= user.first_name %>
-        <%= user.last_name %>
-        <%= link_to(user_user_relationships_path(user), method: :post) do %>
-          <div>click here to follow a user</div>
+      <h3>Users you follow</h3>
+      <% @followings.each do |following| %>
+        <%= link_to user_path(following.id) do %>
+          <div data-user-id=<%=following.id%> class="user-card">
+            <%= link_to cl_image_tag(following.photo, class: "avatar-friends-list"), user_path(following.id) %>
+            <div class="user-card-content">
+              <p><%= following.first_name %> <%= following.last_name %></p>
+            </div>
+          </div>
         <% end %>
-        </div>
       <% end %>
-    <% end %>
+
+      <h3>All Other Users</h3>
+      <% @nonfollowings.each do |user|  %>
+        <% if !(user.id == current_user.id) %>
+          <div data-user-id=<%=user.id%> class="user-card">
+            <%= link_to cl_image_tag(user.photo, class: "avatar-friends-list"), user_path(user.id) %>
+            <div class="user-card-content">
+              <p><%= user.first_name %> <%= user.last_name %></p>
+            </div>
+            <div class="user-card-actions">
+              <%= link_to(user_user_relationships_path(user), method: :post, remote: true ) do  %>
+                <div id="user-follow-button" class="btn btn-ghost btn-ghost-black">Follow </div>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+    </div>
   </div>
 </div>

@@ -1,12 +1,67 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<ul>
-  <li><img src="<%= @user.picture %>" alt=""></li>
-  <li><%= @user.email %></li>
-  <li><%= @user.first_name %></li>
-  <li><%= @user.last_name %></li>
-  <li><%= @user.username %></li>
-</ul>
+<div class="wrapper-light-grey">
+  <div class="card-container container">
+  <div class="header">
+    <div class="user-core">
+      <p> <h3> <%= "#{@user.first_name} #{@user.last_name}"  %> </h3>
+    </div>
+    <div>
+      <small><p>
+        <% if current_user != @user  %>
+          <% if current_user.following.include? @user %>
+            <%= link_to(user_user_relationship_path(@user), method: :delete) do  %>
+              Unfollow
+            <% end %>
+          <% else %>
+            <%= link_to(user_user_relationships_path(@user), method: :post) do  %>
+              Follow
+            <% end %>
+          <% end %>
+          <% else %>
+          <%= link_to(destroy_user_session_path, method: :delete) do  %>
+            Signout
+          <% end %>
+        <% end %>
+ |
+        <%= link_to( user_wishlist_items_path(@user)) do  %>
+           Wishlist
+        <% end %>
+      </p></small>
+
+<!-- View wishlist -->
+
+    <div class="highlights user-highlights">
+
+      <% if @user == current_user %>
+        <%= link_to(edit_user_registration_path) do  %>
+          <div class="user-image">
+            <img src="<%= cl_image_path(@user.photo) %>" alt="" class="avatar-large">
+          </div>
+        <% end %>
+      <% end %>
+      <div class="user-info">
+        <% if @user == current_user %>
+          <p> You visited
+          <%= pluralize @user.places.count, "place" %> <br>
+          You are following <%= pluralize @user.following.count, "friend" %> </p>
+        <% else %>
+          <p> Has visited
+          <%= pluralize @user.places.count, "place" %> <br>
+          Is following <%= pluralize @user.following.count, "friend" %> </p>
+        <% end %>
+      </div>
+  </div>
+
+    <div class="row row-margin">
+      <div class="cards">
+        <% @posts.each do |post| %>
+          <%= render 'shared/cards_posts', post: post %>
+        <% end %>
+      </div>
+    </div>
+
+    <%= render 'shared/map', markers: @post_markers %>
 
 
-<%= render 'user_relationships/new_follower' %>
+  </div>
+</div>
+

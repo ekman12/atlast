@@ -3,13 +3,16 @@
 * ------------------------------------- */
 
 .alert {
-  margin: 0;
+  margin: 10px;
   text-align: center;
   color: white;
+  border: none;
 }
 .alert-info {
-  background: $green;
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 0, 0, 0.3);
 }
 .alert-warning {
-  background: $red;
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 0, 0, 0.3);
 }

@@ -1,16 +1,52 @@
-<h1>Add a post</h1>
+<div class="container">
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+      <div class="form_card">
+        <h1>Add a post</h1>
+        <%= simple_form_for @post do |f| %>
+          <%= f.input :place, label: false %>
+          <label class="add-photo-box">
+            Add a photo
+            <span style="display:none;"  id="photo-upload">
+              <%= f.input :photo, required: true, multiple: true, name: 'picture' %>
+            </span>
+          </label>
 
-<%= simple_form_for @post do |f| %>
-  <%= f.input :place %>
-  <%= f.input :photo %>
-  <%= f.input :note %>
-  <%= f.association :tags, collection: @venue_tags, prompt: "Select Tags", label: "Venue", as: :check_boxes %>
-  <%= f.association :tags, collection: @meal_tags, prompt: "Select Tags", label: "Meal", as: :check_boxes %>
-  <%= f.association :tags, collection: @food_tags, prompt: "Select Tags", label: "Food", as: :check_boxes %>
-  <%= f.association :tags, collection: @vibe_tags, prompt: "Select Tags", label: "Vibe", as: :check_boxes %>
-  <%= f.submit "Add Post", class: "btn btn-primary" %>
-<% end %>
+            <img src="" class="hidden post-photo-preview">
 
-<!--
-I want to be able to select multiple tags for
- -->
+
+
+
+
+          <%= f.input :note, label: false, placeholder: "Add a note" %>
+
+
+          <div class="row">
+            <p>What sort of place was it?</p>
+            <%= render 'shared/tag_section', tags: @venue_tags, tag_collection: {} %>
+          </div>
+          <div class="row">
+            <p>What is it good to have there?</p>
+            <%= render 'shared/tag_section', tags: @meal_tags, tag_collection: {} %>
+          </div>
+          <div class="row">
+            <p>What sort of food is it there?</p>
+            <%= render 'shared/tag_section', tags: @food_tags, tag_collection: {} %>
+          </div>
+          <div class="row">
+            <p>What was the vibe of the place?</p>
+            <%= render 'shared/tag_section', tags: @vibe_tags, tag_collection: {} %>
+          </div>
+          <div class="row">
+            <p>What is it good for?</p>
+            <%= render 'shared/tag_section', tags: @good_for_tags, tag_collection: {} %>
+          </div>
+          <%= f.submit "Add Post", class: "btn-pink" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <%= render 'shared/map', markers: @post_markers %>
+
