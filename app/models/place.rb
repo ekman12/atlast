@@ -1,6 +1,5 @@
 require 'json'
 require 'open-uri'
-require 'pry-byebug'
 class Place < ApplicationRecord
   include PgSearch
 
@@ -64,7 +63,6 @@ class Place < ApplicationRecord
   url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=#{self.google_place_id}&fields=website&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
   user_serialized = open(url).read
   datas = JSON.parse(user_serialized)
-  # byebug
   self.website = datas["result"]["website"] unless datas["result"].nil?
   self.save
   end
