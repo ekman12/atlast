@@ -51,3 +51,10 @@ $border-radius-small: 2px;
 }
 
 // Override other variables below!
+html {
+  font-size: 2vh !important;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
