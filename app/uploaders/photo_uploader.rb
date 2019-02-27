@@ -3,6 +3,10 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   process eager: true
 
+  version :homepage do
+    cloudinary_transformation quality: 'auto', fetch_format: :auto
+  end
+
   version :standard do
     process resize_to_fill: [700, 700]
     cloudinary_transformation quality: 'auto', fetch_format: :auto
