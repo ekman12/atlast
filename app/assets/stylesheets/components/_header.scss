@@ -7,7 +7,8 @@
   text-align: center;
   color: white;
   h1{
-    font-size: 40px;
+    // font-size: 40px;
+    font-size: 2.5em;
     margin: 0px;
     margin-block-start: 0;
     margin-block-end: 0;
@@ -18,7 +19,8 @@
 }
 
 .smaller-font{
-  font-size: 70%;
+  // font-size: 70%;
+  font-size: 0.7em;
 }
 .highlights {
   display: flex;
@@ -40,7 +42,8 @@
   margin-top: 10px;
   color: rgba(0, 0, 0, 0.4);
   font-weight: lighter;
-  font-size: 12px;
+  // font-size: 12px;
+  font-size: 0.8em;
   line-height: 1.8;
 }
 
