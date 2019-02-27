@@ -11,8 +11,6 @@ class PostsController < ApplicationController
       multiple_tag_search
     end
 
-
-
     @filtered_places = []
     # raise
     @places.each { |p| @filtered_places << p if p.latitude && p.longitude }
