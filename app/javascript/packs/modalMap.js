@@ -4,8 +4,8 @@ const mapInModal = () => {
   let mapButton = document.querySelector(".map-button")
   if (mapButton){
       mapButton.addEventListener("click", function(){
-      map.style.width = "375px"
-      map.style.height = "815px"
+      map.style.width = "100vw"
+      map.style.height = "82.5vh"
   })
   }
 }

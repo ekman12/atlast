@@ -1,21 +1,23 @@
-
-<div class="map-modal modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div>
-    </div>
-
-      <button type="button" class="btn btn-default" data-dismiss="modal" style="
-        position: absolute;
-        top: 5px;
-        left: 13px;
-         z-index: 10;"
-         >X</button>
-
-      <div id="map" style="width: 100% !important; height: 815px !important; margin: auto; zoom={14}" data-markers="<%= markers.to_json %>">
+<div class="map-container">
+  <div class="map-modal modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div>
       </div>
-      <div class= "cards-on-map" style= >
+
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="
+          position: absolute;
+          top: 5px;
+          left: 13px;
+           z-index: 10;"
+           >X</button>
+
+        <div id="map" style="width: 100% !important; height: 815px !important; margin: auto; zoom={14}" data-markers="<%= markers.to_json %>">
+        </div>
+        <div class= "cards-on-map" style= >
+      </div>
     </div>
   </div>
+
 </div>
 
 
