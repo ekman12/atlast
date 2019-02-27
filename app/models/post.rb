@@ -8,4 +8,8 @@ class Post < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   include PgSearch
   pg_search_scope :search_by_tag_name, associated_against: { tags: :name }
+
+  validates_presence_of :photo
+
+
 end
