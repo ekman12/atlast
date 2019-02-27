@@ -26,7 +26,13 @@ class User < ApplicationRecord
                     tsearch: { prefix: true }
                   }
 
+
   before_create :set_default_avatar
+  after_create :follow_themselves
+
+  def follow_themselves
+    UserRelationship.create(follower: self, followed: self)
+  end
 
   def set_default_avatar
     if self.photo.blank?
