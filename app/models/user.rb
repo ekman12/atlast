@@ -27,6 +27,11 @@ class User < ApplicationRecord
                   }
 
   after_create :set_default_avatar
+  after_create :follow_themselves
+
+  def follow_themselves
+    UserRelationship.create(follower: self, followed: self)
+  end
 
   def set_default_avatar
     url = "https://www.qualiscare.com/wp-content/uploads/2017/08/default-user.png"
