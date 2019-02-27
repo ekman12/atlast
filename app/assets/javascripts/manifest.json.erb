@@ -1,8 +1,8 @@
 <% icon_sizes = Rails.configuration.serviceworker.icon_sizes %>
 {
-  "name": "My Progressive Rails App",
-  "short_name": "Progressive",
-  "start_url": "/",
+  "name": "ATLAST",
+  "short_name": "ATLAST",
+  "start_url": "/posts",
   "icons": [
   <% icon_sizes.map { |s| "#{s}x#{s}" }.each.with_index do |dim, i| %>
     {
@@ -17,3 +17,4 @@
   "display": "fullscreen",
   "orientation": "portrait"
 }
+
