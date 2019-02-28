@@ -22,4 +22,5 @@ hideTags();
 import { initPhotoPreview } from './photoPreview';
 initPhotoPreview();
 
-
+import { postSubmitButton } from './submit-form-btn';
+postSubmitButton();
