@@ -18,20 +18,18 @@
 
 
 .simple-info-card{
-  position: relative;
-  border-radius: 3px;
+  border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.4);
-  width: 80%;
-  height: 220px;
+  width: 90%;
   background-color: white;
-  margin: -105px auto 0 auto;
   z-index: 10;
   text-align: center;
   margin-bottom: 10px;
-  .smaller-font{
-    // font-size: 70%;
-    font-size: 0.7em;
-  }
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  bottom: 60px;
 }
 
 .user-info-card{

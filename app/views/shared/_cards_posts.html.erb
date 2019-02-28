@@ -35,18 +35,18 @@
             <p><%=  post.note %></p>
           </div>
         <% end %>
+      </div>
+    <% if post.tags.records == [] %>
+        <p><i><%=  "No tags " %></i></p>
+            <% else %>
       <div class="tags-card-bottom">
           <ul class="tags">
-            <% if post.tags.records == [] %>
-              <p><i><%=  "No tags " %></i></p>
-            <% else %>
               <% post.tags.first(3).each do |tag| %>
               <li><a> <%= tag.name %></a></li>
               <% end %>
-            <% end %>
           </ul>
       </div>
-      </div>
+            <% end %>
     </div>
   </div>
 </div>
