@@ -1,0 +1,42 @@
+<%= form_tag places_path, method: :get do %>
+  <div class="search-area">
+    <div class="search-field">
+      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Try \"Frank's\"" %>
+    </div>
+    <div id="show-filters" class="search-filters grey-filter">
+      <i class="fas fa-filter"></i>
+    </div>
+  </div>
+    <div class="all-places">
+      <% if !params["tags"].nil? || !params["query"].nil? %>
+        <p><%= link_to "See all places", places_path %></p>
+      <% end %>
+    </div>
+  <div>
+    <div class="search-tags tag-filters hidden">
+      <div class="row">
+        <p>What kind of place do you want to go to?</p>
+        <%= render 'shared/tag_section', tags: @venue_tags, tag_collection: {} %>
+      </div>
+      <div class="row">
+        <p>What are you going to be doing?</p>
+        <%= render 'shared/tag_section', tags: @meal_tags, tag_collection: {} %>
+      </div>
+      <div class="row">
+        <p>What vibe do you want?</p>
+        <%= render 'shared/tag_section', tags: @vibe_tags, tag_collection: {} %>
+      </div>
+      <div class="row">
+        <p>Any food you fancy in particular?</p>
+        <%= render 'shared/tag_section', tags: @food_tags, tag_collection: {} %>
+      </div>
+      <div class="row">
+        <p>What is it good for?</p>
+        <%= render 'shared/tag_section', tags: @good_for_tags, tag_collection: {} %>
+      </div>
+      <div class="row">
+        <%= submit_tag "Search", class: "btn-pink"%>
+      </div>
+    </div>
+  </div>
+<% end %>
