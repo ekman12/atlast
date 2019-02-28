@@ -19,8 +19,9 @@ showTags();
 import { hideTags } from './hide_tags';
 hideTags();
 
-import { initPhotoPreview } from './photoPreview';
+import { initPhotoPreview, checkForPhoto } from './photoPreview';
 initPhotoPreview();
+checkForPhoto();
 
-import { postSubmitButton } from './submit-form-btn';
-postSubmitButton();
+// import { postSubmitButton } from './submit-form-btn';
+// postSubmitButton();

@@ -17,6 +17,11 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+# client side validations
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form'
+gem 'jquery-rails'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

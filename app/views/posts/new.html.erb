@@ -3,12 +3,12 @@
     <div class="col-sm-6 col-sm-offset-3 text-center">
       <div class="form_card">
         <h1>Add a post</h1>
-        <%= simple_form_for @post do |f| %>
+        <%= simple_form_for @post, validate: true do |f| %>
           <%= f.input :place, label: false %>
           <label class="add-photo-box">
             Add a photo
             <span style="display:none;"  id="photo-upload">
-              <%= f.input :photo, required: true, multiple: true, name: 'picture' %>
+              <%= f.input :photo, required: true, multiple: true, :input_html => {:rows => 10} , name: 'picture' %>
             </span>
           </label>
 
@@ -41,7 +41,7 @@
             <p>What is it good for?</p>
             <%= render 'shared/tag_section', tags: @good_for_tags, tag_collection: {} %>
           </div>
-          <%= f.submit "Add Post", class: "btn-pink submit" %>
+          <%= f.submit "Add Post", class: "btn-pink submit", id: "post-entry" %>
         <% end %>
       </div>
     </div>
