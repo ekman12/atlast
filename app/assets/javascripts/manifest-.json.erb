@@ -1,22 +1,19 @@
 <% icon_sizes = Rails.configuration.serviceworker.icon_sizes %>
 {
-  "name": "ATLAST",
+  "name": "ATLAST - Share places with friends",
   "short_name": "ATLAST",
-  "theme_color": "#df367c",
-  "background_color": "#FFFFFF",
-  "display": "fullscreen",
-  "orientation": "portrait",
-  "Scope": "/",
-  "start_url": "/places",
+  "start_url": "/posts",
   "icons": [
   <% icon_sizes.map { |s| "#{s}x#{s}" }.each.with_index do |dim, i| %>
     {
-      "src": "<%= image_path "icons/icon-#{dim}.png" %>",
+      "src": "<%= image_path "serviceworker-rails/heart-#{dim}.png" %>",
       "sizes": "<%= dim %>",
       "type": "image/png"
     }<%= i == (icon_sizes.length - 1) ? '' : ',' %>
   <% end %>
   ],
-  "splash_pages": null
+  "theme_color": "#FFFFFF",
+  "background_color": "#df367c",
+  "display": "fullscreen",
+  "orientation": "portrait"
 }
-
