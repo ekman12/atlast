@@ -27,6 +27,14 @@ class PlacesController < ApplicationController
     @wishlist = WishlistItem.new
     @wishlist_check = WishlistItem.where(place_id: @place.id, user_id: current_user.id)
     tag_collection_new
+
+    @place_markers =
+      [{
+        lat: @place.latitude,
+        lng: @place.longitude,
+        infoWindow: {}
+      }]
+      # raise
   end
 
   private
