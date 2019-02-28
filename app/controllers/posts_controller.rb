@@ -46,12 +46,14 @@ class PostsController < ApplicationController
       place: place,
       user: current_user
     )
+
     if @post.save
+      create_post_tags
       redirect_to places_path
     else
+      define_tags
       render :new
     end
-    create_post_tags
   end
 
   def update
