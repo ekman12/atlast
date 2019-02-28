@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     redirect_to places_path if (params["commit"] == "Search")
-    @posts = current_user.post_feed
+    @posts = current_user.post_feed.order(created_at: :desc)
     define_tags
     @places = current_user.place_feed
     place_search if params[:query].present?
@@ -106,6 +106,6 @@ class PostsController < ApplicationController
       tag = Tag.find_by(name: tagname)
       PostTag.create(tag: tag, post: @post)
     end
-    # raise
   end
+
 end

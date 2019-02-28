@@ -19,7 +19,9 @@ showTags();
 import { hideTags } from './hide_tags';
 hideTags();
 
+import { showMore } from './show_more';
+showMore();
+
 import { initPhotoPreview } from './photoPreview';
 initPhotoPreview();
-
 
