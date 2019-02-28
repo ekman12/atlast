@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600|Open+Sans:300,400" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>ATLAST</title>
+    <%= favicon_link_tag 'icon-72x72.png' %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
-  <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="/manifest.json" />
+    <!-- <link rel="icon" href="/icons/icon-76x76.png" /> -->
 <meta name="apple-mobile-web-app-capable" content="yes"></head>
   <body>
     <div class="responsive-font-size">
@@ -28,3 +30,7 @@
       <%= javascript_pack_tag "map" %>
     </div>
 </html>
+
+
+
+
