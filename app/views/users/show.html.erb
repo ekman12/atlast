@@ -37,6 +37,10 @@
             <img src="<%= cl_image_path(@user.photo) %>" alt="" class="avatar-large">
           </div>
         <% end %>
+      <% else %>
+        <div class="user-image">
+          <img src="<%= cl_image_path(@user.photo) %>" alt="" class="avatar-large">
+        </div>
       <% end %>
       <div class="user-info">
         <% if @user == current_user %>

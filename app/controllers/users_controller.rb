@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = Post.where(user: @user)
+    # raise
     @post_markers = @posts.map do |post|
       {
         lat: post.place.latitude,
