@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600|Open+Sans:300,400" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>ATLAST</title>
     <%= favicon_link_tag 'icon-72x72.png' %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -11,7 +10,30 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
     <link rel="manifest" href="/manifest.json" />
     <!-- <link rel="icon" href="/icons/icon-76x76.png" /> -->
-<meta name="apple-mobile-web-app-capable" content="yes"></head>
+    <!-- HTML Meta Tags -->
+    <title>ATLAST - Share places with friends and discover their recommendations</title>
+    <meta name="description" content="ATLAST lets you discover places to visit based off friend's recommendations. You no longer have to rely on reviews from strangers when it comes to discovering new places. ">
+
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="ATLAST - Share places with friends and discover their recommendations">
+    <meta itemprop="description" content="ATLAST lets you discover places to visit based off friend's recommendations. You no longer have to rely on reviews from strangers when it comes to discovering new places. ">
+    <meta itemprop="image" content="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60.png">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://atlast.me">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ATLAST - Share places with friends and discover their recommendations">
+    <meta property="og:description" content="ATLAST lets you discover places to visit based off friend's recommendations. You no longer have to rely on reviews from strangers when it comes to discovering new places. ">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&h=630&q=60.png">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ATLAST - Share places with friends and discover their recommendations">
+    <meta name="twitter:description" content="ATLAST lets you discover places to visit based off friend's recommendations. You no longer have to rely on reviews from strangers when it comes to discovering new places. ">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60.png">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+  </head>
   <body>
     <div class="responsive-font-size">
       <%#= render 'shared/navbar' %>
