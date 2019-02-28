@@ -1,0 +1,32 @@
+.search-area{
+  width: 100%;
+  margin: 10px auto;
+  display: flex;
+  padding: 10px 20px 0 20px;
+
+  .search-field{
+    width: 100%
+  }
+  .search-filters{
+    width: 10px;
+    margin: 0 10px;
+  }
+  i{
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+
+.search-tags{
+  width: 400px;
+  margin: 10px auto;
+  padding: 0 25px;
+}
+
+.pink-filter{
+  color: #df367c;
+}
+
+.grey-filter{
+  color: rgba(0,0,0,0.4);
+}
