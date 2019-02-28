@@ -4,6 +4,8 @@
   display: flex;
   padding: 10px 20px 0 20px;
 
+
+
   .search-field{
     width: 100%
   }
@@ -15,6 +17,11 @@
     font-size: 30px;
     line-height: 40px;
   }
+}
+
+.all-places{
+  width: 100%;
+  text-align: center;
 }
 
 .search-tags{

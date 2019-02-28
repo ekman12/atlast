@@ -7,6 +7,11 @@
       <i class="fas fa-filter"></i>
     </div>
   </div>
+    <div class="all-places">
+      <% if !params["tags"].nil? || !params["query"].nil? %>
+        <p><%= link_to "See all places", places_path %></p>
+      <% end %>
+    </div>
   <div>
     <div class="search-tags tag-filters hidden">
       <div class="row">
