@@ -1,14 +1,12 @@
 <%#= render 'shared/wishlist_link', place: @place %>
-
   <div class="map-header" href="https://www.google.com/maps/place/<%= @place.latitude %>,<%= @place.longitude %>"
     style="
     background-image:url('https://maps.googleapis.com/maps/api/staticmap?center=<%= @place.name %>,<%= @place.address%>&zoom=13&size=370x300&maptype=roadmap&markers=color:blue%7Clabel:<%= @place.name[0] %>%7C<%= @place.latitude %>,<%= @place.longitude %>&key=<%= ENV['GOOGLE_API_SERVER_KEY'] %>">
   </div>
 
   <div class="simple-info-card">
-    <h3><%= @place.name %></h3>
-    <small><%= " #{@place.city} , #{@place.country} "%> <br>
-    <small><p><span class="smaller-font"><%= @place.address %></span><small></p>
+    <h3 class="header-place"><%= @place.name %></h3>
+    <%= " #{@place.neighbourhood} "%>
       <p>
         <a href="https://www.google.com/maps/place/<%= @place.latitude %>,<%= @place.longitude %>" target="_blank">
           Get Directions
@@ -29,11 +27,12 @@
     </div>
   </div>
 
-  <div class="container">
-    <% @posts.each do |post| %>
-      <%= render 'shared/cards_posts', post: post %>
-    <% end %>
-  </div>
+
+  <div class="container" style="margin-top:-50px">
+      <% @posts.each do |post| %>
+        <%= render 'shared/cards_posts', post: post %>
+      <% end %>
+    </div>
 
 <%= render 'shared/map', markers: @place_markers %>
 

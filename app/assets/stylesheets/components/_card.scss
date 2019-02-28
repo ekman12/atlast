@@ -42,7 +42,7 @@
 }
 
 .card-bottom {
-  padding: 0px 15px 34px;
+  padding: 0px 15px 10px;
   margin-top: 10px;
 }
 
@@ -50,6 +50,8 @@
   flex-direction: column;
   align-items: top;
   justify-content: flex-start;
+  display: flex;
+
 }
 
 .card-bottom-post p {
@@ -63,16 +65,19 @@
 }
 
 a.show-more-text {
-  color: rgba(0,0,0,0.6);
+  color: rgba(0,0,0,0.6) !important;
   font-size: 0.8em;
+  text-align: left !important;
 }
 
 .display-less {
   overflow: hidden;
   display: -webkit-box;
   text-overflow: ellipsis;
-  max-height: 48px;      /* fallback */
+  // max-height: 48px;
+  max-height: 2.7em;      /* fallback */
   -webkit-box-orient: vertical;
+  margin-bottom: 3px;
 }
 
 .card-bottom-place p {
@@ -82,3 +87,7 @@ a.show-more-text {
   // font-size: 12px;
   font-size: 1em;
 }
+
+.tags-card-bottom {
+  padding: 0px 0px 5px 0px;
+};
