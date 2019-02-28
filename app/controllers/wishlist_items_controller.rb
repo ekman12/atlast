@@ -1,9 +1,21 @@
 class WishlistItemsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @wishlists = current_user.wishlist_items
+    @wishlists = @user.wishlist_items
     @places = []
     @wishlists.each { |w| @places << w.place }
+
+     @wishlist_places = []
+     @places.each { |p| @wishlist_places << p if p.latitude && p.longitude }
+     @wishlist_markers = @wishlist_places.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude,
+        infoWindow: { content: render_to_string(partial: "infowindow", locals: { place: place }) }
+      }
+      # raise
+    end
+
   end
 
   def new
