@@ -20,7 +20,8 @@
             </a>
           <% end %>
       </p>
-    <p><%= pluralize (@place.users & current_user.following).count, "friend" %> have been here</p>
+    <p><%= pluralize (@place.posts.where(user_id: current_user.following)-@place.posts.where(user_id: current_user)).count, "friend" %> have been here</p>
+    <%# raise %>
     <div class="tags-card-bottom">
       <ul class="tags tags-place">
         <% @tag_collection.first(6).to_h.each do |name, count| %>
