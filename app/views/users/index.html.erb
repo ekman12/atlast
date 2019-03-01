@@ -4,14 +4,11 @@
       <% if current_user.following.records == []  %>
          <h3><strong>Start by adding friends</strong></h3>
       <% end %>
-
-      <%= form_tag users_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Searc: Username, First or Last Name"
-        %>
-      <% end %>
+      <div class="user-search">
+        <%= form_tag users_path, method: :get do %>
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search: First or Last Name" %>
+        <% end %>
+      </div>
 
 
       <h3>Users you follow</h3>
