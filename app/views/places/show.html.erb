@@ -2,10 +2,12 @@
   <div class="map-header" href="https://www.google.com/maps/place/<%= @place.latitude %>,<%= @place.longitude %>"
     style="
     background-image:url('https://maps.googleapis.com/maps/api/staticmap?center=<%= @place.name %>,<%= @place.address%>&zoom=13&size=370x300&maptype=roadmap&markers=color:blue%7Clabel:<%= @place.name[0] %>%7C<%= @place.latitude %>,<%= @place.longitude %>&key=<%= ENV['GOOGLE_API_SERVER_KEY'] %>">
+    <%= link_to :back do %>
+      <i class="fas fa-arrow-left"></i>
+    <% end %>
   </div>
 
   <div class="simple-info-card">
-    <%= link_to "Back", :back %>
     <h3 class="header-place"><%= @place.name %></h3>
     <%= " #{@place.neighbourhood} "%>
       <p>
