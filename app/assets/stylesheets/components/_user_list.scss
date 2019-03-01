@@ -1,14 +1,16 @@
-.user-search{
-  padding-top: 10px;
+
+
+.user-heading{
+  padding-left: 10px
 }
 
 .user-card {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
+  // margin-bottom: 8px;
   background: white;
   padding: 8px 16px;
-  border: 1px solid rgb(235,235,235);
+  // border: 1px solid rgb(235,235,235);
 }
 
 .user-card .user-card-content {
