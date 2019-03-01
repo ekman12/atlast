@@ -9,7 +9,7 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
   const map = new GMaps({ el: '#map', lat: -8.65410, lng: 115.13065, disableDefaultUI: true });
   google.maps.event.trigger(map);
   const markers = JSON.parse(mapElement.dataset.markers);
-  const iconBase = 'http://maps.google.com/mapfiles/ms/icons/pink-dot.png'
+  const iconBase = 'https://maps.google.com/mapfiles/ms/icons/pink-dot.png'
 
 
   if (markers) {
@@ -55,5 +55,3 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
 
   autocomplete();
 }
-
-// console.log('map test')
