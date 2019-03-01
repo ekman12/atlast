@@ -24,7 +24,7 @@
 
 
 .simple-info-card{
-  border-radius: 10px;
+  border-radius: 4px;
   box-shadow: 0 0 15px rgba(0,0,0,0.4);
   width: 90%;
   background-color: white;
@@ -35,9 +35,17 @@
   display: flex;
   flex-flow: column;
   position: relative;
-  bottom: 60px;
+  bottom: 75px;
+}
+
+.simple-info-card p {
+ font-size: 0.9em;
 }
 
 .user-info-card{
     margin: -60px auto 5px auto;
+}
+
+.place-alignement {
+ margin-top: -60px;
 }
