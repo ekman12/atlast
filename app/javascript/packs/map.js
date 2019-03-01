@@ -1,5 +1,7 @@
 import GMaps from 'gmaps/gmaps.js';
 import { autocomplete } from '../components/autocomplete';
+// import imgUrl from 'images/icon-72x72.png';
+
 
 const mapElement = document.getElementById('map');
 
@@ -7,12 +9,15 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
   const map = new GMaps({ el: '#map', lat: -8.65410, lng: 115.13065, disableDefaultUI: true });
   google.maps.event.trigger(map);
   const markers = JSON.parse(mapElement.dataset.markers);
+  const iconBase = 'http://maps.google.com/mapfiles/ms/icons/pink-dot.png'
+
 
   if (markers) {
     const markersArr = markers.map(marker => {
       return {
         lat: marker["lat"],
         lng: marker["lng"],
+        icon: iconBase,
         infoWindow: {
           content: marker["infoWindow"]["content"]
         }
