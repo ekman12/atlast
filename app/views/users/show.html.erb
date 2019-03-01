@@ -43,15 +43,15 @@
         </div>
       <% end %>
       <div class="user-info">
-        <% if @user == current_user %>
-          <p> You visited
-          <%= pluralize @user.places.count, "place" %> <br>
-          You are following <%= pluralize @user.following.count, "friend" %> </p>
-        <% else %>
-          <p> Has visited
-          <%= pluralize @user.places.count, "place" %> <br>
-          Is following <%= pluralize @user.following.count, "friend" %> </p>
-        <% end %>
+        <div>
+          <%= @user.following.count %><br> following
+        </div>
+        <div>
+          <%= @user.followers.count %><br> followers
+        </div>
+        <div>
+          <%= @user.places.count %><br> places
+        </div>
       </div>
   </div>
 
