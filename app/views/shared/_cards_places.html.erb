@@ -34,10 +34,12 @@
         <%= render 'shared/wishlist_link', place: place %>
         <div class="friends-card-bottom">
           <p>
-          <%= "You" if place.posts.where(user_id: current_user).count == 1 %>
-          <%= "and" if (place.posts.where(user_id: current_user).count == 1) && ((place.posts.where(user_id: current_user.following).count) >=2)  %>
-          <%= pluralize (place.posts.where(user_id: current_user.following)-place.posts.where(user_id: current_user)).count, "friend" %> visited
-          <%# raise %>
+            <%= "You" if place.posts.where(user_id: current_user).count == 1 %>
+            <%= "and" if (place.posts.where(user_id: current_user).count == 1) && ((place.posts.where(user_id: current_user.following).count) >=2)  %>
+            <% unless ((place.posts.where(user_id: current_user.following)-place.posts.where(user_id: current_user)).count == 0) %>
+            <%= pluralize (place.posts.where(user_id: current_user.following)-place.posts.where(user_id: current_user)).count, "friend" %>
+            <% end %>
+            visited
         </div>
       </div>
       <div class="tags-card-bottom">
