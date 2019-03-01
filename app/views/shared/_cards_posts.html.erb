@@ -1,6 +1,6 @@
 <!-- Card structure -->
 
-<div class="col-xs-12">
+<!-- <div class="col-xs-12"> -->
   <div class="card">
 
     <%= link_to place_path(post.place) do %>
@@ -23,9 +23,9 @@
       <%= render 'shared/wishlist_link', place: post.place %>
       <div >
         <%# raise %>
-        <%# if current_user == !post.user %>
+        <% if !(current_user == post.user) %>
           <%= link_to image_tag(cl_image_path(post.user.photo.url(:bright_face)), class: "avatar-bordered"), user_path(post.user) %>
-        <%# end %>
+        <% end %>
       </div>
       <div class="note">
         <% if !post.note.empty? %>
@@ -36,9 +36,7 @@
           </div>
         <% end %>
       </div>
-    <% if post.tags.records == [] %>
-        <p><i><%=  "No tags " %></i></p>
-            <% else %>
+    <% if !(post.tags.records == []) %>
       <div class="tags-card-bottom">
           <ul class="tags">
               <% post.tags.first(3).each do |tag| %>
@@ -49,6 +47,6 @@
             <% end %>
     </div>
   </div>
-</div>
+<!-- </div> -->
 
 
