@@ -6,73 +6,77 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-PLACE_PHOTOS = [
-"https://images.unsplash.com/photo-1521017432531-fbd92d768814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60.png",
-"https://images.unsplash.com/photo-1521017432531-fbd92d768814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60.png",
-"https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60.png",
-"https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60.png",
-"https://images.unsplash.com/photo-1525610553991-2bede1a236e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60.png",
-"https://images.unsplash.com/photo-1428515613728-6b4607e44363?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60.png",
-"https://images.unsplash.com/photo-1515668236457-83c3b8764839?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60.png",
-"https://images.unsplash.com/photo-1498654896293-37aacf113fd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60.png",
-"https://images.unsplash.com/photo-1491960693564-421771d727d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60.png",
-"https://images.unsplash.com/photo-1531973968078-9bb02785f13d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png",
-"https://images.unsplash.com/photo-1517638851339-a711cfcf3279?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png",
-"https://images.unsplash.com/photo-1528605248644-14dd04022da1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png",
-"https://images.unsplash.com/photo-1506833345857-935a8275b07a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png",
-"https://images.unsplash.com/photo-1468072114808-903e572b8ead?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png",
-"https://images.unsplash.com/photo-1416453072034-c8dbfa2856b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png",
-"https://images.unsplash.com/photo-1483965907773-04d18dd757c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png",
-"https://images.unsplash.com/photo-1485182708500-e8f1f318ba72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png",
-"https://images.unsplash.com/photo-1515215316771-2742baa337f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png"
+# PLACE_PHOTOS = [
+# "https://images.unsplash.com/photo-1521017432531-fbd92d768814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60.png",
+# "https://images.unsplash.com/photo-1521017432531-fbd92d768814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60.png",
+# "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60.png",
+# "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60.png",
+# "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60.png",
+# "https://images.unsplash.com/photo-1428515613728-6b4607e44363?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60.png",
+# "https://images.unsplash.com/photo-1515668236457-83c3b8764839?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60.png",
+# "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60.png",
+# "https://images.unsplash.com/photo-1491960693564-421771d727d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60.png",
+# "https://images.unsplash.com/photo-1531973968078-9bb02785f13d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png",
+# "https://images.unsplash.com/photo-1517638851339-a711cfcf3279?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png",
+# "https://images.unsplash.com/photo-1528605248644-14dd04022da1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png",
+# "https://images.unsplash.com/photo-1506833345857-935a8275b07a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png",
+# "https://images.unsplash.com/photo-1468072114808-903e572b8ead?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png",
+# "https://images.unsplash.com/photo-1416453072034-c8dbfa2856b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png",
+# "https://images.unsplash.com/photo-1483965907773-04d18dd757c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png",
+# "https://images.unsplash.com/photo-1485182708500-e8f1f318ba72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png",
+# "https://images.unsplash.com/photo-1515215316771-2742baa337f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png"
+# ]
+
+# PLACE_NAMES = [
+#   "Potato Head Beach Club Bali",
+#   "Crate Cafe",
+#   "Milk & Madu Cafe",
+#   "Nude Canggu Cafe",
+#   "The Loft Canggu",
+#   "Machinery Cafe Bali (MCB)",
+#   "Debbie Does Salad",
+#   "Peloton Supershop",
+#   "Bottega Italiana Canggu",
+#   "Coffee & Coconuts",
+#   "MOTION Cafe"
+# ]
+
+# PLACE_ADDRESSES = [
+#  "Potato Head Beach Club Bali, Jalan Petitenget, Kerobokan Kelod, Badung Regency, Bali, Indonesia",
+#   "Crate Cafe, Jalan Canggu Padang Linjong, Canggu, Badung Regency, Bali, Indonesia",
+#   "Milk & Madu Cafe, Jalan Pantai Berawa, Tibubeneng, Berawa, Bali, Indonesia",
+#   "Nude Canggu Cafe, Jalan Pantai Berawa, Tibubeneng, Badung Regency, Bali, Indonesia",
+#   "The Loft Canggu, Jalan Pantai Batu Bolong, Canggu, Badung Regency, Bali, Indonesia",
+#   "Machinery Cafe Bali (MCB), Jalan Pantai Batu Bolong, Canggu, Badung Regency, Bali, Indonesia",
+#   "Debbie Does Salad, Jalan Pura Batu Mejan, Canggu, Badung Regency, Bali, Indonesia",
+#   "Peloton Supershop, Jalan Pantai Berawa, Tibubeneng, Badung Regency, Bali, Indonesia",
+#   "Bottega Italiana Canggu, Jalan Pantai Batu Bolong, Canggu, Badung Regency, Bali, Indonesia",
+#   "Coffee & Coconuts, Canggu, Badung Regency, Bali, Indonesia",
+#   "MOTION Cafe, Jalan Pantai Batu Bolong, Canggu, Badung Regency, Bali, Indonesia"
+# ]
+
+MALE_USERS = [
+  "Tomek",
+  "Vilson",
+  "Caio",
+  "Guido",
+  "Eli",
+  "Prima",
+  "Peter",
+  "Ashwin",
+  "George",
+  "Charles",
+  "Lorenzo",
+  "John",
+  "Kane",
+  "Romain"
 ]
 
-PLACE_NAMES = [
-  "Potato Head Beach Club Bali",
-  "Crate Cafe",
-  "Milk & Madu Cafe",
-  "Nude Canggu Cafe",
-  "The Loft Canggu",
-  "Machinery Cafe Bali (MCB)",
-  "Debbie Does Salad",
-  "Peloton Supershop",
-  "Bottega Italiana Canggu",
-  "Coffee & Coconuts",
-  "MOTION Cafe"
-]
-
-PLACE_ADDRESSES = [
- "Potato Head Beach Club Bali, Jalan Petitenget, Kerobokan Kelod, Badung Regency, Bali, Indonesia",
-  "Crate Cafe, Jalan Canggu Padang Linjong, Canggu, Badung Regency, Bali, Indonesia",
-  "Milk & Madu Cafe, Jalan Pantai Berawa, Tibubeneng, Berawa, Bali, Indonesia",
-  "Nude Canggu Cafe, Jalan Pantai Berawa, Tibubeneng, Badung Regency, Bali, Indonesia",
-  "The Loft Canggu, Jalan Pantai Batu Bolong, Canggu, Badung Regency, Bali, Indonesia",
-  "Machinery Cafe Bali (MCB), Jalan Pantai Batu Bolong, Canggu, Badung Regency, Bali, Indonesia",
-  "Debbie Does Salad, Jalan Pura Batu Mejan, Canggu, Badung Regency, Bali, Indonesia",
-  "Peloton Supershop, Jalan Pantai Berawa, Tibubeneng, Badung Regency, Bali, Indonesia",
-  "Bottega Italiana Canggu, Jalan Pantai Batu Bolong, Canggu, Badung Regency, Bali, Indonesia",
-  "Coffee & Coconuts, Canggu, Badung Regency, Bali, Indonesia",
-  "MOTION Cafe, Jalan Pantai Batu Bolong, Canggu, Badung Regency, Bali, Indonesia"
-]
-
-USERS = [
-  "tomek",
-  "vilson",
-  "caio",
-  "sonia",
-  "guido",
-  "eli",
-  "prima",
-  "peter",
-  "ashwin",
-  "janna",
-  "george",
-  "charles",
-  "lorenzo",
-  "john",
-  "kane",
-  "yejin",
-  "romain"
+FEMALE_USERS = [
+  "Yejin",
+  "Janna",
+  "Sonia",
+  "Cassy"
 ]
 
 # PLACE_PHOTOS = [
@@ -106,20 +110,51 @@ p '-----'
 
 p 'creating 20 users'
 
-x = 0
-17.times do
+# x = 0
+# 17.times do
+#   user = User.new(
+#         first_name: USERS[x],
+#         last_name: Faker::Name.last_name,
+#         picture: "https://randomuser.me/api/portraits/#{['wo',''].sample}men/#{(0..99).to_a.sample}.jpg",
+#         username: Faker::Internet.username,
+#         email: "#{USERS[x]}@test.com",
+#         password: "123456"
+#       )
+#   user.remote_photo_url = user.picture
+#   user.save!
+#   x += 1
+# end
+
+
+MALE_USERS.each do |n|
   user = User.new(
-        first_name: USERS[x],
+        first_name: n,
         last_name: Faker::Name.last_name,
-        picture: "https://randomuser.me/api/portraits/#{['wo',''].sample}men/#{(0..99).to_a.sample}.jpg",
+        picture: "https://randomuser.me/api/portraits/men/#{(0..99).to_a.sample}.jpg",
         username: Faker::Internet.username,
-        email: "#{USERS[x]}@test.com",
+        email: "#{n}@test.com",
         password: "123456"
       )
   user.remote_photo_url = user.picture
   user.save!
-  x += 1
 end
+
+FEMALE_USERS.each do |n|
+  user = User.new(
+        first_name: n,
+        last_name: Faker::Name.last_name,
+        picture: "https://randomuser.me/api/portraits/women/#{(0..99).to_a.sample}.jpg",
+        username: Faker::Internet.username,
+        email: "#{n}@test.com",
+        password: "123456"
+      )
+  user.remote_photo_url = user.picture
+  user.save!
+end
+
+# 14.times do
+#   x += 1
+# end
 
 # p 'created 10 users'
 
@@ -172,39 +207,39 @@ end
   # UserRelationship.new(follower: vilson, followed: User.first).save!
   # UserRelationship.new(follower: vilson, followed: User.second).save!
 
-p '-----'
-p 'creating 10 places'
+# p '-----'
+# p 'creating 10 places'
 
-x = 0
-10.times do
-  place = Place.new(
-    name: PLACE_NAMES[x],
-    address: PLACE_ADDRESSES[x]
-    )
-  place.save!
-  x += 1
-
-
-p ' creating posts for the place'
-
-  (1..10).to_a.sample.times do
-    post = Post.new(
-      note: Faker::Restaurant.review,
-      user: User.all.sample,
-      place: place
-      )
-    post.remote_photo_url = PLACE_PHOTOS.sample
-    post.save!
-  end
-end
-
-p 'created 10 places'
-p '-----'
-p 'creating 30 posts'
+# x = 0
+# 10.times do
+#   place = Place.new(
+#     name: PLACE_NAMES[x],
+#     address: PLACE_ADDRESSES[x]
+#     )
+#   place.save!
+#   x += 1
 
 
-p 'created 30 posts'
-p '-----'
+# p ' creating posts for the place'
+
+#   (1..10).to_a.sample.times do
+#     post = Post.new(
+#       note: Faker::Restaurant.review,
+#       user: User.all.sample,
+#       place: place
+#       )
+#     post.remote_photo_url = PLACE_PHOTOS.sample
+#     post.save!
+#   end
+# end
+
+# p 'created 10 places'
+# p '-----'
+# p 'creating 30 posts'
+
+
+# p 'created 30 posts'
+# p '-----'
 p 'creating all tags'
 
 cafe = Tag.new(
@@ -310,6 +345,12 @@ exotic = Tag.new(
   )
 exotic.save!
 
+cheap_eats = Tag.new(
+  tag_type: 'food',
+  name: 'cheap eats'
+  )
+exotic.save!
+
 small_plates = Tag.new(
   tag_type: 'food',
   name: 'small plates'
@@ -343,19 +384,19 @@ drinks.save!
 p 'tags created'
 p '-----'
 
-p 'creating 60 post_tags'
+# p 'creating 60 post_tags'
 
 
-60.times do
-post_tag = PostTag.new(
-  tag: Tag.all.sample,
-  post: Post.all.sample,
-  )
-post_tag.save!
-end
+# 60.times do
+# post_tag = PostTag.new(
+#   tag: Tag.all.sample,
+#   post: Post.all.sample,
+#   )
+# post_tag.save!
+# end
 
-p 'created 60 post_tags'
-p '-----'
+# p 'created 60 post_tags'
+# p '-----'
 p 'creating followers / followed relationship'
 
 60.times do
@@ -365,16 +406,16 @@ p 'creating followers / followed relationship'
   relationship.save! if UserRelationship.where(follower_id: follower.id, followed_id: followed.id).empty?
 end
 
-p 'created!'
-p '-----'
-p 'creating wishlists'
+# p 'created!'
+# p '-----'
+# p 'creating wishlists'
 
-30.times do
-  wishlist = WishlistItem.new(
-    place: Place.all.sample,
-    user: User.all.sample,
-    )
-  wishlist.save!
-end
+# 30.times do
+#   wishlist = WishlistItem.new(
+#     place: Place.all.sample,
+#     user: User.all.sample,
+#     )
+#   wishlist.save!
+# end
 
-p 'created wishlists'
+# p 'created wishlists'
