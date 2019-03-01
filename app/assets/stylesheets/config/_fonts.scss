@@ -1,9 +1,10 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700');
 
 // Define fonts for body and headers
 $body-font: "Open Sans", "Helvetica", "sans-serif";
-$headers-font: "Raleway", "Helvetica", "sans-serif";
+$headers-font: "Montserrat",  "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -17,5 +18,5 @@ $headers-font: "Raleway", "Helvetica", "sans-serif";
 
 .responsive-font-size {
   font-size: 1rem;
-  margin-top: 10px;
+  // margin-top: 10px;
 }
