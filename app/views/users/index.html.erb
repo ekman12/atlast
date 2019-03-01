@@ -4,14 +4,11 @@
       <% if current_user.following.records == []  %>
          <h3><strong>Start by adding friends</strong></h3>
       <% end %>
-
-      <%= form_tag users_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Searc: Username, First or Last Name"
-        %>
-      <% end %>
+      <div class="user-search">
+        <%= form_tag users_path, method: :get do %>
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search: First or Last Name" %>
+        <% end %>
+      </div>
 
 
       <h3>Users you follow</h3>
@@ -20,7 +17,7 @@
           <div data-user-id=<%=following.id%> class="user-card">
             <%= link_to cl_image_tag(following.photo, class: "avatar-friends-list"), user_path(following.id) %>
             <div class="user-card-content">
-              <p><%= following.first_name %> <%= following.last_name %></p>
+              <p><%= following.first_name.titlecase %> <%= following.last_name.titlecase %></p>
             </div>
           </div>
         <% end %>
@@ -32,7 +29,7 @@
           <div data-user-id=<%=user.id%> class="user-card">
             <%= link_to cl_image_tag(user.photo, class: "avatar-friends-list"), user_path(user.id) %>
             <div class="user-card-content">
-              <p><%= user.first_name %> <%= user.last_name %></p>
+              <p><%= user.first_name.titlecase %> <%= user.last_name.titlecase %></p>
             </div>
             <div class="user-card-actions">
               <%= link_to(user_user_relationships_path(user), method: :post, remote: true ) do  %>

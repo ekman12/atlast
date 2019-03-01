@@ -52,9 +52,23 @@ $border-radius-small: 2px;
 
 // Override other variables below!
 html {
-  font-size: 2vh !important;
+  font-size: 2.5vh !important;
 }
 
 .form-control {
   margin-bottom: 10px;
+}
+.btn {
+  font-size: inherit !important;
+}
+
+body {
+  font-size: inherit !important;
+}
+
+h3 {
+  font-size: 1.6em !important;
+  font-weight: 400 !important;
+
+
 }

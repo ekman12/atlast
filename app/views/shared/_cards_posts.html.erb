@@ -1,4 +1,5 @@
 <!-- Card structure -->
+
 <div class="col-xs-12">
   <div class="card">
 
@@ -10,29 +11,44 @@
 
     <div class="card-bottom card-bottom-post">
       <div class="friends-card-bottom">
-        <p> <strong> <%= post.user.first_name  %> </strong> visited  <strong><%= post.place.name %></strong>
-      <small>in <%= post.place.neighbourhood %> </small> </p>
+        <p> <strong>
+          <% if current_user == post.user %>
+            <%= "You" %>
+          <% else %>
+            <%= post.user.first_name.capitalize  %>
+          <% end %>
+        </strong> visited  <strong><%= post.place.name %></strong><br><span style="font-size:0.8em"> <%= "#{time_ago_in_words(post.created_at)} ago" %> </span>
+      <small> <%= "in #{post.place.neighbourhood}" if !post.place.neighbourhood.nil? %> </small> </p>
       </div>
       <%= render 'shared/wishlist_link', place: post.place %>
       <div >
-       <%= link_to image_tag(cl_image_path(post.user.photo.url(:bright_face)), class: "avatar-bordered"), user_path(post.user) %>
+        <%# raise %>
+        <%# if current_user == !post.user %>
+          <%= link_to image_tag(cl_image_path(post.user.photo.url(:bright_face)), class: "avatar-bordered"), user_path(post.user) %>
+        <%# end %>
       </div>
       <div class="note">
         <% if !post.note.empty? %>
-          <p><i><%= post.note %></i></p>
+          <a class="show-more-text" data-place-id="<%= post.id %>">
+          <%= "... more" if post.note.length > 75 %></a>
+          <div class="display-less" >
+            <p><%=  post.note %></p>
+          </div>
         <% end %>
+      </div>
+    <% if post.tags.records == [] %>
+        <p><i><%=  "No tags " %></i></p>
+            <% else %>
       <div class="tags-card-bottom">
           <ul class="tags">
-            <% if post.tags.records == [] %>
-              <p><i><%=  "No tags " %></i></p>
-            <% else %>
-              <% post.tags.first(4).each do |tag| %>
+              <% post.tags.first(3).each do |tag| %>
               <li><a> <%= tag.name %></a></li>
               <% end %>
-            <% end %>
           </ul>
       </div>
-      </div>
+            <% end %>
     </div>
   </div>
 </div>
+
+

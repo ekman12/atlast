@@ -38,7 +38,7 @@
       </div>
       <div class="tags-card-bottom">
           <ul class="tags">
-            <% tag_collection.first(4).to_h.each do |name, count| %>
+            <% tag_collection.first(3).to_h.each do |name, count| %>
               <li><a> <%= name %> (<%= count %>)</a></li>
             <% end %>
           </ul>

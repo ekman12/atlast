@@ -19,6 +19,10 @@ showTags();
 import { hideTags } from './hide_tags';
 hideTags();
 
+
+import { showMore } from './show_more';
+showMore();
+
 import { initPhotoPreview, checkForPhoto } from './photoPreview';
 initPhotoPreview();
 checkForPhoto();
