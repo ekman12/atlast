@@ -16,13 +16,13 @@
 <div class="col-xs-12">
   <div class="card">
     <% if current_user.post_feed.where(place: place).empty?  %>
-      <% photo_url = place.posts.last.photo %>
+      <% photo = place.posts.last.photo %>
     <% else %>
-      <% photo_url =  current_user.post_feed.where(place: place).last.photo %>
+      <% photo = current_user.post_feed.where(place: place).last.photo %>
     <% end %>
 
     <%= link_to place_path(place) do %>
-     <div class="card-top" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url(<%= photo_url %>);">
+     <div class="card-top" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url(<%= image_path(photo.url(:standard)) %>);">
       </div>
     <% end %>
     <%# raise %>
