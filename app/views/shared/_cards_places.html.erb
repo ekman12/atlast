@@ -13,7 +13,7 @@
 <% tag_collection = tag_collection.sort_by {|k, v| v}.reverse %>
 
 <!-- Card structure -->
-<div class="col-xs-12">
+<!-- <div class="col-xs-12"> -->
   <div class="card">
     <% if current_user.post_feed.where(place: place).empty?  %>
       <% photo_url = place.posts.last.photo %>
@@ -33,7 +33,8 @@
         </p>
         <%= render 'shared/wishlist_link', place: place %>
         <div class="friends-card-bottom">
-          <p>  <%= pluralize (place.users & current_user.following).count, "friend" %> have been here </p>
+          <p>  <%= pluralize (place.posts.where(user_id: current_user.following)-place.posts.where(user_id: current_user)).count, "friend" %> <br> have been here </p>
+          <%# raise %>
         </div>
       </div>
       <div class="tags-card-bottom">
@@ -46,4 +47,4 @@
    </div>
 
   </div>
-</div>
+<!-- </div> -->

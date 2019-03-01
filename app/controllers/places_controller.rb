@@ -66,6 +66,7 @@ class PlacesController < ApplicationController
   def place_search
     @matching_places = Place.search_by_place(params[:query])
     @places = @places & @matching_places
+    @places = @places.uniq
   end
 
   def multiple_tag_search
@@ -75,5 +76,6 @@ class PlacesController < ApplicationController
     end
     @tag_posts = @tag_posts & current_user.post_feed
     @places = @tag_posts.map(&:place)
+    @places = @places.uniq
   end
 end
