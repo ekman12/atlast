@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def redirect_back_or_default(default)
+    redirect_to(session[:return_to] || default)
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :username])
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :photo])
