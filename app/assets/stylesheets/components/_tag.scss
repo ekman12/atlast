@@ -2,7 +2,7 @@
 // https://cssglobe.com/pure-css3-post-tags/
 
 .tags{
-  margin: 10px;
+  margin: 10px -10px 0 -28px;
   padding: 1px;
   list-style:none;
 }
@@ -15,8 +15,8 @@
 
 .tags li, .tags a{
   float:left;
-  height:24px;
-  line-height:24px;
+  height:28px;
+  line-height:26px;
   position:relative;
   // font-size:9px;
   font-size:0.95em;
@@ -26,8 +26,8 @@
 }
 
 .tags a{
-  margin-left:15px;
-  padding:0 5px 0 12px;
+  margin-left:25px;
+  padding:0 6px 0 9px;
   background:#df367c;
   color:#fff;
   text-decoration:none;
@@ -49,7 +49,7 @@
   height:0;
   border-color:transparent #df367c transparent transparent;
   border-style:solid;
-  border-width:12px 12px 12px 0;
+  border-width:16px 12px 12px 0;
 }
 
 .tags a:after{

@@ -15,9 +15,10 @@
 
 .card {
   flex: 1 1 auto;
-  margin: 10px;
+  margin: 15px;
   border-radius: 1px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  position: relative;
 }
 
 .card-top {
@@ -29,12 +30,12 @@
 
 .wishlist-link {
   position: absolute;
-  right: 40px;
-  top: 10px;
+  right: 27px;
+  top: 4px;
   width: 20px;
   opacity: 1;
   // font-size: 25px;
-  font-size: 1.9em;
+  font-size: 2em;
 }
 .card-bottom-place {
   display: flex;
@@ -89,5 +90,5 @@ a.show-more-text {
 }
 
 .tags-card-bottom {
-  padding: 0px 0px 5px 0px;
+  padding: 0px 0px 5px 15px;
 };
