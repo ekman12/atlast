@@ -33,7 +33,10 @@
         </p>
         <%= render 'shared/wishlist_link', place: place %>
         <div class="friends-card-bottom">
-          <p>  <%= pluralize (place.posts.where(user_id: current_user.following)-place.posts.where(user_id: current_user)).count, "friend" %> <br> have been here </p>
+          <p>
+          <%= "You" if place.posts.where(user_id: current_user).count == 1 %>
+          <%= "and" if (place.posts.where(user_id: current_user).count == 1) && ((place.posts.where(user_id: current_user.following).count) >=2)  %>
+          <%= pluralize (place.posts.where(user_id: current_user.following)-place.posts.where(user_id: current_user)).count, "friend" %> visited
           <%# raise %>
         </div>
       </div>
