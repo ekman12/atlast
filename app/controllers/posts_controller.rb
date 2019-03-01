@@ -36,7 +36,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    create_post_tags if params[:tags].present?
+    define_tags
     # @tag_ids = Tag.all.ids
     place = Place.find_by(address: params["post"][:place])
     place = create_place(params["post"][:place]) if place.nil?
@@ -51,7 +51,9 @@ class PostsController < ApplicationController
     else
       render :new
     end
-    create_post_tags
+
+    # create_post_tags
+    create_post_tags if params[:tags].present?
   end
 
   def update

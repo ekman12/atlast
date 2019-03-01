@@ -8,7 +8,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :standard do
-    process resize_to_fill: [600, 600]
+    process resize_to_fit: [700, 700]
     cloudinary_transformation quality: 'auto', fetch_format: :auto
   end
 

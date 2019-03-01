@@ -23,7 +23,26 @@ const initPhotoPreview = () => {
   postPhoto.addEventListener('change', previewPhoto); // #1
 }
 
-export { initPhotoPreview }
+// if post-photo-preview is null, don't allow them to click the button
+const checkForPhoto = () => {
+  let photo = document.querySelector(".post-photo-preview");
+  let button =  document.querySelector("#post-entry")
+
+  button.addEventListener('click', (event) => {
+    if (photo.src == "http://localhost:3000/posts") {
+        if (document.querySelector('.invalid-photo')) {
+          document.querySelector('.invalid-photo').remove();
+        }
+        photo.insertAdjacentHTML('afterend', "<p class=\"invalid-photo\">upload a photo asshole</p>")
+        event.preventDefault();
+    } else {
+        document.querySelector('.invalid-photo').remove();
+    }
+  })
+}
+
+
+export { initPhotoPreview, checkForPhoto }
 
 // const photoButton = document.querySelector(".add-photo-box");
 // photoButton.classList.toggle('hidden');
