@@ -1,8 +1,8 @@
-<div class="container">
+<!-- <div class="container">
 <div class="row">
-    <div class="col-sm-6 col-sm-offset-3 text-center">
-      <div class="form_card">
-        <h1>Add a post</h1>
+    <div class="col-sm-6 col-sm-offset-3 text-center"> -->
+      <div class="form_card text-center">
+        <h2>Add a post</h2>
         <%= simple_form_for @post, validate: true do |f| %>
           <%= f.input :place, label: false %>
           <label class="add-photo-box">
@@ -17,8 +17,6 @@
           <div class="note-box">
             <%= f.input :note, as: :text, label: false, placeholder: "Add a note" %>
           </div>
-          <%= f.input :note, label: false, placeholder: "Add a note" %>
-
 
           <div class="row">
             <p>What sort of place was it?</p>
@@ -43,9 +41,9 @@
           <%= f.submit "Add Post", class: "btn-pink submit", id: "post-entry" %>
         <% end %>
       </div>
-    </div>
+<!--     </div>
   </div>
 </div>
-
+ -->
     <%= render 'shared/map', markers: @post_markers %>
 
