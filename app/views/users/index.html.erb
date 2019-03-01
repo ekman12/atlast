@@ -15,7 +15,7 @@
       <% @followings.each do |following| %>
         <%= link_to user_path(following.id) do %>
           <div data-user-id=<%=following.id%> class="user-card">
-            <%= link_to cl_image_tag(following.photo, class: "avatar-friends-list"), user_path(following.id) %>
+            <%= link_to image_tag(following.photo.url(:bright_face), class: "avatar-friends-list"), user_path(following.id) %>
             <div class="user-card-content">
               <p><%= following.first_name.titlecase %> <%= following.last_name.titlecase %></p>
             </div>
@@ -27,7 +27,7 @@
       <% @nonfollowings.each do |user|  %>
         <% if !(user.id == current_user.id) %>
           <div data-user-id=<%=user.id%> class="user-card">
-            <%= link_to cl_image_tag(user.photo, class: "avatar-friends-list"), user_path(user.id) %>
+            <%= link_to image_tag(user.photo.url(:bright_face), class: "avatar-friends-list"), user_path(user.id) %>
             <div class="user-card-content">
               <p><%= user.first_name.titlecase %> <%= user.last_name.titlecase %></p>
             </div>

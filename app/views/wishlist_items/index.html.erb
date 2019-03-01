@@ -13,7 +13,7 @@
       <% if @user == current_user %>
         <%= link_to(edit_user_registration_path) do  %>
           <div class="user-image">
-            <img src="<%= cl_image_path(@user.photo) %>" alt="" class="avatar-large">
+            <img src="<%= image_path(@user.photo.url(:standard)) %>" alt="" class="avatar-large">
           </div>
         <% end %>
       <% end %>

@@ -9,11 +9,11 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   version :standard do
     process resize_to_fit: [700, 700]
-    cloudinary_transformation quality: 'auto', fetch_format: :auto
+    cloudinary_transformation quality: 'auto', fetch_format: :auto, secure: true
   end
 
   version :bright_face do
     cloudinary_transformation effect: "brightness:10", radius: 20,
-    width: 150, height: 150, crop: :thumb, gravity: :face
+    width: 150, height: 150, crop: :thumb, gravity: :face, secure: true
   end
 end
