@@ -4,8 +4,8 @@
 }
 
 .card-container {
-  margin: 0 auto;
-  width: 400px;
+  margin: 0;
+  width: 100%;
 }
 
 .cards {
@@ -15,7 +15,7 @@
 
 .card {
   flex: 1 1 auto;
-  margin: 15px;
+  margin: 15px 0;
   border-radius: 1px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   position: relative;

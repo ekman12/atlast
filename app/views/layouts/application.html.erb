@@ -34,23 +34,23 @@
 
     <meta name="apple-mobile-web-app-capable" content="yes">
   </head>
-  <body>
-    <div class="responsive-font-size">
+  <body class="responsive-font-size">
+    <!-- <div class="responsive-font-size"> -->
       <%#= render 'shared/navbar' %>
       <%= render 'shared/flashes' %>
       <%= yield %>
       <%#= render 'shared/map' %>
 
-
-
       <% unless current_page?(root_path) %>
         <%= render 'shared/footer' unless current_user.nil? %>
       <% end %>
+
       <%= javascript_include_tag 'application' %>
       <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
       <%= javascript_pack_tag 'application' %>
       <%= javascript_pack_tag "map" %>
-    </div>
+    <!-- </div> -->
+  </body>
 </html>
 
 
