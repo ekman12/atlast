@@ -1,44 +1,50 @@
-<div class="container">
-  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-    <div class="row">
-      <% if current_user.following.records == []  %>
-         <h3><strong>Start by adding friends</strong></h3>
-      <% end %>
-      <div class="user-search">
-        <%= form_tag users_path, method: :get do %>
-          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search: First or Last Name" %>
+<!-- <div class="container"> -->
+  <!-- <div class="col-xs-12 col-sm-6 col-sm-offset-3"> -->
+    <!-- <div class="row"> -->
+  <div class="search-area user-search">
+    <div class="search-field">
+     <%= form_tag users_path, method: :get do %>
+          <%= text_field_tag :query, params[:query], class: "form-control bigger-search", placeholder: "Search: First or Last Name" %>
         <% end %>
       </div>
-
-
-      <h3>Users you follow</h3>
-      <% @followings.each do |following| %>
-        <%= link_to user_path(following.id) do %>
-          <div data-user-id=<%=following.id%> class="user-card">
-            <%= link_to image_tag(following.photo.url(:bright_face), class: "avatar-friends-list"), user_path(following.id) %>
+  </div>
+    <div class="user-heading">
+      <h3>Following</h3>
+    </div>
+    <% @followings.each do |following| %>
+      <% if !(following.id == current_user.id) %>
+        <div data-user-id=<%=following.id%> class="user-card">
+          <%= link_to image_tag(following.photo.url(:bright_face), class: "avatar-large"), user_path(following.id) %>
+          <%= link_to user_path(following.id) do %>
             <div class="user-card-content">
               <p><%= following.first_name.titlecase %> <%= following.last_name.titlecase %></p>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       <% end %>
+    <% end %>
 
-      <h3>All Other Users</h3>
-      <% @nonfollowings.each do |user|  %>
-        <% if !(user.id == current_user.id) %>
-          <div data-user-id=<%=user.id%> class="user-card">
-            <%= link_to image_tag(user.photo.url(:bright_face), class: "avatar-friends-list"), user_path(user.id) %>
+    <div class="user-heading">
+      <h3>Suggested</h3>
+    </div>
+    <% @nonfollowings.each do |user|  %>
+      <% if !(user.id == current_user.id) %>
+        <div data-user-id=<%=user.id%> class="user-card">
+          <%= link_to image_tag(user.photo.url(:bright_face), class: "avatar-large"), user_path(user.id) %>
+          <%#= link_to user_path(user.id) do %>
             <div class="user-card-content">
               <p><%= user.first_name.titlecase %> <%= user.last_name.titlecase %></p>
             </div>
-            <div class="user-card-actions">
-              <%= link_to(user_user_relationships_path(user), method: :post, remote: true ) do  %>
-                <div id="user-follow-button" class="btn btn-ghost btn-ghost-black">Follow </div>
-              <% end %>
-            </div>
+          <!-- <%# end %>  Having this uncommented ruins the follow button -->
+          <div class="user-card-actions">
+            <%= link_to(user_user_relationships_path(user), method: :post, remote: true ) do  %>
+              <div id="user-follow-button" class="btn btn-ghost btn-ghost-black">Follow </div>
+            <% end %>
           </div>
-          <% end %>
+        </div>
         <% end %>
+      <% end %>
     </div>
+
   </div>
 </div>

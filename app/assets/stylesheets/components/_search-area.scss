@@ -2,9 +2,7 @@
   width: 100%;
   margin: 10px auto;
   display: flex;
-  padding: 10px 20px 0 20px;
-
-
+  padding: 10px 30px 0 20px;
 
   .search-field{
     width: 100%
@@ -14,8 +12,8 @@
     margin: 0 10px;
   }
   i{
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 36px;
+    line-height: 44px;
   }
 }
 
@@ -30,10 +28,20 @@
   padding: 0 25px;
 }
 
+.bigger-search{
+  border-radius: 4px;
+  font-size: 1em;
+  height: 44px;
+}
+
 .pink-filter{
   color: #df367c;
 }
 
 .grey-filter{
   color: rgba(0,0,0,0.4);
+}
+
+.user-search{
+  padding: 10px 20px 0 20px;
 }

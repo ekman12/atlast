@@ -1,5 +1,5 @@
 <div class="wrapper-light-grey">
-  <div class="card-container container">
+  <!-- <div class="card-container container"> -->
   <div class="header">
     <div class="user-core">
       <p> <h3> <%="#{@user.first_name.capitalize} #{@user.last_name.capitalize}"  %> </h3>
@@ -16,14 +16,18 @@
             <img src="<%= image_path(@user.photo.url(:standard)) %>" alt="" class="avatar-large">
           </div>
         <% end %>
+      <% else %>
+        <div class="user-image">
+          <img src="<%= image_path(@user.photo.url(:standard)) %>" alt="" class="avatar-large">
+        </div>
       <% end %>
       <div class="user-info">
         <% if @user == current_user %>
-          <p> You have
+
           <%= pluralize @user.wishlist_items.count, "place" %>
           on your wishlist
         <% else %>
-          <p> <%= "#{@user.first_name} has" %>
+
           <%= pluralize @user.wishlist_items.count, "place" %>
           on their wishlist
        <% end %>
@@ -36,6 +40,6 @@
         <% end %>
       </div>
     </div>
-  </div>
+  <!-- </div> -->
 </div>
 

@@ -1,18 +1,15 @@
 .header{
-  background-color: rgba(0,0,0,0.2);
-  height: 184px;
+  background-color: #50514f;
+  height: 154px;
   width: 100%;
   display: flex;
   flex-direction: column;
   text-align: center;
   color: white;
   margin: -10px 0 0 0;
-  h1{
+  h3{
     // font-size: 40px;
-    font-size: 2.5em;
-    margin: 0px;
-    margin-block-start: 0;
-    margin-block-end: 0;
+    color: white;
   }
   a{
     color: white;
@@ -35,7 +32,21 @@
     margin: 10px;
   }
   .user-info{
-    text-align: left;
+    width: 100%;
+    display: flex;
+    color: rgba(0,0,0,0.6);
+    font-size: 0.8em;
+    text-align: center;
+    justify-content: space-around;
+    .user-following{
+
+    }
+    .user-follower{
+
+    }
+    .user-places{
+
+    }
   }
 }
 
