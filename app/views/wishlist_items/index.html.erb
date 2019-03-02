@@ -1,5 +1,4 @@
 <div class="wrapper-light-grey">
-  <!-- <div class="card-container container"> -->
   <div class="header">
     <div class="user-core">
       <p> <h3> <%="#{@user.first_name.capitalize} #{@user.last_name.capitalize}"  %> </h3>
@@ -9,6 +8,7 @@
           <small>Back to user profile</small>
         <% end %>
 
+  <div class="card-container container">
     <div class="highlights user-highlights">
       <% if @user == current_user %>
         <%= link_to(edit_user_registration_path) do  %>
@@ -40,6 +40,6 @@
         <% end %>
       </div>
     </div>
-  <!-- </div> -->
+  </div>
 </div>
 
