@@ -29,11 +29,11 @@
       </div>
       <div class="note">
         <% if !post.note.empty? %>
-          <a class="show-more-text" data-place-id="<%= post.id %>">
-          <%= "... more" if post.note.length > 75 %></a>
-          <div class="display-less" >
+          <div class="display-less" data-post-id="<%= post.id %>">
             <p><%=  post.note %></p>
           </div>
+          <a class="show-more-text" data-post-id="<%= post.id %>">
+          <%= "... more" if post.note.length > 75 %></a>
         <% end %>
       </div>
     <% if !(post.tags.records == []) %>
@@ -48,5 +48,4 @@
     </div>
   </div>
 <!-- </div> -->
-
 
