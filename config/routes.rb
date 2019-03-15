@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # get 'user_relationships/create'
   # get 'user_relationships/destroy'
   devise_for :users
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   # root to: 'places#index'
   root to: 'pages#home'
 
