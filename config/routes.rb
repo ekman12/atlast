@@ -2,10 +2,9 @@ Rails.application.routes.draw do
   # get 'user_relationships/new'
   # get 'user_relationships/create'
   # get 'user_relationships/destroy'
-  devise_for :users
-    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   # root to: 'places#index'
   root to: 'pages#home'
+  devise_for :users, :controllers => { :omniauth_callbacks => 'users/omniauth_callbacks' }
 
   resources :users, except: [ :edit, :update, :destroy ] do
     member do
