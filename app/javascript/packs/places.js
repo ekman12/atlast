@@ -1,0 +1,1 @@
+import '../flats/index.jsx';
