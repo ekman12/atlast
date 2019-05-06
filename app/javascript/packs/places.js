@@ -1,1 +1,1 @@
-import '../flats/index.jsx';
+import '../places/index.jsx';
