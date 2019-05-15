@@ -8,9 +8,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createHistory as history } from 'history';
 import { reducer as formReducer } from 'redux-form';
 
-import CarsIndex from './containers/cars_index';
-import CarsShow from './containers/cars_show';
-import CarsNew from './containers/cars_new';
+import PlacesIndex from './containers/places_index';
+import PlacesShow from './containers/cars_show';
+import PlacesNew from './containers/cars_new';
 // import '../assets/stylesheets/application.scss';
 
 import carsReducer from './reducers/cars_reducer.js';
@@ -35,9 +35,9 @@ ReactDOM.render(
     <Router history={history}>
       <div className="view-container">
         <Switch>
-          <Route path="/places" exact component={CarsIndex} />
-          <Route path="/cars/new" exact component={CarsNew} />
-          <Route path="/cars/:id" component={CarsShow} />
+          <Route path="/places" exact component={PlacesIndex} />
+          <Route path="/cars/new" exact component={PlacesNew} />
+          <Route path="/cars/:id" component={PlacesShow} />
         </Switch>
       </div>
     </Router>
