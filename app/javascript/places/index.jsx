@@ -5,7 +5,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import reduxPromise from 'redux-promise';
 import logger from 'redux-logger';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { createHistory as history } from 'history';
+// import { createHistory as history } from 'history';
 import { reducer as formReducer } from 'redux-form';
 
 import PlacesIndex from './containers/places_index';
