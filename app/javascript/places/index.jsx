@@ -9,22 +9,21 @@ import { createHistory as history } from 'history';
 import { reducer as formReducer } from 'redux-form';
 
 import PlacesIndex from './containers/places_index';
-import PlacesShow from './containers/cars_show';
-import PlacesNew from './containers/cars_new';
+// import PlacesShow from './containers/cars_show';
+// import PlacesNew from './containers/cars_new';
 // import '../assets/stylesheets/application.scss';
 
-import carsReducer from './reducers/cars_reducer.js';
+import placesReducer from './reducers/places_reducer.js';
 
 // State and reducers
 const initialState = {
-  places: 'test',
-  cars: []
+  places: []
 };
 
 const reducers = combineReducers({
   places: (state = null, action) => state,
-  cars: carsReducer,
-  form: formReducer
+  // form: formReducer,
+  places: placesReducer
 });
 
 const middlewares = applyMiddleware(reduxPromise, logger);
@@ -36,8 +35,6 @@ ReactDOM.render(
       <div className="view-container">
         <Switch>
           <Route path="/places" exact component={PlacesIndex} />
-          <Route path="/cars/new" exact component={PlacesNew} />
-          <Route path="/cars/:id" component={PlacesShow} />
         </Switch>
       </div>
     </Router>

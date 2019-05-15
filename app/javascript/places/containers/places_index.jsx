@@ -3,25 +3,25 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { fetchCars } from '../actions';
+import { fetchPlaces } from '../actions';
 // import Aside from '../components/aside';
 
-class CarsIndex extends Component {
+class PlacesIndex extends Component {
   componentWillMount() {
-    this.props.fetchCars(this.props.garage);
+    this.props.fetchPlaces();
     // debugger
   }
 
   render () {
     // debugger
     return [
-      <div className="list-container" key="cars">
-        {this.props.cars.map((car) => {
+      <div className="list-container" key="places">
+        {this.props.places.map((place) => {
           return (
             <ul>
-              <li><strong>Owner:</strong> {car.city}</li>
-              <li>{car.name}</li>
-              <li>{car.country}</li>
+              <li><strong>Owner:</strong> {place.city}</li>
+              <li>{place.name}</li>
+              <li>{place.country}</li>
             </ul>
           );
         })}
@@ -32,13 +32,13 @@ class CarsIndex extends Component {
 
 function mapStateToProps(state) {
   return {
-    cars: state.cars,
-    garage: state.garage
+    places: state.places,
+    // garage: state.garage
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchCars }, dispatch);
+  return bindActionCreators({ fetchPlaces }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CarsIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(PlacesIndex);
