@@ -1,3 +1,37 @@
+import GMaps from 'gmaps/gmaps.js';
+
+// const mapElement = document.getElementById('map');
+
+// if (mapElement) { // don't try to build a map if there's no div#map to inject in
+//   const map = new GMaps({ el: '#map', lat: -8.65410, lng: 115.13065, disableDefaultUI: true });
+//   google.maps.event.trigger(map);
+//   const markers = JSON.parse(mapElement.dataset.markers);
+//   const iconBase = 'https://maps.google.com/mapfiles/ms/icons/pink-dot.png'
+
+
+
+
+
+var map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 51.5074, lng: 0.1278},
+      zoom: 8
+    });
+  }
+
+export initiMap()
+
+
+
+
+
+
+
+
+
+
+
 // import GMaps from 'gmaps/gmaps.js';
 // import { autocomplete } from '../components/autocomplete';
 // // import imgUrl from 'images/icon-72x72.png';
@@ -88,17 +122,3 @@
 //     // and other stuff...
 //   }
 // })
-console.log('map first')
-const showMap = () => {
-  const mapButton = document.querySelector("#map-button");
-  if (mapButton) {
-    mapButton.addEventListener("click", (event) => {
-      console.log('map js')
-      // document.querySelector("#map").style.height = '100vh'
-      document.querySelector("#map").classList.toggle("map-show");
-      // document.querySelector("#map").classList.toggle("hidden");
-    })
-  }
- }
-
-export { showMap };

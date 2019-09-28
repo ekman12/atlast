@@ -4,7 +4,7 @@ import "bootstrap";
 // import { mapInModal } from "./modalMap.js";
 // mapInModal();
 
-import { showMap } from "./map.js";
+import { showMap } from "./show_map.js";
 showMap()
 
 import { tagSelector } from '../packs/tag-selector';
