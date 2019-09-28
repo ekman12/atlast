@@ -1,16 +1,18 @@
 import GMaps from 'gmaps/gmaps.js';
 
-// const mapElement = document.getElementById('map');
+const mapElement = document.getElementById('map');
+
+console.log("HELLO above!!!!")
 
 // if (mapElement) { // don't try to build a map if there's no div#map to inject in
 //   const map = new GMaps({ el: '#map', lat: -8.65410, lng: 115.13065, disableDefaultUI: true });
 //   google.maps.event.trigger(map);
-//   const markers = JSON.parse(mapElement.dataset.markers);
-//   const iconBase = 'https://maps.google.com/mapfiles/ms/icons/pink-dot.png'
+//   // const markers = JSON.parse(mapElement.dataset.markers);
+//   // const iconBase = 'https://maps.google.com/mapfiles/ms/icons/pink-dot.png'
+// }
 
 
-
-
+console.log("HELLO!!!!")
 
 var map;
   function initMap() {
@@ -20,7 +22,7 @@ var map;
     });
   }
 
-export initiMap()
+initMap()
 
 
 
