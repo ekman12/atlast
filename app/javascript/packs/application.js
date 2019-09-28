@@ -1,8 +1,11 @@
 import {$,jQuery} from "jquery";
 import "bootstrap";
 
-import { mapInModal } from "./modalMap.js";
-mapInModal();
+// import { mapInModal } from "./modalMap.js";
+// mapInModal();
+
+import { showMap } from "./map.js";
+showMap()
 
 import { tagSelector } from '../packs/tag-selector';
 tagSelector();

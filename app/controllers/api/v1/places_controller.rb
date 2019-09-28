@@ -4,7 +4,7 @@ class Api::V1::PlacesController < ActionController::Base
     # @places = Place.order(created_at: :desc)
     # render json: @places
     @places = current_user.place_feed
-
+    @this_user = [current_user]
   end
 
   # def show

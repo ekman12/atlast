@@ -1,29 +1,35 @@
+// NEXT TO DO:
+// 1) Add click handler to click
+//    - If not too hard just redirect to ruby post page for now
+//    - if it is hard build out show page and do whole react journey as will have to do that anyway
+// 2) Add a map
+//    - Just a basic map
+//    - How will it appear? Make it have a pretty position on page
+// 3)
+
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { fetchPlaces } from '../actions';
-// import Aside from '../components/aside';
+import PlaceCard from '../components/place_card';
 
 class PlacesIndex extends Component {
+  handleClick = (event) => {
+      this.props.selectFlat(event.target.id);
+    };
+
   componentWillMount() {
     this.props.fetchPlaces();
-    // debugger
   }
 
+
   render () {
-    // debugger
     return [
       <div className="list-container" key="places">
         {this.props.places.map((place) => {
-          return (
-            <ul>
-              <li><strong>Owner:</strong> {place.city}</li>
-              <li>{place.name}</li>
-              <li>{place.country}</li>
-            </ul>
-          );
+          return <PlaceCard place={place} key={place.id} onClick={this.handleClick}/>
         })}
       </div>
     ];
@@ -42,3 +48,19 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlacesIndex);
+
+    // const placeCards =
+    //   this.state.places.map((place) => {
+    //     console.log(place)
+    //     return <PlaceCard place={place}/>
+    //   })
+
+
+    // return (
+    //   <div>
+    //   <div>Check these places out!</div>
+    //   {placeCards}
+    //  </div>
+
+
+

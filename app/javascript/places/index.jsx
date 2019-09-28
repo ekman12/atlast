@@ -42,7 +42,7 @@ ReactDOM.render(
   document.querySelector('#root')
 );
 
-//  THIS IS WHAT WE NEED TO INCLUDE IF YOU WANT TO
+    //  THIS IS WHAT WE NEED TO INCLUDE IF YOU WANT TO
     // <Router history={history}>
     //   <div className="view-container">
     //     <Switch>

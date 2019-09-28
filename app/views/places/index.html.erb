@@ -1,29 +1,29 @@
-<%= render 'shared/search_bar' %>
+<!-- <%# render 'shared/search_bar' %>
 
   <div class="wrapper-light-grey">
     <div class="card-container container">
       <div class="row">
-        <% if @places.count == 0 %>
+        <%# if @places.count == 0 %>
           <p>Sorry, none of your friends have been anywhere matching that search criteria yet. Please try a different search.</p>
-        <% end %>
-        <!-- Instead of returning nothing, could return an array of places other people went. -->
+        <%# end %>
+        Instead of returning nothing, could return an array of places other people went.
         <div class="cards">
-          <% @places.each do |place| %>
-            <%= render 'shared/cards_places', place: place, tag_collection: {} %>
-          <% end %>
+          <%# @places.each do |place| %>
+            <%# render 'shared/cards_places', place: place, tag_collection: {} %>
+          <%# end %>
         </div>
       </div>
     </div>
   </div>
-
+-->
 
 <!-- Button trigger modal -->
-<%= render 'shared/map', markers: @markers %>
+<% render 'shared/map', markers: @markers %>
 
 <!-- BELOW HERE IS WHERE REACT WILL BE CALLED FROM -->
-<!--
-HELLO
+
+<!-- HELLO -->
 
 <div id="root"></div>
-<%= javascript_pack_tag "places" %> -->
+<%= javascript_pack_tag "places" %>
 
