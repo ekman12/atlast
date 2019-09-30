@@ -1,31 +1,60 @@
 import GMaps from 'gmaps/gmaps.js';
 
 const mapElement = document.getElementById('map');
-
-console.log("HELLO above!!!!")
-
-// if (mapElement) { // don't try to build a map if there's no div#map to inject in
-//   const map = new GMaps({ el: '#map', lat: -8.65410, lng: 115.13065, disableDefaultUI: true });
-//   google.maps.event.trigger(map);
-//   // const markers = JSON.parse(mapElement.dataset.markers);
-//   // const iconBase = 'https://maps.google.com/mapfiles/ms/icons/pink-dot.png'
-// }
-
-
-console.log("HELLO!!!!")
+const markers = JSON.parse(mapElement.dataset.markers)
+console.log(markers)
 
 var map;
-  function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 51.5074, lng: 0.1278},
-      zoom: 8
-    });
-  }
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 51.5074, lng: 0.1278},
+    zoom: 8,
+    disableDefaultUI: true,
+  });
 
+  const image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+
+  markers.forEach(marker => {
+    var mapMarker = new google.maps.Marker({
+      position: {lat: marker.place.latitude, lng: marker.place.longitude },
+      map: map,
+      title: marker.place.name
+    });
+
+    var infowindow = new google.maps.InfoWindow({
+      content: marker["infoWindow"]["content"]
+    });
+
+    mapMarker.addListener('click', function() {
+      infowindow.open(map, mapMarker);
+    });
+  })
+
+}
 initMap()
 
 
+  // const image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+  // if (markers) {
+  //   const markersArr = markers.map(marker => {
+  //     return {
+  //       lat: marker["lat"],
+  //       lng: marker["lng"],
+  //       icon: image,
+  //       infoWindow: {
+  //         content: marker["infoWindow"]["content"]
+  //       }
+  //     }
+  //   })
+  // }
 
+    // console.log(markersArr)
+
+//     // console.log(map)
+//     // google.maps.event.trigger(map);
+//     // console.log(mapElement.dataset.markers)
+
+// map.addMarkers(markersArr)
 
 
 

@@ -52,7 +52,7 @@
   <body class="responsive-font-size">
 
 
-    <div id="map"></div>
+    <!-- <div id="map"></div> -->
     <!-- <script>
       var map;
       function initMap() {
@@ -68,13 +68,16 @@
 
     <!-- <div class="responsive-font-size"> -->
       <%#= render 'shared/navbar' %>
-      <%= render 'shared/flashes' %>
-      <%= yield %>
-      <%#= render 'shared/map' %>
+      <!-- <div id="not-map"> -->
+        <%= render 'shared/flashes' %>
+        <%= yield %>
+        <%#= render 'shared/map' %>
+      <!-- </div> -->
 
-      <% unless current_page?(root_path) %>
-        <%= render 'shared/footer' unless current_user.nil? %>
-      <% end %>
+        <% unless current_page?(root_path) %>
+          <%= render 'shared/footer' unless current_user.nil? %>
+        <% end %>
+
 
       <!DOCTYPE html>
 <!-- <html>

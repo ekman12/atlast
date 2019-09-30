@@ -1,56 +1,60 @@
 <%#= render 'shared/wishlist_link', place: @place %>
-<div class="map-header" href="https://www.google.com/maps/place/<%= @place.latitude %>,<%= @place.longitude %>"
-  style="
-  background-image:url('https://maps.googleapis.com/maps/api/staticmap?center=<%= @place.name %>,<%= @place.address%>&zoom=15&size=740x600&maptype=roadmap&markers=color:blue%7Clabel:<%= @place.name[0] %>%7C<%= @place.latitude %>,<%= @place.longitude %>&key=<%= ENV['GOOGLE_API_SERVER_KEY'] %>">
-  <%= link_to :back do %>
-    <i class="fas fa-arrow-left"></i>
-  <% end %>
-</div>
+<%= render 'shared/map', markers: @place_markers %>
 
-<div class="simple-info-card">
-  <h3 class="header-place"><%= @place.name %></h3>
-  <%= " #{@place.neighbourhood} "%>
-    <p>
-      <a href="https://www.google.com/maps/place/<%= @place.latitude %>,<%= @place.longitude %>" target="_blank">
-        Get Directions
-      </a>
-        <% if !@place.website.nil? %>
-          <a href="<%= @place.website %>" target="_blank">
-          | Visit Website
-          </a>
-        <% end %>
-    </p>
-    <p>
-      <%= "You" if @place.posts.where(user_id: current_user).count == 1 %>
-      <%= "and" if (@place.posts.where(user_id: current_user).count == 1) && ((@place.posts.where(user_id: current_user.following).count) >=2)  %>
-      <% unless ((@place.posts.where(user_id: current_user.following)-@place.posts.where(user_id: current_user)).count == 0) %>
-      <%= pluralize (@place.posts.where(user_id: current_user.following)-@place.posts.where(user_id: current_user)).count, "friend" %>
-      <% end %>
-      visited
-    </p>
-  <%# raise %>
-  <div class="tags-card-bottom">
-    <ul class="tags tags-place">
-      <% @tag_collection.first(6).to_h.each do |name, count| %>
-        <li class="li-place-tag"><a> <%= name %></a></li>
-      <% end %>
-    </ul>
+<div id="not-map">
+  <div class="map-header" href="https://www.google.com/maps/place/<%= @place.latitude %>,<%= @place.longitude %>"
+    style="
+    background-image:url('https://maps.googleapis.com/maps/api/staticmap?center=<%= @place.name %>,<%= @place.address%>&zoom=15&size=740x600&maptype=roadmap&markers=color:blue%7Clabel:<%= @place.name[0] %>%7C<%= @place.latitude %>,<%= @place.longitude %>&key=<%= ENV['GOOGLE_API_SERVER_KEY'] %>">
+    <%= link_to :back do %>
+      <i class="fas fa-arrow-left"></i>
+    <% end %>
   </div>
-</div>
 
-<div class="wrapper-light-grey">
-  <div class="card-container container">
-    <div class="place-alignement">
-      <div class="row">
-        <div class="cards">
-          <% @posts.each do |post| %>
-            <%= render 'shared/cards_posts', post: post %>
+  <div class="simple-info-card">
+    <h3 class="header-place"><%= @place.name %></h3>
+    <%= " #{@place.neighbourhood} "%>
+      <p>
+        <a href="https://www.google.com/maps/place/<%= @place.latitude %>,<%= @place.longitude %>" target="_blank">
+          Get Directions
+        </a>
+          <% if !@place.website.nil? %>
+            <a href="<%= @place.website %>" target="_blank">
+            | Visit Website
+            </a>
           <% end %>
+      </p>
+      <p>
+        <%= "You" if @place.posts.where(user_id: current_user).count == 1 %>
+        <%= "and" if (@place.posts.where(user_id: current_user).count == 1) && ((@place.posts.where(user_id: current_user.following).count) >=2)  %>
+        <% unless ((@place.posts.where(user_id: current_user.following)-@place.posts.where(user_id: current_user)).count == 0) %>
+        <%= pluralize (@place.posts.where(user_id: current_user.following)-@place.posts.where(user_id: current_user)).count, "friend" %>
+        <% end %>
+        visited
+      </p>
+    <%# raise %>
+    <div class="tags-card-bottom">
+      <ul class="tags tags-place">
+        <% @tag_collection.first(6).to_h.each do |name, count| %>
+          <li class="li-place-tag"><a> <%= name %></a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrapper-light-grey">
+    <div class="card-container container">
+      <div class="place-alignement">
+        <div class="row">
+          <div class="cards">
+            <% @posts.each do |post| %>
+              <%= render 'shared/cards_posts', post: post %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<%= render 'shared/map', markers: @place_markers %>
+
 
 
