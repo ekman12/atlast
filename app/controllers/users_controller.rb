@@ -14,13 +14,13 @@ class UsersController < ApplicationController
   end
 
   def show
+    @current_user = current_user
     @user = User.find(params[:id])
     @posts = Post.where(user: @user)
     # raise
     @post_markers = @posts.map do |post|
       {
-        lat: post.place.latitude,
-        lng: post.place.longitude,
+        place: post.place,
         infoWindow: { content: render_to_string(partial: "places/infowindow", locals: { place: post.place }) }
       }
     end

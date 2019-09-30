@@ -1,71 +1,74 @@
-<div class="wrapper-light-grey">
-  <div class="header">
-    <div class="user-core">
-      <p> <h3> <%= "#{@user.first_name.titlecase} #{@user.last_name.titlecase}"  %> </h3>
-    </div>
-    <div>
-      <small><p>
-        <% if current_user != @user  %>
-          <% if current_user.following.include? @user %>
-            <%= link_to(user_user_relationship_path(@user), method: :delete) do  %>
-              Unfollow
+<%= render 'shared/map', markers: @post_markers %>
+
+<div id="not-map">
+
+  <div class="wrapper-light-grey">
+    <div class="header">
+      <div class="user-core">
+        <p> <h3> <%= "#{@user.first_name.titlecase} #{@user.last_name.titlecase}"  %> </h3>
+      </div>
+      <div>
+        <small><p>
+          <% if current_user != @user  %>
+            <% if current_user.following.include? @user %>
+              <%= link_to(user_user_relationship_path(@user), method: :delete) do  %>
+                Unfollow
+              <% end %>
+            <% else %>
+              <%= link_to(user_user_relationships_path(@user), method: :post) do  %>
+                Follow
+              <% end %>
             <% end %>
-          <% else %>
-            <%= link_to(user_user_relationships_path(@user), method: :post) do  %>
-              Follow
+            <% else %>
+            <%= link_to(destroy_user_session_path, method: :delete) do  %>
+              Signout
             <% end %>
           <% end %>
-          <% else %>
-          <%= link_to(destroy_user_session_path, method: :delete) do  %>
-            Signout
+   |
+          <%= link_to( user_wishlist_items_path(@user)) do  %>
+             Wishlist
           <% end %>
-        <% end %>
- |
-        <%= link_to( user_wishlist_items_path(@user)) do  %>
-           Wishlist
-        <% end %>
-      </p></small>
+        </p></small>
 
-<!-- View wishlist -->
+  <!-- View wishlist -->
 
-  <div class="card-container container">
-    <div class="highlights user-highlights">
+    <div class="card-container container">
+      <div class="highlights user-highlights">
 
-      <% if @user == current_user %>
-        <%= link_to(edit_user_registration_path) do  %>
+        <% if @user == current_user %>
+          <%= link_to(edit_user_registration_path) do  %>
+            <div class="user-image">
+              <img src="<%= image_path(@user.photo.url(:standard)) %>" alt="" class="avatar-large">
+            </div>
+          <% end %>
+        <% else %>
           <div class="user-image">
             <img src="<%= image_path(@user.photo.url(:standard)) %>" alt="" class="avatar-large">
           </div>
         <% end %>
-      <% else %>
-        <div class="user-image">
-          <img src="<%= image_path(@user.photo.url(:standard)) %>" alt="" class="avatar-large">
+        <div class="user-info">
+          <div>
+            <%= @user.following.count %><br> following
+          </div>
+          <div>
+            <%= @user.followers.count %><br> followers
+          </div>
+          <div>
+            <%= @user.places.count %><br> places
+          </div>
         </div>
-      <% end %>
-      <div class="user-info">
-        <div>
-          <%= @user.following.count %><br> following
-        </div>
-        <div>
-          <%= @user.followers.count %><br> followers
-        </div>
-        <div>
-          <%= @user.places.count %><br> places
-        </div>
-      </div>
-  </div>
-
-    <div class="row row-margin">
-      <div class="cards">
-        <% @posts.each do |post| %>
-          <%= render 'shared/cards_posts', post: post %>
-        <% end %>
-      </div>
     </div>
 
-    <%= render 'shared/map', markers: @post_markers %>
+          <div class="row row-margin">
+            <div class="cards">
+              <% @posts.each do |post| %>
+                <%= render 'shared/cards_posts', post: post %>
+              <% end %>
+            </div>
+          </div>
 
-
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
