@@ -13,8 +13,7 @@ class PlacesController < ApplicationController
     @places.each { |p| @filtered_places << p if p.latitude && p.longitude }
     @markers = @filtered_places.map do |place|
       {
-        lat: place.latitude,
-        lng: place.longitude,
+        place: place,
         infoWindow: { content: render_to_string(partial: "infowindow", locals: { place: place }) }
       }
     end

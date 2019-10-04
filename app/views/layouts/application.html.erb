@@ -33,23 +33,22 @@
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60.png">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+
+
   </head>
   <body class="responsive-font-size">
-    <!-- <div class="responsive-font-size"> -->
-      <%#= render 'shared/navbar' %>
-      <%= render 'shared/flashes' %>
-      <%= yield %>
-      <%#= render 'shared/map' %>
+    <%= render 'shared/flashes' %>
+    <%= yield %>
+    <% unless current_page?(root_path) %>
+      <%= render 'shared/footer' unless current_user.nil? %>
+    <% end %>
 
-      <% unless current_page?(root_path) %>
-        <%= render 'shared/footer' unless current_user.nil? %>
-      <% end %>
-
-      <%= javascript_include_tag 'application' %>
-      <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
-      <%= javascript_pack_tag 'application' %>
-      <%= javascript_pack_tag "map" %>
-    <!-- </div> -->
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+    <%= javascript_pack_tag 'application' %>
+    <%= javascript_pack_tag 'map' %>
   </body>
 </html>
 

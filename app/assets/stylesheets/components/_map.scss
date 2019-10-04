@@ -1,12 +1,16 @@
-.map-container {
-  top: 3vh;
-}
+// .map-container {
+//   top: 3vh;
+// }
 
-#myModal {
-  top: 10vh;
-  height: 82.5vh;
-  width: 100vw;
-  .modal-dialog {
-    margin: 0;
-  }
+// #myModal {
+//   top: 10vh;
+//   height: 82.5vh;
+//   width: 100vw;
+//   .modal-dialog {
+//     margin: 0;
+//   }
+// }
+
+.map-show {
+  height: calc(100vh - 56px);
 }

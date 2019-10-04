@@ -27,33 +27,33 @@
 # "https://images.unsplash.com/photo-1515215316771-2742baa337f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png"
 # ]
 
-# PLACE_NAMES = [
-#   "Potato Head Beach Club Bali",
-#   "Crate Cafe",
-#   "Milk & Madu Cafe",
-#   "Nude Canggu Cafe",
-#   "The Loft Canggu",
-#   "Machinery Cafe Bali (MCB)",
-#   "Debbie Does Salad",
-#   "Peloton Supershop",
-#   "Bottega Italiana Canggu",
-#   "Coffee & Coconuts",
-#   "MOTION Cafe"
-# ]
+PLACE_NAMES = [
+  "Potato Head Beach Club Bali",
+  "Crate Cafe",
+  "Milk & Madu Cafe",
+  "Nude Canggu Cafe",
+  "The Loft Canggu",
+  "Machinery Cafe Bali (MCB)",
+  "Debbie Does Salad",
+  "Peloton Supershop",
+  "Bottega Italiana Canggu",
+  "Coffee & Coconuts",
+  "MOTION Cafe"
+]
 
-# PLACE_ADDRESSES = [
-#  "Potato Head Beach Club Bali, Jalan Petitenget, Kerobokan Kelod, Badung Regency, Bali, Indonesia",
-#   "Crate Cafe, Jalan Canggu Padang Linjong, Canggu, Badung Regency, Bali, Indonesia",
-#   "Milk & Madu Cafe, Jalan Pantai Berawa, Tibubeneng, Berawa, Bali, Indonesia",
-#   "Nude Canggu Cafe, Jalan Pantai Berawa, Tibubeneng, Badung Regency, Bali, Indonesia",
-#   "The Loft Canggu, Jalan Pantai Batu Bolong, Canggu, Badung Regency, Bali, Indonesia",
-#   "Machinery Cafe Bali (MCB), Jalan Pantai Batu Bolong, Canggu, Badung Regency, Bali, Indonesia",
-#   "Debbie Does Salad, Jalan Pura Batu Mejan, Canggu, Badung Regency, Bali, Indonesia",
-#   "Peloton Supershop, Jalan Pantai Berawa, Tibubeneng, Badung Regency, Bali, Indonesia",
-#   "Bottega Italiana Canggu, Jalan Pantai Batu Bolong, Canggu, Badung Regency, Bali, Indonesia",
-#   "Coffee & Coconuts, Canggu, Badung Regency, Bali, Indonesia",
-#   "MOTION Cafe, Jalan Pantai Batu Bolong, Canggu, Badung Regency, Bali, Indonesia"
-# ]
+PLACE_ADDRESSES = [
+ "Potato Head Beach Club Bali, Jalan Petitenget, Kerobokan Kelod, Badung Regency, Bali, Indonesia",
+  "Crate Cafe, Jalan Canggu Padang Linjong, Canggu, Badung Regency, Bali, Indonesia",
+  "Milk & Madu Cafe, Jalan Pantai Berawa, Tibubeneng, Berawa, Bali, Indonesia",
+  "Nude Canggu Cafe, Jalan Pantai Berawa, Tibubeneng, Badung Regency, Bali, Indonesia",
+  "The Loft Canggu, Jalan Pantai Batu Bolong, Canggu, Badung Regency, Bali, Indonesia",
+  "Machinery Cafe Bali (MCB), Jalan Pantai Batu Bolong, Canggu, Badung Regency, Bali, Indonesia",
+  "Debbie Does Salad, Jalan Pura Batu Mejan, Canggu, Badung Regency, Bali, Indonesia",
+  "Peloton Supershop, Jalan Pantai Berawa, Tibubeneng, Badung Regency, Bali, Indonesia",
+  "Bottega Italiana Canggu, Jalan Pantai Batu Bolong, Canggu, Badung Regency, Bali, Indonesia",
+  "Coffee & Coconuts, Canggu, Badung Regency, Bali, Indonesia",
+  "MOTION Cafe, Jalan Pantai Batu Bolong, Canggu, Badung Regency, Bali, Indonesia"
+]
 
 MALE_USERS = [
   "Tomek",
@@ -79,20 +79,19 @@ FEMALE_USERS = [
   "Cassy"
 ]
 
-# PLACE_PHOTOS = [
-  #   "https://cdn.thebalibible.com/uploads/galleries/IMG_1216-lr_1521529204.jpg",
-
-#   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCOuS2MJ9wepjXwEoCTxsEDimjz7Wxf23a8Ir9b5DKwYeW3lxYKg",
-#   "https://static.asiawebdirect.com/m/bangkok/portals/bali-indonesia-com/homepage/magazine/milk-and-madu-cafe/pagePropertiesImage/milk-and-madu.jpg",
-#   "https://lonelyplanetwp.imgix.net/2018/10/Nude_03-2f12614ffc35.jpg?fit=min&q=40&sharp=10&vib=20&w=1470",
-#   "https://flightstofancy.com/wp-content/uploads/2018/05/The-Loft-Canggu-Shake.png",
-#   "https://media-cdn.tripadvisor.com/media/photo-s/0e/96/3d/54/local.jpg",
-#   "https://lh3.googleusercontent.com/GRLUFlVaDejJkz9q-F_e4l9YbHrneuscEt0dld5jhNUDpETnbwIeK5f_4SzdY3luc4rYd26E=w1080-h608-p-no-v0",
-#   "https://media-cdn.tripadvisor.com/media/photo-s/10/ce/ac/52/the-marathon-breakfast.jpg",
-#   "https://cdn.thebalibible.com/uploads/galleries/18801204475879f85e4b57a_Zibiru_Bottega-Italiana_Bali_28.jpg",
-#   "https://images.unsplash.com/photo-1485182708500-e8f1f318ba72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png",
-#   "https://media-cdn.tripadvisor.com/media/photo-s/06/ba/c2/6e/avocado-cafe.jpg"
-# ]
+PLACE_PHOTOS = [
+  "https://cdn.thebalibible.com/uploads/galleries/IMG_1216-lr_1521529204.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCOuS2MJ9wepjXwEoCTxsEDimjz7Wxf23a8Ir9b5DKwYeW3lxYKg",
+  "https://static.asiawebdirect.com/m/bangkok/portals/bali-indonesia-com/homepage/magazine/milk-and-madu-cafe/pagePropertiesImage/milk-and-madu.jpg",
+  "https://lonelyplanetwp.imgix.net/2018/10/Nude_03-2f12614ffc35.jpg?fit=min&q=40&sharp=10&vib=20&w=1470",
+  "https://flightstofancy.com/wp-content/uploads/2018/05/The-Loft-Canggu-Shake.png",
+  "https://media-cdn.tripadvisor.com/media/photo-s/0e/96/3d/54/local.jpg",
+  "https://lh3.googleusercontent.com/GRLUFlVaDejJkz9q-F_e4l9YbHrneuscEt0dld5jhNUDpETnbwIeK5f_4SzdY3luc4rYd26E=w1080-h608-p-no-v0",
+  "https://media-cdn.tripadvisor.com/media/photo-s/10/ce/ac/52/the-marathon-breakfast.jpg",
+  "https://cdn.thebalibible.com/uploads/galleries/18801204475879f85e4b57a_Zibiru_Bottega-Italiana_Bali_28.jpg",
+  "https://images.unsplash.com/photo-1485182708500-e8f1f318ba72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60.png",
+  "https://media-cdn.tripadvisor.com/media/photo-s/06/ba/c2/6e/avocado-cafe.jpg"
+]
 
 p 'deleting previous seeds'
 
@@ -208,7 +207,27 @@ end
   # UserRelationship.new(follower: vilson, followed: User.second).save!
 
 # p '-----'
-# p 'creating 10 places'
+p 'creating 10 places'
+
+PLACE_NAMES.each do |name|
+  pos = PLACE_NAMES.index(name)
+  place = Place.new(
+    name: name,
+    address: PLACE_ADDRESSES[pos]
+  )
+  place.save!
+  p 'created place'
+  p 'creating post for place'
+  (1..10).to_a.sample.times do
+    post = Post.new(
+      note: Faker::Restaurant.review,
+      user: User.all.sample,
+      place: place
+      )
+    post.remote_photo_url = PLACE_PHOTOS.sample
+    post.save!
+  end
+end
 
 # x = 0
 # 10.times do
@@ -218,7 +237,9 @@ end
 #     )
 #   place.save!
 #   x += 1
+# end
 
+# p 'created places'
 
 # p ' creating posts for the place'
 
@@ -226,12 +247,14 @@ end
 #     post = Post.new(
 #       note: Faker::Restaurant.review,
 #       user: User.all.sample,
-#       place: place
+#       place: Place.all.sample
 #       )
 #     post.remote_photo_url = PLACE_PHOTOS.sample
 #     post.save!
 #   end
-# end
+# # end
+
+p 'created posts'
 
 # p 'created 10 places'
 # p '-----'

@@ -9,7 +9,7 @@ class Place < ApplicationRecord
   has_many :post_tags, through: :posts
   has_many :tags, through: :post_tags
   has_many :wishlist_items
-  has_many :users, through: :wishlist_items
+  # has_many :users, through: :wishlist_items
   has_many :photos, through: :posts
   # belongs_to :post
 
