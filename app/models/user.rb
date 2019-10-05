@@ -36,7 +36,7 @@ class User < ApplicationRecord
 
   def set_default_avatar
     if self.photo.blank?
-      url = "https://www.qualiscare.com/wp-content/uploads/2017/08/default-user.png"
+      url = 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png'
       self.remote_photo_url = url
     end
   end
