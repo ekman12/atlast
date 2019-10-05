@@ -1,6 +1,5 @@
-function autocomplete() {
-
-  document.addEventListener("DOMContentLoaded", function() {
+const autocomplete = () => {
+  console.log('is it here?')
     var post_address = document.getElementById('post_place');
     if (post_address) {
       var autocomplete = new google.maps.places.Autocomplete(post_address, { types: [ 'establishment' ] });
@@ -11,7 +10,6 @@ function autocomplete() {
       }
       );
     }
-  });
 }
 
 export { autocomplete };

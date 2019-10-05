@@ -7,6 +7,9 @@ import "bootstrap";
 import { showMap } from "./show_map.js";
 showMap()
 
+import { autocomplete } from "./autocomplete.js";
+autocomplete()
+
 import { tagSelector } from '../packs/tag-selector';
 tagSelector();
 
