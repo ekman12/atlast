@@ -1,26 +1,33 @@
-<!-- <div class="wrapper-light-grey"> -->
-  <div id="home-page" class="parallax container">
-    <div class="row">
-      <div class="home-container">
-        <div>
-          <h1>ATLAS<span class="brand-pink">T</span></h1>
-          <h4 class="brand-pink">SHARE PLACES WITH FRIENDS</h4>
+<div>
+  <div id="home-page">
+    <div id="banner">
+    <h1 class="center heading">ATLAS<span class="brand-pink">T</span></h1>
+    <p class="center">
+      Find local recommendations from friends.</h2>
+    </p>
+      <%= link_to new_user_registration_path do %>
+        <div class="btn-pink">
+          Sign Up
         </div>
-        <div>
-          <h4 class="brand-white description font-light">
-          You would trust your friend’s recommendation more than an online review. Get recommendations on cool spots from friend’s instantly
-          </h4>
-        </p>
-        </div>
-        <div class="buttons">
-          <%= link_to new_user_registration_path do %>
-            <div class="btn-pink btn-homepage">Sign Up</div>
-          <% end %>
-          <%= link_to new_user_session_path do %>
-            <div class="btn-pink btn-homepage">Log In</div>
-          <% end %>
-        </div>
-      </div>
+      <% end %>
+      <p id="log-in-text">Already have an account?
+      <%= link_to new_user_session_path do %>
+        <span id="log-in-link">Log In</span>
+      <% end %>
+      </p>
     </div>
   </div>
-<!-- </div> -->
+</div>
+<!-- <div id="banner">
+</div> -->
+
+
+
+<!-- <div class="buttons">
+  <%# link_to new_user_registration_path do %>
+    <div class="btn-pink btn-homepage">Sign Up</div>
+  <%# end %>
+  <%# link_to new_user_session_path do %>
+    <div class="btn-pink btn-homepage">Log In</div>
+  <%# end %>
+</div> -->
