@@ -1,23 +1,88 @@
-<div>
+<!-- DO NEXT:
+- Replace colours in SVG with my colours
+- Create 3 div cards at the bottom with:
+  1) Follow friends recommendations
+  2) Filter by what you are looking for
+  3) Find the best places local to you
+- -->
+
+<!-- <div> -->
   <div id="home-page">
     <div id="banner">
-    <h1 class="center heading">ATLAS<span class="brand-pink">T</span></h1>
-    <p class="center">
-      Find local recommendations from friends.</h2>
-    </p>
-      <%= link_to new_user_registration_path do %>
-        <div class="btn-pink">
-          Sign Up
+      <div>
+        <div>
+          <h1 class="center heading">
+              ATLAST
+          </h1>
+          <p class="center">
+            Find local recommendations from friends.
+          </p>
         </div>
-      <% end %>
-      <p id="log-in-text">Already have an account?
-      <%= link_to new_user_session_path do %>
-        <span id="log-in-link">Log In</span>
-      <% end %>
-      </p>
+        <div>
+        <%= link_to new_user_registration_path do %>
+          <div class="btn-pink">
+            Sign Up
+          </div>
+        <% end %>
+        <p id="log-in-text">Already have an account?
+        <%= link_to new_user_session_path do %>
+          <span id="log-in-link">Log In</span>
+        <% end %>
+        </p>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+  <div class="homepage-highlights">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="highlight-card">
+           <div class="highlight-image-div">
+            <img class="highlight-image" src="illustrations/friends_online_klj6.svg" alt="">
+           </div>
+           <div class="highlight-content">
+             <h3>Recommend places</h3>
+             <p>
+              Why trust strangers on the internet when you can find your friend's favourite bars, restaurants and cafes in one place?
+             </p>
+           </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="highlight-card">
+           <div class="highlight-image-div">
+            <img class="highlight-image" src="illustrations/working_remotely_jh40.svg" alt="">
+           </div>
+           <div class="highlight-content">
+             <h3>Filter for favourites</h3>
+             <p>
+              Fancing a vegan pub that's good for breakfast and working in? You can drill down into exactly what you need with our tags.
+             </p>
+           </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="highlight-card">
+           <div class="highlight-image-div">
+            <img class="highlight-image" src="illustrations/adventure_4hum.svg" alt="">
+           </div>
+           <div class="highlight-content">
+             <h3>Find local places</h3>
+             <p>
+              If you're going somewhere new, find friend's recommendations to make sure you don't miss out on the best places.
+             </p>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+<!-- </div> -->
+
+
+
 <!-- <div id="banner">
 </div> -->
 

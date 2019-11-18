@@ -1,16 +1,24 @@
 
 #home-page{
-  margin-top: -30px;
+  // margin-top: -30px;
+  color: white;
+  background-color: white;
 
   #banner {
-  padding: 60px 30px;
-  height: 440px;
-  width: 100vw;
-  // background: rgba(0, 0, 0, 0.3);
-  background: url("https://source.unsplash.com/nDd3dIkkOLo/800x600")
+  height: 60vh;
+  background-color: #df367c;
+  background-image: url(illustrations/explore_7ofa.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+    #banner-info{
+      position: center;
+      width: 500px;
+    }
   }
-// &auto=format&fit=crop&w=1000&q=80
-// https://unsplash.com/photos/1Qn9aCv4T3E/800x600
   .center {
     text-align: center;
   }
@@ -21,15 +29,19 @@
 
   .btn-pink{
     border: 0px;
-    margin: 120px 0 0 0;
+    margin: 130px auto 0 auto;
+    max-width: 25vh;
+    color: white;
+    text-decoration: none;
   }
 
   #log-in-text{
     margin-top: 5px;
     font-size: 0.8em;
     text-align: center;
+    color: white;
     #log-in-link{
-      color: #333333;
+      color: white;
       font-weight: 600;
       text-decoration: underline;
     }
@@ -42,8 +54,43 @@
     color: #df367c;
   }
 
+.homepage-highlights{
+  min-height: 40vh
+}
 
-
+.highlight-card{
+  // display: flex;
+  border-radius: 4px;
+  padding: 5px;
+  text-align: center;
+  max-height: 300px;
+  background-color: #e8e8e8;
+  margin: 20px auto;
+  max-width: 500px;
+  .highlight-image-div{
+    height: 130px;
+    .highlight-image{
+      margin: 10px;
+      height: 100%;
+    }
+  }
+  .highlight-content{
+    h3{
+      // margin-top: 10px;
+      font-weight: 500 !important;
+      font-size: 1.2em !important;
+      text-transform: none !important;
+    }
+    p{
+      margin: 10px 0;
+      font-size: 0.8em;
+      text-align: center;
+    }
+  }
+  // .highlight-content{
+  //   flex-grow: 3;
+  // }
+}
 
 
 
