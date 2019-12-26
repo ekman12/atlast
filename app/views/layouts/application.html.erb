@@ -40,6 +40,9 @@
   </head>
   <body class="responsive-font-size">
     <%= render 'shared/flashes' %>
+<!--     <div class="header">
+      Hello
+    </div> -->
     <%= yield %>
     <% unless current_page?(root_path) %>
       <%= render 'shared/footer' unless current_user.nil? %>
