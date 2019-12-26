@@ -39,6 +39,9 @@
 
   </head>
   <body class="responsive-font-size">
+    <% unless current_page?(root_path) %>
+      <%= render 'shared/header-nav' unless current_user.nil? %>
+    <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <% unless current_page?(root_path) %>

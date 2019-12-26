@@ -1,0 +1,25 @@
+<div class="header-nav">
+  <div class="header-nav-logo">
+    <%= link_to(posts_path) do %>
+      <h1>ATLAST</h1>
+    <% end %>
+  </div>
+  <div class="header-nav-bits">
+    <!-- <div class="inside-header-nav"> -->
+      <%= link_to(users_path) do %>
+        <div class="icon">
+          <i class="material-icons md-36">group</i>
+        </div>
+      <% end %>
+      <%= link_to(new_post_path) do %>
+        <div class="icon">
+          <i class="material-icons md-36">add_circle_outline</i>
+        </div>
+      <% end %>
+      <%= link_to(user_path(current_user)) do %>
+        <div class="icon">
+          <i class="material-icons md-36">person</i>
+        </div>
+      <% end %>
+  </div>
+</div>
