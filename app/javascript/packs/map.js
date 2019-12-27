@@ -1,9 +1,5 @@
 import GMaps from 'gmaps/gmaps.js';
 
-// TO DO
-// Initialise mapElement on a different div dependent on <> 768px
-
- // Below line finds map element to associate the map with
 const getWidth = () => {
   return Math.max(
     document.body.scrollWidth,
@@ -17,20 +13,16 @@ const getWidth = () => {
 console.log('Width:  ' +  getWidth() );
 
 var mapElement;
+var map;
 
 if (getWidth() > 768) {
-  console.log('fetch desktop map')
   mapElement = document.getElementById('desktop-map');
 } else {
-  console.log('fetch mobile map')
   mapElement = document.getElementById('mobile-map');
 }
 
-// const mapElement = document.getElementById('mobile-map');
 const markers = JSON.parse(mapElement.dataset.markers)
-console.log(markers)
 
-var map;
 function initMap() {
   map = new google.maps.Map(mapElement, {
     center: {lat: 51.5074, lng: 0.1278},
@@ -40,17 +32,6 @@ function initMap() {
 
   const image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
 
-  console.log('...........')
-  console.log('...........')
-  console.log('...........')
-  console.log(markers)
-  console.log('...........')
-  console.log(markers[0])
-  console.log('...........')
-  console.log(markers[0].place)
-  console.log('...........')
-  console.log('...........')
-  console.log('...........')
   markers.forEach(marker => {
     var mapMarker = new google.maps.Marker({
       position: {lat: marker.place.latitude, lng: marker.place.longitude },
