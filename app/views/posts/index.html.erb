@@ -1,21 +1,23 @@
 <%= render 'shared/map', markers: @markers %>
 
 <div id="not-map">
-  <%= render 'shared/search_bar' %>
-
-  <div class="wrapper-light-grey">
-    <div class="card-container container">
-      <div class="row">
-        <div class="cards">
-          <% @posts.each do |post| %>
-            <%= render 'shared/cards_posts', post: post %>
-          <% end %>
+  <div class="search-and-cards">
+    <%= render 'shared/search_bar' %>
+    <div class="wrapper-light-grey">
+      <div class="card-container container">
+        <div class="row">
+          <div class="cards">
+            <% @posts.each do |post| %>
+              <%= render 'shared/cards_posts', post: post %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <div class="desktop-map-container">
+    <%= render 'shared/desktop-map', markers: @markers %>
+  </div>
 </div>
-
-
 
 
