@@ -1,12 +1,16 @@
 import GMaps from 'gmaps/gmaps.js';
 
-const mapElement = document.getElementById('map');
+// TO DO
+// Initialise mapElement on a different div dependent on <> 768px
+
+ // Below line finds map element to associate the map with
+const mapElement = document.getElementById('mobile-map');
 const markers = JSON.parse(mapElement.dataset.markers)
 console.log(markers)
 
 var map;
 function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map(mapElement, {
     center: {lat: 51.5074, lng: 0.1278},
     zoom: 8,
     disableDefaultUI: true,
