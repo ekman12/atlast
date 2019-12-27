@@ -1,7 +1,6 @@
 <%= render 'shared/map', markers: @post_markers %>
 
 <div id="not-map">
-
   <div class="wrapper-light-grey">
     <div class="header">
       <div class="user-core">
@@ -32,38 +31,44 @@
 
   <!-- View wishlist -->
 
-    <div class="card-container container">
-      <div class="highlights user-highlights">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="row">
+        <div class="card-container container">
+          <div class="highlights user-highlights">
 
-        <% if @user == current_user %>
-          <%= link_to(edit_user_registration_path) do  %>
-            <div class="user-image">
-              <img src="<%= image_path(@user.photo.url(:standard)) %>" alt="" class="avatar-large">
+            <% if @user == current_user %>
+              <%= link_to(edit_user_registration_path) do  %>
+                <div class="user-image">
+                  <img src="<%= image_path(@user.photo.url(:standard)) %>" alt="" class="avatar-large">
+                </div>
+              <% end %>
+            <% else %>
+              <div class="user-image">
+                <img src="<%= image_path(@user.photo.url(:standard)) %>" alt="" class="avatar-large">
+              </div>
+            <% end %>
+            <div class="user-info">
+              <div>
+                <%= @user.following.count %><br> following
+              </div>
+              <div>
+                <%= @user.followers.count %><br> followers
+              </div>
+              <div>
+                <%= @user.places.count %><br> places
+              </div>
             </div>
-          <% end %>
-        <% else %>
-          <div class="user-image">
-            <img src="<%= image_path(@user.photo.url(:standard)) %>" alt="" class="avatar-large">
-          </div>
-        <% end %>
-        <div class="user-info">
-          <div>
-            <%= @user.following.count %><br> following
-          </div>
-          <div>
-            <%= @user.followers.count %><br> followers
-          </div>
-          <div>
-            <%= @user.places.count %><br> places
-          </div>
         </div>
+      </div>
     </div>
 
-          <div class="row row-margin">
-            <div class="cards">
-              <% @posts.each do |post| %>
-                <%= render 'shared/cards_posts', post: post %>
-              <% end %>
+          <div class="col-xs-12 col-md-8 col-md-offset-2">
+            <div class="row row-margin">
+              <div class="cards">
+                <% @posts.each do |post| %>
+                  <%= render 'shared/cards_posts', post: post %>
+                <% end %>
+              </div>
             </div>
           </div>
 
