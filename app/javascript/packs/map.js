@@ -40,6 +40,17 @@ function initMap() {
 
   const image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
 
+  console.log('...........')
+  console.log('...........')
+  console.log('...........')
+  console.log(markers)
+  console.log('...........')
+  console.log(markers[0])
+  console.log('...........')
+  console.log(markers[0].place)
+  console.log('...........')
+  console.log('...........')
+  console.log('...........')
   markers.forEach(marker => {
     var mapMarker = new google.maps.Marker({
       position: {lat: marker.place.latitude, lng: marker.place.longitude },
