@@ -1,4 +1,4 @@
-<%= render 'shared/map', markers: @markers %>
+<%# render 'shared/map', markers: @markers %>
 
 
 <div id="not-map">
@@ -20,9 +20,7 @@
     </div>
   </div>
   <div class="desktop-map-container">
-    <div class="desktop-map">
-      HELLO!
-    </div>
+    <%= render 'shared/desktop-map', markers: @markers %>
   </div>
 </div>
 

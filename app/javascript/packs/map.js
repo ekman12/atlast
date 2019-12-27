@@ -4,7 +4,29 @@ import GMaps from 'gmaps/gmaps.js';
 // Initialise mapElement on a different div dependent on <> 768px
 
  // Below line finds map element to associate the map with
-const mapElement = document.getElementById('mobile-map');
+const getWidth = () => {
+  return Math.max(
+    document.body.scrollWidth,
+    document.documentElement.scrollWidth,
+    document.body.offsetWidth,
+    document.documentElement.offsetWidth,
+    document.documentElement.clientWidth
+  );
+}
+
+console.log('Width:  ' +  getWidth() );
+
+var mapElement;
+
+if (getWidth() > 768) {
+  console.log('fetch desktop map')
+  mapElement = document.getElementById('desktop-map');
+} else {
+  console.log('fetch mobile map')
+  mapElement = document.getElementById('mobile-map');
+}
+
+// const mapElement = document.getElementById('mobile-map');
 const markers = JSON.parse(mapElement.dataset.markers)
 console.log(markers)
 

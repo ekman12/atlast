@@ -8,10 +8,10 @@
   @media screen and (max-width: 768px) {
     display: none;
   }
-  .desktop-map{
-    position:fixed;
-    height: 100%;
-    width: 100%;
+  #desktop-map{
+    position: fixed !important;
+    height: calc(100vh - 56px + 10px);
+    width: calc(100vw - 768px - 10px);
     background-color: blue;
   }
 }
