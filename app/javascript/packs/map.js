@@ -1,12 +1,30 @@
 import GMaps from 'gmaps/gmaps.js';
 
-const mapElement = document.getElementById('map');
-const markers = JSON.parse(mapElement.dataset.markers)
-console.log(markers)
+const getWidth = () => {
+  return Math.max(
+    document.body.scrollWidth,
+    document.documentElement.scrollWidth,
+    document.body.offsetWidth,
+    document.documentElement.offsetWidth,
+    document.documentElement.clientWidth
+  );
+}
 
+console.log('Width:  ' +  getWidth() );
+
+var mapElement;
 var map;
+
+if (getWidth() > 768) {
+  mapElement = document.getElementById('desktop-map');
+} else {
+  mapElement = document.getElementById('mobile-map');
+}
+
+const markers = JSON.parse(mapElement.dataset.markers)
+
 function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map(mapElement, {
     center: {lat: 51.5074, lng: 0.1278},
     zoom: 8,
     disableDefaultUI: true,

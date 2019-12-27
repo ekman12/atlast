@@ -1,0 +1,15 @@
+.desktop-map-container{
+  margin-left: 10px;
+  margin-top: -10px;
+  height: calc(100vh - 56px + 10px);
+  width: calc(100vw - 768px - 10px);
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+  #desktop-map{
+    position: fixed !important;
+    height: calc(100vh - 56px);
+    width: calc(100vw - 768px - 10px);
+    background-color: blue;
+  }
+}

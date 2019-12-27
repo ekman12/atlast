@@ -3,41 +3,47 @@
     <div class="user-core">
       <p> <h3> <%="#{@user.first_name.capitalize} #{@user.last_name.capitalize}"  %> </h3>
     </div>
-    <div>
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <div class="row">
+      <div>
         <%= link_to(user_path(@user)) do  %>
           <small>Back to user profile</small>
         <% end %>
 
-  <div class="card-container container">
-    <div class="highlights user-highlights">
-      <% if @user == current_user %>
-        <%= link_to(edit_user_registration_path) do  %>
-          <div class="user-image">
-            <img src="<%= image_path(@user.photo.url(:standard)) %>" alt="" class="avatar-large">
+      <div class="card-container container">
+        <div class="highlights user-highlights">
+          <% if @user == current_user %>
+            <%= link_to(edit_user_registration_path) do  %>
+              <div class="user-image">
+                <img src="<%= image_path(@user.photo.url(:standard)) %>" alt="" class="avatar-large">
+              </div>
+            <% end %>
+          <% else %>
+            <div class="user-image">
+              <img src="<%= image_path(@user.photo.url(:standard)) %>" alt="" class="avatar-large">
+            </div>
+          <% end %>
+          <div class="user-info">
+            <% if @user == current_user %>
+
+              <%= pluralize @user.wishlist_items.count, "place" %>
+              on your wishlist
+            <% else %>
+
+              <%= pluralize @user.wishlist_items.count, "place" %>
+              on their wishlist
+           <% end %>
           </div>
-        <% end %>
-      <% else %>
-        <div class="user-image">
-          <img src="<%= image_path(@user.photo.url(:standard)) %>" alt="" class="avatar-large">
         </div>
-      <% end %>
-      <div class="user-info">
-        <% if @user == current_user %>
-
-          <%= pluralize @user.wishlist_items.count, "place" %>
-          on your wishlist
-        <% else %>
-
-          <%= pluralize @user.wishlist_items.count, "place" %>
-          on their wishlist
-       <% end %>
       </div>
     </div>
-    <div class="row row-margin">
-      <div class="cards">
-        <% @user.wishlist_items.each do |w_items| %>
-          <%= render 'shared/cards_places', place: w_items.place, tag_collection: {} %>
-        <% end %>
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="row row-margin">
+        <div class="cards">
+          <% @user.wishlist_items.each do |w_items| %>
+            <%= render 'shared/cards_places', place: w_items.place, tag_collection: {} %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

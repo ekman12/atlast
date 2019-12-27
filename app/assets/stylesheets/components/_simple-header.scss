@@ -1,4 +1,7 @@
 .map-header{
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
   margin-top: -100px;
   width: 100vw;
   height: 280px;
@@ -35,7 +38,9 @@
   display: flex;
   flex-flow: column;
   position: relative;
-  bottom: 75px;
+  @media screen and (max-width: 768px) {
+    bottom: 75px;
+  }
 }
 
 .simple-info-card p {
@@ -47,5 +52,7 @@
 }
 
 .place-alignement {
- margin-top: -60px;
+  @media screen and (max-width: 768px) {
+    margin-top: -60px;
+  }
 }
