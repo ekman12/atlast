@@ -51,7 +51,8 @@ class User < ApplicationRecord
     post_feed.each do |post|
       places << post.place
     end
-    places.uniq
+    places.uniq.sort_by &:updated_at
+    places.reverse
   end
 
   # Follow methods
