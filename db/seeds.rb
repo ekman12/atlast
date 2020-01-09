@@ -1559,7 +1559,7 @@ RESTAURANT_ARRAY.each do |name|
 
   p 'creating post tag'
   post_tag = PostTag.new(
-  tag: Tag.where(name: 'restaurant'),
+  tag: Tag.where(name: 'restaurant')[0],
   post: post,
   )
 post_tag.save!
