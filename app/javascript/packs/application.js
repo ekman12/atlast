@@ -29,9 +29,13 @@ hideTags();
 import { showMore } from './show_more';
 showMore();
 
+import {setDesktopMapHeight} from './setDesktopMapHeight';
+setDesktopMapHeight();
+
 import { initPhotoPreview, checkForPhoto } from './photoPreview';
 initPhotoPreview();
 checkForPhoto();
+
 
 // import { postSubmitButton } from './submit-form-btn';
 // postSubmitButton();
