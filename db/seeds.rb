@@ -1518,6 +1518,11 @@ tidbits) will provide ballast for such delicacies as honey roast pork puffs
 the specials list. The full menu has its attractions, too, including
 classic stewed pork belly hotpot."]
 
+Post.last.destroy!
+Place.last.destroy!
+User.last.destroy!
+
+
 p 'creating user'
 user = User.new(
       first_name: "Time Out",
@@ -1554,7 +1559,7 @@ RESTAURANT_ARRAY.each do |name|
 
   p 'creating post tag'
   post_tag = PostTag.new(
-  tag: Tag.where(id: 47)[0],
+  tag: Tag.where(name: 'restaurant'),
   post: post,
   )
 post_tag.save!
