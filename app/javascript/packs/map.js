@@ -25,8 +25,8 @@ const markers = JSON.parse(mapElement.dataset.markers)
 
 function initMap() {
   map = new google.maps.Map(mapElement, {
-    center: {lat: 51.5074, lng: 0.1278},
-    zoom: 8,
+    center: {lat: 51.5074, lng: -0.1248},
+    zoom: 13,
     disableDefaultUI: true,
   });
 
