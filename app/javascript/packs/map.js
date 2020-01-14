@@ -12,14 +12,11 @@ const getWidth = () => {
 
 console.log('Width:  ' +  getWidth() );
 
-var mapElement;
 var map;
+var infowindow = null;
 
-if (getWidth() > 768) {
-  mapElement = document.getElementById('desktop-map');
-} else {
-  mapElement = document.getElementById('mobile-map');
-}
+let mapElement = (getWidth() > 768) ? document.getElementById('desktop-map') : document.getElementById('mobile-map');
+
 
 const markers = JSON.parse(mapElement.dataset.markers)
 
@@ -29,8 +26,6 @@ function initMap() {
     zoom: 13,
     disableDefaultUI: true,
   });
-
-  const image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
 
   console.log(navigator.geolocation)
 
@@ -43,29 +38,26 @@ function initMap() {
       infoWindow.setContent('You are here!');
       infoWindow.open(map);
       map.setCenter(pos);
-
     })
   } else {
     handleLocationError(false, infoWindow, map.getCenter());
   }
 
   markers.forEach(marker => {
-    var mapMarker = new google.maps.Marker({
+    let mapMarker = new google.maps.Marker({
       position: {lat: marker.place.latitude, lng: marker.place.longitude },
       map: map,
-      title: marker.place.name
+      title: name
     });
 
-    var infowindow = new google.maps.InfoWindow({
-      content: marker["infoWindow"]["content"]
-    });
-
-    mapMarker.addListener('click', function() {
+    google.maps.event.addListener(mapMarker, 'click', function() {
+      if (infowindow) infowindow.close();
+      infowindow = new google.maps.InfoWindow({
+        content: marker["infoWindow"]["content"]
+      });
       infowindow.open(map, mapMarker);
     });
   })
-
 }
 
 initMap()
-
