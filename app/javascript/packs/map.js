@@ -10,37 +10,30 @@ const getWidth = () => {
   );
 }
 
-console.log('Width:  ' +  getWidth() );
-
 var map;
 var infowindow = null;
-
-let mapElement = (getWidth() > 768) ? document.getElementById('desktop-map') : document.getElementById('mobile-map');
-
-
+const mapElement = (getWidth() > 768) ? document.getElementById('desktop-map') : document.getElementById('mobile-map');
 const markers = JSON.parse(mapElement.dataset.markers)
 
 function initMap() {
   map = new google.maps.Map(mapElement, {
     center: {lat: 51.5074, lng: -0.1248},
     zoom: 13,
-    disableDefaultUI: true,
+    disableDefaultUI: true
   });
-
-  console.log(navigator.geolocation)
-
-  let infoWindow = new google.maps.InfoWindow;
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(({coords: {latitude, longitude}}) => {
-      var pos = {lat: latitude, lng: longitude}
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('You are here!');
-      infoWindow.open(map);
+      let pos = {lat: latitude, lng: longitude}
       map.setCenter(pos);
+      new google.maps.Marker({
+        position: pos,
+        map: map,
+        icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+      })
     })
   } else {
-    handleLocationError(false, infoWindow, map.getCenter());
+    handleLocationError(false, userLocation, map.getCenter());
   }
 
   markers.forEach(marker => {
