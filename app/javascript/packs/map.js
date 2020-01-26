@@ -29,7 +29,7 @@ function initMap() {
       new google.maps.Marker({
         position: pos,
         map: map,
-        icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+        icon: "/user_marker.svg"
       })
     })
   } else {
@@ -40,7 +40,8 @@ function initMap() {
     let mapMarker = new google.maps.Marker({
       position: {lat: marker.place.latitude, lng: marker.place.longitude },
       map: map,
-      title: name
+      title: name,
+      icon: "/place_marker.svg"
     });
 
     google.maps.event.addListener(mapMarker, 'click', function() {
